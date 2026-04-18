@@ -246,6 +246,27 @@ nav {
   position: relative; z-index: 1;
   font-weight: 400;
 }
+.guest-quotes {
+  list-style: none;
+  padding: 1.25rem 0 0; margin: 1.25rem 0 0;
+  border-top: 1px solid rgba(196,164,74,0.3);
+  display: flex; flex-direction: column; gap: 0.65rem;
+}
+.guest-quotes li {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--chocolate);
+  padding-left: 1.4rem;
+  position: relative;
+  line-height: 1.55;
+}
+.guest-quotes li:before {
+  content: '\2014';
+  position: absolute; left: 0; top: 0;
+  color: var(--gold);
+}
 
 /* === BIO === */
 .bio-bg { background: var(--bg-warm); position: relative; overflow: hidden; }
@@ -308,7 +329,7 @@ nav {
 
 /* === VALUES === */
 .values-bg { background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 45%); }
-.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.values-grid { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; margin: 0 auto; }
 .values-portrait {
   width: 240px;
   height: 240px;
@@ -327,30 +348,29 @@ nav {
   object-position: center 18%;
 }
 .value-card {
+  display: flex; align-items: flex-start; gap: 1.5rem;
   border-radius: var(--radius);
-  padding: 2rem 1.35rem; text-align: center;
-  border: 2px solid rgba(62,34,21,0.12);
-  box-shadow: 6px 6px 0 rgba(232,200,64,0.22);
+  padding: 1.4rem 1.75rem; text-align: left;
+  background: radial-gradient(circle at 0% 50%, #fff8e8 0%, var(--bg) 75%);
+  border: 2px solid rgba(62,34,21,0.14);
+  box-shadow: 4px 4px 0 rgba(232,200,64,0.22);
   transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
 }
-.value-card:nth-child(1) { background: linear-gradient(165deg, #fff8ee, var(--bg-warm)); border-color: rgba(196,164,74,0.35); }
-.value-card:nth-child(2) { background: linear-gradient(165deg, #f4faf5, var(--bg-warm)); border-color: rgba(46,94,58,0.2); }
-.value-card:nth-child(3) { background: linear-gradient(165deg, #fffaf0, #f5ecd8); border-color: rgba(196,164,74,0.28); }
-.value-card:nth-child(4) { background: linear-gradient(165deg, #f8fff5, var(--bg-warm)); border-color: rgba(74,128,88,0.22); }
 .value-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px -16px rgba(62,34,21,0.14);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 32px -14px rgba(62,34,21,0.14);
 }
 .value-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  margin: 0 auto 1rem;
+  width: 56px; height: 56px; min-width: 56px; border-radius: 50%;
+  margin: 0; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   border: none;
   background: transparent;
 }
-.value-icon svg { width: 56px; height: 56px; overflow: visible; }
-.value-card h3 { font-size: 1.35rem; font-weight: 600; color: var(--chocolate); margin-bottom: 0.65rem; }
-.value-card p { font-size: 0.95rem; color: rgba(46,37,25,0.88); line-height: 1.62; font-weight: 400; }
+.value-icon svg { width: 48px; height: 48px; overflow: visible; }
+.value-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--chocolate); margin-bottom: 0.35rem; text-align: left; }
+.value-card p { font-size: 0.97rem; color: var(--fg); line-height: 1.6; font-weight: 400; text-align: left; }
+.value-card-text { flex: 1; }
 
 /* === HOW === */
 .how-bg {
@@ -363,20 +383,20 @@ nav {
 .how-card {
   background: rgba(250,247,240,0.07);
   border-radius: var(--radius);
-  padding: 1.75rem 1.5rem;
+  padding: 1.25rem 1.25rem;
   border: 2px solid rgba(232,200,64,0.35);
-  box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.18);
   transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
 }
 .how-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 18px 36px -12px rgba(0,0,0,0.35);
 }
-.how-illustration { margin-bottom: 0.75rem; display: flex; justify-content: center; }
-.how-illustration svg { width: 52px; height: 52px; overflow: visible; }
+.how-illustration { margin-bottom: 0.5rem; display: flex; justify-content: center; }
+.how-illustration svg { width: 44px; height: 44px; overflow: visible; }
 .how-num { display: none; }
-.how-card h3 { font-size: 1.28rem; font-weight: 600; color: var(--bg); margin-bottom: 0.75rem; }
-.how-card p { font-size: 1rem; color: rgba(250,247,240,0.82); line-height: 1.72; font-weight: 400; }
+.how-card h3 { font-size: 1.15rem; font-weight: 600; color: var(--bg); margin-bottom: 0.5rem; }
+.how-card p { font-size: 0.92rem; color: rgba(250,247,240,0.82); line-height: 1.6; font-weight: 400; }
 .how-note {
   margin-top: 2.25rem; padding: 1.75rem 2rem;
   background: rgba(250,247,240,0.14);
@@ -397,17 +417,17 @@ nav {
     radial-gradient(ellipse 60% 50% at 20% 30%, rgba(250,247,240,0.04) 0%, transparent 60%);
 }
 .fullquote-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
-.quotes-stack { display: flex; flex-direction: column; gap: 2.5rem; }
+.quotes-stack { display: flex; flex-direction: column; gap: 1.25rem; }
 .fullquote blockquote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   font-weight: 400; font-style: italic;
   color: rgba(250,247,240,0.92);
-  line-height: 1.55;
+  line-height: 1.45;
   margin: 0;
-  padding: 1.25rem 1.5rem;
+  padding: 0.85rem 1.25rem;
   background: rgba(62,34,21,0.35);
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   border-left: 4px solid var(--gold);
 }
 .fullquote .attr {
@@ -476,6 +496,75 @@ nav {
 .blog-cta a:hover { background: var(--green); color: var(--bg); }
 
 /* === MEET === */
+/* === EXPERTISE === */
+.expertise-bg { background: var(--chocolate); }
+.expertise-bg .sect-title { color: var(--bg); }
+.expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.expertise-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.6rem;
+  border: 2px solid var(--green);
+  box-shadow: 6px 6px 0 rgba(196,164,74,0.25);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
+}
+.expertise-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 18px 36px -10px rgba(0,0,0,0.35);
+}
+.expertise-icon {
+  width: 40px; height: 40px; margin-bottom: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green);
+}
+.expertise-icon svg { width: 40px; height: 40px; }
+.expertise-label {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--green-deep); margin-bottom: 0.55rem;
+}
+.expertise-card h3 {
+  font-size: 1.3rem; font-weight: 700; color: var(--chocolate);
+  margin-bottom: 0.55rem; line-height: 1.3;
+}
+.expertise-card p {
+  font-size: 0.97rem; color: var(--fg); line-height: 1.65; font-weight: 400;
+}
+@media (max-width: 680px) {
+  .expertise-grid { grid-template-columns: 1fr; }
+}
+
+/* === BENEFITS === */
+.benefits-bg { background: var(--bg); }
+.benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.benefit-card {
+  background: var(--bg-warm); border-radius: var(--radius);
+  padding: 2.2rem; border: 2px solid rgba(62,34,21,0.08);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
+}
+.benefit-card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 18px 36px -14px rgba(62,34,21,0.12); }
+.benefit-card h3 {
+  font-size: 1.45rem; font-weight: 600; color: var(--chocolate);
+  margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.7rem;
+}
+.benefit-card h3 svg { width: 26px; height: 26px; color: var(--green); }
+.benefit-card ul { list-style: none; padding: 0; margin: 0; }
+.benefit-card li {
+  font-size: 0.97rem; color: rgba(46,37,25,0.88); line-height: 1.65;
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  position: relative;
+  border-bottom: 1px solid rgba(62,34,21,0.06);
+}
+.benefit-card li:last-child { border-bottom: none; }
+.benefit-card li:before {
+  content: '';
+  position: absolute; left: 0; top: 1.15rem;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold);
+}
+@media (max-width: 680px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+}
+
 .meet-bg { background: var(--bg-warm); }
 .meet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .meet-card {
@@ -539,7 +628,6 @@ footer .footer-quote {
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
   .about-columns { grid-template-columns: 1fr; }
-  .values-grid { grid-template-columns: 1fr 1fr; }
   .how-steps { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -550,7 +638,8 @@ footer .footer-quote {
     height: 190px;
     margin-bottom: 1.6rem;
   }
-  .values-grid { grid-template-columns: 1fr; }
+  .value-card { flex-direction: column; align-items: center; text-align: center; gap: 0.75rem; }
+  .value-card h3, .value-card p { text-align: center; }
   .blog-grid { grid-template-columns: 1fr; }
   .meet-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -580,9 +669,11 @@ footer .footer-quote {
   <a href="#hero" class="nav-logo">Alena Pavlenko</a>
   <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#bio">My Story</a>
     <a href="#values">Values</a>
+    <a href="#expertise">Expertise</a>
     <a href="#how">Steam Ceremony</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#bio">My Story</a>
     <a href="#gallery">Gallery</a>
     <a href="#meet">Book</a>
     <a href="#contacts">Contact</a>
@@ -599,7 +690,7 @@ footer .footer-quote {
   <div class="steam steam-2"></div>
   <div class="hero-content">
     <h1 class="reveal">Alena Pavlenko</h1>
-    <p class="hero-tagline reveal">Steam ceremonies, body practices, and&nbsp;IFS.<br>Warmth, care, and&nbsp;deep relaxation&nbsp;&mdash; of mind and&nbsp;body.</p>
+    <p class="hero-tagline reveal">Steam experiences, body practices, and&nbsp;IFS.<br>Warmth, care, and&nbsp;deep relaxation&nbsp;&mdash; of mind and&nbsp;body.</p>
     <p class="hero-location reveal">Portugal</p>
     <a href="#meet" class="hero-cta reveal">Book a steam session</a>
   </div>
@@ -616,18 +707,155 @@ footer .footer-quote {
 <!-- === ABOUT === -->
 <section class="sect about-bg" id="about">
   <div class="sect-inner">
-    <p class="sect-label reveal">About the practice</p>
-    <h2 class="sect-title reveal">Steam as a space<br>for deep relaxation<br>of mind and&nbsp;body</h2>
+    <h2 class="sect-title reveal">Where my sessions<br>meet your body and mind</h2>
 
     <div class="about-columns">
       <div class="about-text">
-        <p class="reveal">I love seeing how a good steam ceremony affects people. Warmth, silence, and someone nearby who takes care of the process&nbsp;&mdash; and the body relaxes on its own. Tension releases, the mind quiets down, and after the session guests emerge in a state where words barely come together. <span class="em">Pure bliss.</span></p>
-        <p class="reveal">It matters to me that the steam room feels safe, cozy, and calm. I pay close attention to that. It works in a simple sauna just as well as in a fully equipped steam room.</p>
+        <p class="reveal">I love seeing what happens to guests in the sessions I guide. With warmth, careful attention, and someone holding the process with experience, <strong>the body lets go on its own</strong>. Tension releases, the mind quiets, and afterward guests come out in a state where words barely come together. <span class="em">Pure bliss.</span></p>
+        <p class="reveal">It matters to me that every session feels <strong>safe, cared for, and held</strong>. I bring that attention deliberately. The work lands in a simple sauna as well as in a fully equipped steam room.</p>
       </div>
       <div>
         <div class="quote-card reveal">
-          <p>Warming up the soul's cold&nbsp;&mdash; that's how one of my guests described what happens in the steam room. When there's a frozen response, accumulated tension, coldness in the body&nbsp;&mdash; steam helps it come out, thaw.</p>
+          <p>Guests often walk out of a session feeling renewed&nbsp;&mdash; clearer, more relaxed, more themselves. A few of their words:</p>
+          <ul class="guest-quotes">
+            <li>&ldquo;My best steam experience ever.&rdquo;</li>
+            <li>&ldquo;It was exactly what I needed.&rdquo;</li>
+            <li>&ldquo;I was able to truly relax and rest.&rdquo;</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === VALUES === -->
+<section class="sect values-bg" id="values">
+  <div class="sect-inner">
+    <div class="values-portrait reveal" aria-hidden="true">
+      <img src="photos/portrait-main.jpg" alt="Alena Pavlenko" loading="lazy">
+    </div>
+    <h2 class="sect-title reveal">What My Sessions<br>Are Built On</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5" fill="#5C3A24"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/></svg></div>
+        <div class="value-card-text">
+          <h3>Rooted in science and experience</h3>
+          <p>Every session is shaped by a physicist's understanding of heat, IFS and somatic training, and years of guiding steam across Europe. <strong>None of it is guesswork.</strong></p>
+        </div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#5C3A24"/></svg></div>
+        <div class="value-card-text">
+          <h3>Intentionality</h3>
+          <p>Every layer of a session is built with purpose&nbsp;&mdash; the rhythm of warming, the whisk strokes, the meditation threaded through. <strong>When you bring your own intention to meet it, the experience expands.</strong></p>
+        </div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg></div>
+        <div class="value-card-text">
+          <h3>Care and ease as a way to clarity</h3>
+          <p>When the body softens under warmth and real care, the mind follows. <strong>Clarity usually arrives after you've landed fully in yourself.</strong></p>
+        </div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
+        <div class="value-card-text">
+          <h3>Connection to your body</h3>
+          <p>A good session brings you home&nbsp;&mdash; into your body, your breath, your sensation. <strong>You leave with yourself more reachable.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === EXPERTISE === -->
+<section class="sect expertise-bg" id="expertise">
+  <div class="sect-inner">
+    <h2 class="sect-title reveal">What I Bring to the Steam Session<br>for Your Experience</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/></svg></div>
+        <div class="expertise-label">Physicist's mind</div>
+        <h3>Heat, sequenced with care</h3>
+        <p>My PhD in physics shapes how I sequence each round. Heat reaches <strong>deep tissue without overloading your system</strong>.</p>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="9" r="1.5" fill="currentColor"/><circle cx="16" cy="9" r="1.5" fill="currentColor"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/></svg></div>
+        <div class="expertise-label">IFS practitioner</div>
+        <h3>Space for what's underneath</h3>
+        <p>IFS training makes space for <strong>emotional material to surface and move safely</strong> in the heat.</p>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a2 2 0 0 1 4 0v6"/><path d="M13 11V4a2 2 0 0 1 4 0v7"/><path d="M17 11V7a2 2 0 0 1 4 0v8c0 4-3 7-7 7h-2c-4 0-7-3-7-7v-3a2 2 0 0 1 4 0"/></svg></div>
+        <div class="expertise-label">Body therapist</div>
+        <h3>Hands that release tissue</h3>
+        <p>Somatic training guides the whisk work and touch&nbsp;&mdash; <strong>fascia softens, lymph moves, the nervous system settles</strong>.</p>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5l-2 7.5 5.5-4 5.5 4-2-7.5"/></svg></div>
+        <div class="expertise-label">Years of practice</div>
+        <h3>Refined through hundreds of guests</h3>
+        <p>Trained and refined across steam cultures in Sweden, the Netherlands, and Portugal. <strong>Every element tested in real sessions.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === HOW === -->
+<section class="sect how-bg" id="how">
+  <div class="sect-inner">
+    <h2 class="sect-title reveal">How a Steam Session With Me<br>Looks From the Inside</h2>
+    <p class="sect-subtitle reveal" style="color: rgba(250,247,240,0.75); max-width: 640px;">Up to <strong style="color: var(--gold-light);">60&deg;C</strong> of heat, with steam made from <strong style="color: var(--gold-light);">pure water poured onto hot rocks</strong> of a sauna stove. <strong style="color: var(--gold-light);">Good ventilation</strong> keeps the air clean and breathable. The warming is <strong style="color: var(--gold-light);">iterative and gradual</strong>&nbsp;&mdash; each round builds on the last. <strong style="color: var(--gold-light);">Whisk work</strong> with oak branches and <strong style="color: var(--gold-light);">guided meditation</strong> thread through the whole session.</p>
+    <div class="how-steps">
+      <div class="how-card reveal">
+        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="20" fill="#F5ECD8" opacity="0.4"/><circle cx="32" cy="14" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="32" cy="50" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/></svg></div>
+        <h3>Opening Circle</h3>
+        <p>We meet, take time to settle in, and I share what's coming. A moment to arrive before the heat begins.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="12" fill="#F5ECD8" stroke="#C4A44A" stroke-width="1.5"/><path d="M32 10v6M32 48v6M10 32h6M48 32h6M16 16l4 4M44 44l4 4M16 48l4-4M44 20l4-4" stroke="#E0CC80" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Round 1: Warming up</h3>
+        <p>Settle into the heat. First sweat, attention turned inward, reconnecting to the body.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 12v40" stroke="#5C3A24" stroke-width="2" stroke-linecap="round"/><ellipse cx="24" cy="22" rx="6" ry="3" transform="rotate(-30 24 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="22" rx="6" ry="3" transform="rotate(30 40 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="22" cy="34" rx="7" ry="3.5" transform="rotate(-25 22 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="42" cy="34" rx="7" ry="3.5" transform="rotate(25 42 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="24" cy="46" rx="6" ry="3" transform="rotate(-30 24 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="46" rx="6" ry="3" transform="rotate(30 40 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/></svg></div>
+        <h3>Rounds 2&ndash;4: Whisk work</h3>
+        <p>Leafy oak branches pressed and stroked along your body inside the heat. Tissues open, lymph moves, fascia softens, breath slows. By the final round, the nervous system downshifts into a state deeper than sleep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === BENEFITS === -->
+<section class="sect benefits-bg" id="benefits">
+  <div class="sect-inner">
+    <h2 class="sect-title reveal">What a Steam Experience With Me<br>Brings to Your Wellbeing</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Body
+        </h3>
+        <ul>
+          <li><strong>Circulation opens</strong> and blood moves through deep tissue.</li>
+          <li><strong>Muscle recovery</strong> speeds up as heat and whisk work ease soreness faster than rest alone.</li>
+          <li><strong>Lymphatic flow</strong> increases with oak whisk strokes, supporting immune function.</li>
+          <li><strong>Fascia and connective tissue</strong> soften, leaving joints more mobile.</li>
+          <li><strong>Sleep</strong> that night tends to be deeper and more restorative.</li>
+        </ul>
+      </div>
+      <div class="benefit-card reveal">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5c0-2 1-3 1-5a6 6 0 0 0-6-6z"/><path d="M9 16h6"/></svg>
+          Mind
+        </h3>
+        <ul>
+          <li><strong>The nervous system downshifts</strong> as stress hormones drop and breath slows.</li>
+          <li><strong>Mental clarity</strong> returns once the body lets go.</li>
+          <li><strong>Emotional release</strong> becomes natural, and what's been stuck can finally move.</li>
+          <li><strong>A meditative state</strong> arrives without effort.</li>
+          <li><strong>Mood lifts</strong> through endorphin release, nervous system calm, and real rest.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -636,7 +864,6 @@ footer .footer-quote {
 <!-- === BIO === -->
 <section class="sect bio-bg" id="bio">
   <div class="sect-inner bio-inner-wide">
-    <p class="sect-label reveal">My Story</p>
     <div class="bio-head reveal">
       <div class="bio-photo-cluster" aria-hidden="true">
         <div class="bio-polaroid bio-polaroid--1">
@@ -647,7 +874,7 @@ footer .footer-quote {
         </div>
       </div>
       <div class="bio-title-wrap">
-        <h2 class="sect-title reveal">The Road to Steam</h2>
+        <h2 class="sect-title reveal">My Road to the Steam</h2>
       </div>
     </div>
 
@@ -691,91 +918,16 @@ footer .footer-quote {
   </div>
 </section>
 
-<!-- === VALUES === -->
-<section class="sect values-bg" id="values">
-  <div class="sect-inner">
-    <div class="values-portrait reveal" aria-hidden="true">
-      <img src="photos/portrait-main.jpg" alt="Alena Pavlenko" loading="lazy">
-    </div>
-    <p class="sect-label reveal">What my steam is built on</p>
-    <h2 class="sect-title reveal">My Values</h2>
-    <p class="sect-subtitle reveal">What I bring to every session</p>
-    <div class="values-grid">
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></div>
-        <h3>Silence</h3>
-        <p>Silence here is an invitation to tune in and listen to your body. You can talk, of course&nbsp;&mdash; but most people find they don't need to.</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Safety</h3>
-        <p>I care for every guest&nbsp;&mdash; your health, your needs, your boundaries. The space is held so you can fully relax and be yourself.</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></div>
-        <h3>Gentleness</h3>
-        <p>Everything at its own pace. The body finds relaxation on its own when given time and warmth.</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
-        <h3>Simplicity</h3>
-        <p>Warmth, steam, attention. You can let go of all thoughts&nbsp;&mdash; everything has already been taken care of.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === HOW === -->
-<section class="sect how-bg" id="how">
-  <div class="sect-inner">
-    <p class="sect-label reveal">How it works</p>
-    <h2 class="sect-title reveal">The Steam Ceremony</h2>
-    <div class="how-steps">
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="32" cy="48" rx="22" ry="6" fill="#E8DCC4" opacity="0.35"/><circle cx="22" cy="28" r="7" fill="#F5ECD8" stroke="#E0CC80" stroke-width="1.3"/><circle cx="32" cy="24" r="8" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="42" cy="28" r="7" fill="#F5ECD8" stroke="#E0CC80" stroke-width="1.3"/><path d="M16 38c6-6 12-8 16-8s10 2 16 8" stroke="#B8CC78" stroke-width="2" stroke-linecap="round" opacity="0.8"/><path d="M24 18c2-4 5-6 8-6s6 2 8 6" stroke="#FAF7F0" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-        <h3>Group Rounds</h3>
-        <p>Three group rounds in the steam room. We warm up gradually&nbsp;&mdash; gently at first, then deeper. Between rounds: rest, tea, silence.</p>
-      </div>
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 8c-2 8-4 22-2 38" stroke="#4A8058" stroke-width="3" stroke-linecap="round"/><path d="M28 14c-4 6-8 18-6 32" stroke="#6B9B6E" stroke-width="2.5" stroke-linecap="round"/><path d="M36 12c4 8 6 20 4 34" stroke="#5C3A24" stroke-width="2" stroke-linecap="round"/><ellipse cx="32" cy="52" rx="14" ry="5" fill="#DCE8D4" opacity="0.5"/></svg></div>
-        <h3>Individual Steaming</h3>
-        <p>After the group part, there are personal slots for those who want to go deeper. Steaming with veniks (leafy oak bundles) with full attention to your body and state.</p>
-      </div>
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 44c8-4 16-4 24 0" stroke="#7EB8C4" stroke-width="2" stroke-linecap="round"/><path d="M16 48c10-6 22-6 32 0" stroke="#A8D4E0" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/><circle cx="32" cy="30" r="10" fill="#F5ECD8" stroke="#E0CC80" stroke-width="1.4"/><path d="M28 30c1 2 3 3 4 3s3-1 4-3" stroke="#5C3A24" stroke-width="1.5" stroke-linecap="round"/><path d="M26 26h4M34 26h4" stroke="#5C3A24" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <h3>Integration</h3>
-        <p>Time to be still, to listen to your body. A cold water contrast&nbsp;&mdash; for those who feel called to it.</p>
-      </div>
-    </div>
-    <div class="how-note reveal">
-      <strong style="color: var(--gold-light);">Small groups</strong>&nbsp;&mdash; up to 5&ndash;6 people.
-    </div>
-  </div>
-</section>
-
-<!-- === TESTIMONIALS === -->
-<section class="fullquote" id="testimonials">
-  <div class="fullquote-bg"></div>
-  <div class="fullquote-content">
-    <p class="sect-label reveal" style="color: var(--gold-light); font-size: 1.45rem;">What guests say</p>
-    <h2 class="sect-title reveal" style="color: var(--bg); margin-bottom: 2.5rem;">Words After Steam</h2>
-    <div class="quotes-stack">
-      <blockquote class="reveal">A nervous system reset. Expansion. Floating a little, yet staying in the body.</blockquote>
-      <blockquote class="reveal">My best steam experience ever.</blockquote>
-      <blockquote class="reveal">It was exactly what I needed.</blockquote>
-      <blockquote class="reveal">I was able to truly relax and rest.</blockquote>
-    </div>
-  </div>
-</section>
-
 <!-- === GALLERY === -->
 <section class="sect gallery-bg" id="gallery">
   <div class="sect-inner">
-    <p class="sect-label reveal">Gallery</p>
     <h2 class="sect-title reveal">People and&nbsp;Places</h2>
-    <p class="sect-subtitle reveal">Festivals, camps, teachers, and friends in the steam world</p>
     <div class="gallery-grid gallery-playful">
       <div class="gallery-item gallery-item--tilt-l reveal">
+        <img src="photos/gal-inyo.jpg" alt="INYO Ericeira" loading="lazy">
+        <p class="gallery-caption"><strong>Inyo</strong>&nbsp;&mdash; perfect steam in Ericeira.</p>
+      </div>
+      <div class="gallery-item gallery-item--tilt-r reveal">
         <img src="photos/gal-waking-life.jpg" alt="Waking Life Portugal" loading="lazy">
         <p class="gallery-caption"><strong>Waking Life</strong>, Portugal, 2023.</p>
       </div>
@@ -802,23 +954,21 @@ footer .footer-quote {
 <!-- === MEET === -->
 <section class="sect meet-bg" id="meet">
   <div class="sect-inner">
-    <p class="sect-label reveal">How to meet</p>
-    <h2 class="sect-title reveal">Choose what<br>resonates with you</h2>
+    <h2 class="sect-title reveal">Ways to Work<br>With Me</h2>
     <div class="meet-grid">
       <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a6 6 0 0 1 12 0c0 5.5-6 9.5-6 13"/><path d="M15 8.5a3 3 0 0 0-6 0"/></svg></div>
+        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
         <h3>Regular Steam Sessions in Portugal</h3>
         <p>Group steam ceremonies tied to seasonal and lunar events. <strong>Small groups of up to 5&ndash;6 people.</strong> Three group rounds plus the option of individual steaming.</p>
-        <p class="price">~65&euro; per person &middot; +30&euro; add-on for individual treatment</p>
       </div>
       <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/></svg></div>
+        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <h3>Individual Sessions</h3>
         <p>Personal work tailored to your needs. Steaming with veniks (leafy oak bundles), massage, body practices. <strong>Full attention to your body, state, and boundaries.</strong></p>
         <p>Reach out and we'll discuss the format and timing!</p>
       </div>
       <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2"/></svg></div>
+        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="10" r="1.3" fill="var(--green)"/><circle cx="16" cy="10" r="1.3" fill="var(--green)"/><circle cx="12" cy="16" r="1.3" fill="var(--green)"/><circle cx="12" cy="12" r="2.2" fill="var(--green)"/></svg></div>
         <h3>IFS Practice</h3>
         <p>Individual work with the psyche using the IFS (Internal Family Systems) framework. I work with both the body and inner processes.</p>
         <p><a href="https://alena-pavlenko-ifs-eng.netlify.app/" target="_blank" rel="noopener">More about IFS practice &rarr;</a></p>

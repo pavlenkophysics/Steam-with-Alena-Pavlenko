@@ -404,6 +404,45 @@ nav {
   font-size: 1.05rem; color: rgba(250,247,240,0.92); line-height: 1.7;
   border: 2px dashed rgba(232,200,64,0.45);
 }
+.how-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin: 2.25rem auto 3rem;
+  max-width: 860px;
+}
+.how-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.15rem;
+  background: rgba(250,247,240,0.08);
+  border: 1.5px solid rgba(232,200,64,0.4);
+  border-radius: 0.8rem;
+  transition: transform 0.4s ease, background 0.3s ease;
+}
+.how-feature:hover {
+  transform: translateY(-3px);
+  background: rgba(250,247,240,0.12);
+}
+.how-feature-icon {
+  width: 34px; height: 34px; min-width: 34px;
+  color: var(--gold-light);
+  display: flex; align-items: center; justify-content: center;
+}
+.how-feature-icon svg { width: 30px; height: 30px; }
+.how-feature-label {
+  font-size: 0.92rem;
+  color: rgba(250,247,240,0.9);
+  line-height: 1.4;
+}
+.how-feature-label strong { color: var(--gold-light); font-weight: 700; }
+@media (max-width: 900px) {
+  .how-features { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .how-features { grid-template-columns: 1fr; }
+}
 
 /* === FULL-WIDTH QUOTE === */
 .fullquote {
@@ -670,8 +709,8 @@ footer .footer-quote {
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#values">Values</a>
+    <a href="#how">The Session</a>
     <a href="#expertise">Expertise</a>
-    <a href="#how">Steam Ceremony</a>
     <a href="#benefits">Benefits</a>
     <a href="#bio">My Story</a>
     <a href="#gallery">Gallery</a>
@@ -768,6 +807,56 @@ footer .footer-quote {
   </div>
 </section>
 
+<!-- === HOW === -->
+<section class="sect how-bg" id="how">
+  <div class="sect-inner">
+    <h2 class="sect-title reveal">How a Steam Session With Me<br>Looks From the Inside</h2>
+    <div class="how-features reveal">
+      <div class="how-feature">
+        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4 4 0 1 0 5 0z"/></svg></div>
+        <div class="how-feature-label">Up to <strong>60&deg;C</strong> of heat</div>
+      </div>
+      <div class="how-feature">
+        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="18" rx="8" ry="2.5"/><ellipse cx="10" cy="14" rx="5" ry="2"/><ellipse cx="14" cy="10" rx="3" ry="1.5"/><path d="M12 6c-1 1-1 2 0 3M16 5c-1 1-1 2 0 3" opacity="0.6"/></svg></div>
+        <div class="how-feature-label">Steam from <strong>pure water on hot rocks</strong></div>
+      </div>
+      <div class="how-feature">
+        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M17.73 2.27A2.5 2.5 0 1 1 19.5 7H2"/><path d="M15.09 20.91A2.5 2.5 0 1 0 16.5 17H2"/></svg></div>
+        <div class="how-feature-label"><strong>Good ventilation</strong>, clean air</div>
+      </div>
+      <div class="how-feature">
+        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="how-feature-label"><strong>Iterative, gradual</strong> warming</div>
+      </div>
+      <div class="how-feature">
+        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 5 9 5 13c0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-11z"/><path d="M12 2v18"/></svg></div>
+        <div class="how-feature-label"><strong>Oak whisk</strong> work</div>
+      </div>
+      <div class="how-feature">
+        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a3 3 0 1 1 3 3c-3 0-5-2-5-5s2-5 6-5 7 3 7 7-4 8-9 8"/></svg></div>
+        <div class="how-feature-label"><strong>Guided meditation</strong> throughout</div>
+      </div>
+    </div>
+    <div class="how-steps">
+      <div class="how-card reveal">
+        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="20" fill="#F5ECD8" opacity="0.4"/><circle cx="32" cy="14" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="32" cy="50" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/></svg></div>
+        <h3>Opening Circle</h3>
+        <p>We meet, take time to settle in, and I share what's coming. A moment to arrive before the heat begins.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="12" fill="#F5ECD8" stroke="#C4A44A" stroke-width="1.5"/><path d="M32 10v6M32 48v6M10 32h6M48 32h6M16 16l4 4M44 44l4 4M16 48l4-4M44 20l4-4" stroke="#E0CC80" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Round 1: Warming up</h3>
+        <p>Settle into the heat. First sweat, attention turned inward, reconnecting to the body.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 12v40" stroke="#5C3A24" stroke-width="2" stroke-linecap="round"/><ellipse cx="24" cy="22" rx="6" ry="3" transform="rotate(-30 24 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="22" rx="6" ry="3" transform="rotate(30 40 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="22" cy="34" rx="7" ry="3.5" transform="rotate(-25 22 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="42" cy="34" rx="7" ry="3.5" transform="rotate(25 42 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="24" cy="46" rx="6" ry="3" transform="rotate(-30 24 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="46" rx="6" ry="3" transform="rotate(30 40 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/></svg></div>
+        <h3>Rounds 2&ndash;4: Whisk work</h3>
+        <p>Leafy oak branches pressed and stroked along your body inside the heat. Tissues open, lymph moves, fascia softens, breath slows. By the final round, the nervous system downshifts into a state deeper than sleep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- === EXPERTISE === -->
 <section class="sect expertise-bg" id="expertise">
   <div class="sect-inner">
@@ -796,31 +885,6 @@ footer .footer-quote {
         <div class="expertise-label">Years of practice</div>
         <h3>Refined through hundreds of guests</h3>
         <p>Trained and refined across steam cultures in Sweden, the Netherlands, and Portugal. <strong>Every element tested in real sessions.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === HOW === -->
-<section class="sect how-bg" id="how">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">How a Steam Session With Me<br>Looks From the Inside</h2>
-    <p class="sect-subtitle reveal" style="color: rgba(250,247,240,0.75); max-width: 640px;">Up to <strong style="color: var(--gold-light);">60&deg;C</strong> of heat, with steam made from <strong style="color: var(--gold-light);">pure water poured onto hot rocks</strong> of a sauna stove. <strong style="color: var(--gold-light);">Good ventilation</strong> keeps the air clean and breathable. The warming is <strong style="color: var(--gold-light);">iterative and gradual</strong>&nbsp;&mdash; each round builds on the last. <strong style="color: var(--gold-light);">Whisk work</strong> with oak branches and <strong style="color: var(--gold-light);">guided meditation</strong> thread through the whole session.</p>
-    <div class="how-steps">
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="20" fill="#F5ECD8" opacity="0.4"/><circle cx="32" cy="14" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="32" cy="50" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/></svg></div>
-        <h3>Opening Circle</h3>
-        <p>We meet, take time to settle in, and I share what's coming. A moment to arrive before the heat begins.</p>
-      </div>
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="12" fill="#F5ECD8" stroke="#C4A44A" stroke-width="1.5"/><path d="M32 10v6M32 48v6M10 32h6M48 32h6M16 16l4 4M44 44l4 4M16 48l4-4M44 20l4-4" stroke="#E0CC80" stroke-width="2.2" stroke-linecap="round"/></svg></div>
-        <h3>Round 1: Warming up</h3>
-        <p>Settle into the heat. First sweat, attention turned inward, reconnecting to the body.</p>
-      </div>
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 12v40" stroke="#5C3A24" stroke-width="2" stroke-linecap="round"/><ellipse cx="24" cy="22" rx="6" ry="3" transform="rotate(-30 24 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="22" rx="6" ry="3" transform="rotate(30 40 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="22" cy="34" rx="7" ry="3.5" transform="rotate(-25 22 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="42" cy="34" rx="7" ry="3.5" transform="rotate(25 42 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="24" cy="46" rx="6" ry="3" transform="rotate(-30 24 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="46" rx="6" ry="3" transform="rotate(30 40 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/></svg></div>
-        <h3>Rounds 2&ndash;4: Whisk work</h3>
-        <p>Leafy oak branches pressed and stroked along your body inside the heat. Tissues open, lymph moves, fascia softens, breath slows. By the final round, the nervous system downshifts into a state deeper than sleep.</p>
       </div>
     </div>
   </div>

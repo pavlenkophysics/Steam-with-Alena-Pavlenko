@@ -1,1131 +1,2168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alena Pavlenko — Steam Ceremony, Body Practices, IFS</title>
-<meta name="description" content="Steam ceremony, body practices, IFS. Warmth, care, and deep relaxation of mind and body. Portugal.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alena Pavlenko — Steam Guide</title>
+<meta name="description" content="Steam ceremonies, group and private sessions in Portugal. Deep contact with yourself, warmth, care, attention.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    /* dark theme */
+    --d-bg:        #1A0F08;
+    --d-bg-warm:   #261812;
+    --d-bg-deep:   #120A05;
+    --d-paper:     #20140C;
+    --d-ink:       #F2E2C2;
+    --d-ink-soft:  rgba(242,226,194,0.78);
+    --d-ink-mute:  rgba(242,226,194,0.45);
+    --d-rule:      rgba(242,226,194,0.16);
+    --d-rule-soft: rgba(242,226,194,0.08);
 
-:root {
-  --bg: #FAF7F0;
-  --bg-warm: #F0E8DA;
-  --bg-deep: #E0D4C0;
-  --fg: #2E2519;
-  --fg-soft: rgba(46,37,25,0.72);
-  --fg-muted: rgba(46,37,25,0.45);
-  --chocolate: #3E2215;
-  --chocolate-soft: #5C3A24;
-  --green: #2E5E3A;
-  --green-light: #4A8058;
-  --green-pale: rgba(46,94,58,0.1);
-  --green-deep: #1E4028;
-  --gold: #C4A44A;
-  --gold-light: #E0CC80;
-  --gold-glow: rgba(196,164,74,0.15);
-  --yellow: #E8C840;
-  --yellow-soft: rgba(232,200,64,0.12);
-  --linden: #B8CC78;
-  --radius: 1.2rem;
-  --shadow-soft: 0 8px 40px -12px rgba(46,37,25,0.12);
-  --shadow-warm: 0 12px 48px -12px rgba(62,34,21,0.18);
-}
+    /* light theme */
+    --l-bg:        #FAF5E9;
+    --l-bg-warm:   #F0E8D6;
+    --l-paper:     #FFFCF3;
+    --l-ink:       #1F1812;
+    --l-ink-soft:  rgba(31,24,18,0.78);
+    --l-ink-mute:  rgba(31,24,18,0.5);
+    --l-rule:      rgba(31,24,18,0.14);
+    --l-rule-soft: rgba(31,24,18,0.06);
 
-html { scroll-behavior: smooth; }
+    /* accents (work both themes) */
+    --ember:        #A85628;
+    --ember-glow:   #B86B38;
+    --ember-bright: #C68458;
+    --yellow:       #C9A24A;
+    --yellow-bright:#D8B560;
+    --green:        #3A4F40;
+    --green-deep:   #1F3128;
+    --green-light:  #5C7567;
 
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--fg);
-  background: var(--bg);
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-  font-weight: 400;
-  font-size: 18px;
-  letter-spacing: 0.01em;
-  overflow-x: hidden;
-}
+    --radius-l:  28px;
+    --radius-m:  18px;
+    --radius-s:  10px;
 
-h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
-strong, b { font-weight: 700; color: var(--chocolate); }
-.em { font-weight: 600; color: var(--chocolate); }
+    --ff-display: "Newsreader", Georgia, serif;
+    --ff-sans:    "Inter", system-ui, sans-serif;
+    --ff-mono:    "JetBrains Mono", ui-monospace, monospace;
 
-/* === NAV === */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: center;
-  padding: 1rem 2rem;
-  background: hsla(38,40%,96%,0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(46,37,25,0.06);
-  transition: transform 0.4s;
-}
-.nav-logo {
-  position: absolute; left: 2rem;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem; font-weight: 600;
-  color: var(--chocolate); text-decoration: none;
-}
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.82rem; letter-spacing: 0.04em;
-  text-decoration: none; color: var(--fg-muted);
-  transition: color 0.3s; font-weight: 500;
-}
-.nav-links a:hover { color: var(--green); }
-.burger {
-  display: none; position: absolute; right: 2rem;
-  background: none; border: none; cursor: pointer;
-  font-size: 1.4rem; color: var(--fg);
-}
+    color-scheme: dark;
+  }
 
-/* === HERO === */
-.hero {
-  display: flex;
-  position: relative;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  background: var(--chocolate);
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  filter: saturate(0.7);
-}
-.hero-bg.v1 { background-image: url('photos/img_8515.jpg'); opacity: 0.5; background-position: center 20%; }
+  html, body { background: var(--d-bg); }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--ff-sans);
+    font-weight: 400;
+    color: var(--d-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  ::selection { background: var(--ember); color: #fff; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
 
-/* === PHOTO STRIP === */
-.photo-strip {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-  max-height: 340px; overflow: hidden;
-}
-.photo-strip img {
-  width: 100%; height: 340px; object-fit: cover; display: block;
-  object-position: center 20%;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.photo-strip img:hover { transform: scale(1.04) translateY(-2px); }
-@media (max-width: 680px) {
-  .photo-strip { max-height: 180px; }
-  .photo-strip img { height: 180px; }
-}
+  /* ═════ HIGHLIGHT VARIANTS ═════ */
+  .hl {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ember-glow);
+  }
+  .em {
+    font-weight: 600;
+    color: inherit;
+  }
+  .hl-g {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--green);
+  }
+  .theme-dark .hl-g { color: var(--green-light); }
+  .ul {
+    position: relative;
+    display: inline;
+    background-image: linear-gradient(transparent 65%, rgba(224,121,55,0.32) 65%, rgba(224,121,55,0.32) 92%, transparent 92%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 1.4s ease 0.3s;
+    padding: 0 0.05em;
+  }
+  .in .ul, .ul.in { background-size: 100% 100%; }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.15em 0.65em;
+    border-radius: 999px;
+    background: rgba(224,121,55,0.14);
+    border: 1px solid rgba(224,121,55,0.35);
+    font-family: var(--ff-mono);
+    font-size: 0.74em;
+    letter-spacing: 0.06em;
+    color: var(--ember-glow);
+    font-weight: 500;
+  }
+  .theme-light .tag { background: rgba(196,107,39,0.1); border-color: rgba(196,107,39,0.25); color: var(--ember); }
+  .note-i {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ember);
+    letter-spacing: -0.005em;
+  }
 
-.steam {
-  position: absolute; width: 200%; height: 100%;
-  z-index: 1; opacity: 0.25; pointer-events: none;
-}
-.steam-1 {
-  bottom: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 90%, rgba(250,247,240,0.6) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 65% 85%, rgba(250,247,240,0.4) 0%, transparent 70%),
-    radial-gradient(ellipse 90% 55% at 85% 95%, rgba(232,200,64,0.25) 0%, transparent 70%);
-  animation: drift 55s linear infinite;
-}
-.steam-2 {
-  bottom: 5%;
-  background:
-    radial-gradient(ellipse 70% 35% at 30% 80%, rgba(250,247,240,0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 30% at 75% 75%, rgba(232,200,64,0.2) 0%, transparent 70%);
-  animation: drift 40s linear infinite reverse;
-}
-@keyframes drift {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.warmth-glow {
-  position: absolute;
-  top: 30%; left: 50%; transform: translateX(-50%);
-  width: 480px; height: 480px;
-  background: radial-gradient(circle, rgba(196,164,74,0.18) 0%, rgba(212,165,116,0.06) 45%, transparent 70%);
-  z-index: 1; border-radius: 50%;
-  animation: pulse-glow 8s ease-in-out infinite;
-}
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
-  50% { opacity: 0.75; transform: translateX(-50%) scale(1.04); }
-}
-.hero-content { position: relative; z-index: 2; padding: 0 2rem; max-width: 640px; margin-top: 42vh; }
-.hero h1 {
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
-  font-weight: 400; color: var(--bg);
-  margin-bottom: 1.2rem; letter-spacing: 0.02em;
-}
-.hero-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-  font-weight: 300; font-style: italic;
-  color: rgba(250,247,240,0.8);
-  max-width: 520px; margin: 0 auto; line-height: 1.7;
-}
-.hero-location {
-  margin-top: 1.5rem;
-  font-size: 0.85rem; letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(250,247,240,0.4); font-weight: 400;
-}
-.hero-cta {
-  display: inline-block; margin-top: 2.5rem;
-  padding: 1rem 2.8rem;
-  background: rgba(250,247,240,0.12);
-  border: 1px solid rgba(250,247,240,0.25);
-  color: var(--bg); border-radius: 50px;
-  text-decoration: none; font-size: 0.85rem; font-weight: 500;
-  letter-spacing: 0.06em;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s, border-color 0.35s;
-  backdrop-filter: blur(8px);
-}
-.hero-cta:hover {
-  background: rgba(250,247,240,0.18);
-  border-color: rgba(250,247,240,0.32);
-  transform: translateY(-3px) scale(1.02);
-}
-.scroll-hint {
-  position: absolute; bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%); z-index: 2;
-  color: rgba(250,247,240,0.35); font-size: 1.2rem;
-  animation: bobble 2.5s ease-in-out infinite;
-}
-@keyframes bobble {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(10px); }
-}
+  /* ─── ambient steam ─── */
+  #steam {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.32;
+  }
 
-/* === SECTIONS === */
-.sect { padding: 7rem 2rem; position: relative; }
-.sect-inner { max-width: 860px; margin: 0 auto; }
-.bio-inner-wide { max-width: 920px; }
-.sect-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.45rem; font-weight: 500; font-style: italic;
-  color: var(--green); text-align: center; margin-bottom: 0.6rem;
-}
-.sect-title {
-  font-size: clamp(2.2rem, 4.5vw, 3rem);
-  font-weight: 500; text-align: center;
-  color: var(--chocolate); margin-bottom: 1.2rem;
-}
-.sect-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 300; font-style: italic;
-  color: var(--fg-soft); text-align: center;
-  max-width: 560px; margin: 0 auto 3.5rem; line-height: 1.7;
-}
+  main { position: relative; z-index: 2; }
 
-/* === ABOUT === */
-.about-bg { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%); }
-.about-columns { display: flex; flex-direction: column; gap: 2.5rem; }
-.about-text p { font-size: 1.08rem; color: rgba(46,37,25,0.88); margin-bottom: 1.3rem; line-height: 1.82; font-weight: 400; }
-.quote-card {
-  background: var(--bg); border-radius: var(--radius);
-  padding: 2.5rem; box-shadow: var(--shadow-soft);
-  border-left: 4px solid var(--gold); position: relative;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.quote-card:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 18px 36px -14px rgba(62,34,21,0.12);
-}
-.quote-card::before {
-  content: '\201C'; font-family: 'Cormorant Garamond', serif;
-  font-size: 4.5rem; color: var(--gold);
-  position: absolute; top: 0.3rem; left: 1.2rem;
-  line-height: 1; opacity: 0.5;
-}
-.quote-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem; font-style: normal;
-  color: var(--fg); line-height: 1.75;
-  position: relative; z-index: 1;
-  font-weight: 400;
-}
-.guest-quotes {
-  list-style: none;
-  padding: 1.25rem 0 0; margin: 1.25rem 0 0;
-  border-top: 1px solid rgba(196,164,74,0.3);
-  display: flex; flex-direction: column; gap: 0.65rem;
-}
-.guest-quotes li {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--chocolate);
-  padding-left: 1.4rem;
-  position: relative;
-  line-height: 1.55;
-}
-.guest-quotes li:before {
-  content: '\2014';
-  position: absolute; left: 0; top: 0;
-  color: var(--gold);
-}
+  /* ─── meta type / labels ─── */
+  .meta {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--d-ink-mute);
+  }
 
-/* === BIO === */
-.bio-bg { background: var(--bg-warm); position: relative; overflow: hidden; }
-.bio-bg::before {
-  content: ''; position: absolute;
-  top: -200px; right: -200px;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--gold-glow), transparent 70%);
-  pointer-events: none;
-}
-.bio-head {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-  gap: 2.5rem 3rem; margin-bottom: 3.25rem;
-}
-.bio-photo-cluster { position: relative; width: 300px; height: 270px; flex-shrink: 0; }
-.bio-polaroid {
-  position: absolute;
-  border-radius: 4px;
-  padding: 0.5rem 0.5rem 1.15rem;
-  background: linear-gradient(165deg, #fffef9, #f5efe4);
-  box-shadow: 0 12px 32px -10px rgba(62,34,21,0.2);
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.bio-polaroid img { display: block; border-radius: 2px; object-fit: cover; }
-.bio-polaroid--1 { width: 198px; left: 0; top: 0; transform: rotate(-5deg); z-index: 2; }
-.bio-polaroid--1 img { width: 186px; height: 232px; }
-.bio-polaroid--2 { width: 148px; right: 4px; bottom: 6px; transform: rotate(9deg); z-index: 1; }
-.bio-polaroid--2 img { width: 136px; height: 168px; }
-.bio-head:hover .bio-polaroid--1 { transform: rotate(-3deg) translateY(-5px) scale(1.02); }
-.bio-head:hover .bio-polaroid--2 { transform: rotate(7deg) translateY(-4px) scale(1.03); }
-.bio-title-wrap { flex: 1; min-width: 240px; text-align: left; }
-.bio-title-wrap .sect-title { text-align: left; margin-bottom: 0.35rem; }
-.bio-title-note { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--fg-soft); }
-.bio-timeline { display: flex; flex-direction: column; gap: 1.75rem; max-width: 700px; margin: 0 auto; }
-.bio-step { display: flex; gap: 1.35rem; align-items: flex-start; }
-.bio-icon {
-  width: 56px; height: 56px; min-width: 56px;
-  border-radius: 14px;
-  background: linear-gradient(145deg, var(--yellow-soft), var(--bg));
-  border: 2px solid rgba(196,164,74,0.45);
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 0;
-  box-shadow: 3px 4px 0 rgba(62,34,21,0.08);
-  transform: rotate(-1.5deg);
-}
-.bio-step:nth-child(even) .bio-icon { transform: rotate(1.2deg); }
-.bio-icon svg { width: 30px; height: 30px; }
-.bio-step p { font-size: 1.08rem; color: rgba(46,37,25,0.9); line-height: 1.78; font-weight: 400; }
-.bio-links { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.bio-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.7rem 1.4rem; background: var(--bg);
-  border: 1px solid rgba(46,37,25,0.08);
-  border-radius: 50px; text-decoration: none; color: var(--fg);
-  font-size: 0.85rem; font-weight: 500; transition: all 0.3s;
-}
-.bio-link:hover { border-color: var(--green); transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 28px -14px rgba(46,37,25,0.12); }
-.bio-link svg { width: 16px; height: 16px; }
+  /* ═════════════════════════════════════════════
+     HERO
+     ═════════════════════════════════════════════ */
 
-/* === VALUES === */
-.values-bg { background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 45%); }
-.values-grid { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; margin: 0 auto; }
-.values-portrait {
-  width: 240px;
-  height: 240px;
-  margin: 0 auto 2.25rem;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 18px 40px -18px rgba(62,34,21,0.35);
-  border: 2px solid rgba(62,34,21,0.12);
-  transform: rotate(-2deg);
-  background: rgba(250,247,240,0.6);
-}
-.values-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-}
-.value-card {
-  display: flex; align-items: flex-start; gap: 1.5rem;
-  border-radius: var(--radius);
-  padding: 1.4rem 1.75rem; text-align: left;
-  background: radial-gradient(circle at 0% 50%, #fff8e8 0%, var(--bg) 75%);
-  border: 2px solid rgba(62,34,21,0.14);
-  box-shadow: 4px 4px 0 rgba(232,200,64,0.22);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.value-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 16px 32px -14px rgba(62,34,21,0.14);
-}
-.value-icon {
-  width: 56px; height: 56px; min-width: 56px; border-radius: 50%;
-  margin: 0; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  border: none;
-  background: transparent;
-}
-.value-icon svg { width: 48px; height: 48px; overflow: visible; }
-.value-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--chocolate); margin-bottom: 0.35rem; text-align: left; }
-.value-card p { font-size: 0.97rem; color: var(--fg); line-height: 1.6; font-weight: 400; text-align: left; }
-.value-card-text { flex: 1; }
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--d-bg-deep);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 8rem;
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: saturate(0.7) brightness(0.55);
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(18,10,5,0.45) 0%, rgba(18,10,5,0.1) 30%, rgba(18,10,5,0.85) 100%),
+      radial-gradient(ellipse 60% 50% at 50% 55%, rgba(224,121,55,0.08), transparent 70%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 720px;
+    transform: translateY(clamp(8rem, 22vh, 16rem));
+  }
+  .hero-name {
+    font-family: var(--ff-display);
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--d-ink);
+    margin-bottom: 1.4rem;
+  }
+  .hero-tagline {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+    color: var(--d-ink-soft);
+    line-height: 1.45;
+    max-width: 26ch;
+    margin: 0 auto 1.75rem;
+  }
+  .hero-tagline .hl { color: var(--ember-bright); font-style: italic; }
+  .hero-loc {
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--d-ink-mute);
+    margin-bottom: 2.75rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1.1rem 2.5rem;
+    background: rgba(242,226,194,0.08);
+    border: 1px solid rgba(242,226,194,0.25);
+    color: var(--d-ink);
+    border-radius: 999px;
+    font-family: var(--ff-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+    transition: all 0.5s ease;
+  }
+  .hero-cta:hover {
+    background: rgba(242,226,194,0.16);
+    border-color: rgba(242,226,194,0.4);
+    transform: translateY(-2px);
+  }
 
-/* === HOW === */
-.how-bg {
-  background: var(--chocolate);
-  color: rgba(250,247,240,0.92);
-}
-.how-bg .sect-label { color: var(--linden); font-size: 1.5rem; }
-.how-bg .sect-title { color: var(--bg); }
-.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.how-card {
-  background: rgba(250,247,240,0.07);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.25rem;
-  border: 2px solid rgba(232,200,64,0.35);
-  box-shadow: 6px 6px 0 rgba(0,0,0,0.18);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.how-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 18px 36px -12px rgba(0,0,0,0.35);
-}
-.how-illustration { margin-bottom: 0.5rem; display: flex; justify-content: center; }
-.how-illustration svg { width: 44px; height: 44px; overflow: visible; }
-.how-num { display: none; }
-.how-card h3 { font-size: 1.15rem; font-weight: 600; color: var(--bg); margin-bottom: 0.5rem; }
-.how-card p { font-size: 0.92rem; color: rgba(250,247,240,0.82); line-height: 1.6; font-weight: 400; }
-.how-note {
-  margin-top: 2.25rem; padding: 1.75rem 2rem;
-  background: rgba(250,247,240,0.14);
-  border-radius: var(--radius); text-align: center;
-  font-size: 1.05rem; color: rgba(250,247,240,0.92); line-height: 1.7;
-  border: 2px dashed rgba(232,200,64,0.45);
-}
-.how-features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-  margin: 2.25rem auto 3rem;
-  max-width: 860px;
-}
-.how-feature {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.95rem 1.15rem;
-  background: rgba(250,247,240,0.08);
-  border: 1.5px solid rgba(232,200,64,0.4);
-  border-radius: 0.8rem;
-  transition: transform 0.4s ease, background 0.3s ease;
-}
-.how-feature:hover {
-  transform: translateY(-3px);
-  background: rgba(250,247,240,0.12);
-}
-.how-feature-icon {
-  width: 34px; height: 34px; min-width: 34px;
-  color: var(--gold-light);
-  display: flex; align-items: center; justify-content: center;
-}
-.how-feature-icon svg { width: 30px; height: 30px; }
-.how-feature-label {
-  font-size: 0.92rem;
-  color: rgba(250,247,240,0.9);
-  line-height: 1.4;
-  flex: 1;
-}
-.how-feature-title {
-  font-size: 0.95rem;
-  color: rgba(250,247,240,0.95);
-  line-height: 1.35;
-}
-.how-feature-title strong { color: var(--gold-light); font-weight: 700; }
-.how-feature-benefit {
-  font-size: 0.82rem;
-  color: rgba(250,247,240,0.65);
-  line-height: 1.4;
-  margin-top: 0.3rem;
-  font-style: italic;
-}
-.how-feature-label strong { color: var(--gold-light); font-weight: 700; }
-@media (max-width: 900px) {
-  .how-features { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 680px) {
-  .how-features { grid-template-columns: 1fr; }
-}
+  /* ═════════════════════════════════════════════
+     SECTION BASE
+     ═════════════════════════════════════════════ */
 
-/* === FULL-WIDTH QUOTE === */
-.fullquote {
-  position: relative; padding: 5rem 2rem 6rem; text-align: center;
-  background: var(--chocolate); overflow: hidden;
-}
-.fullquote-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(196,164,74,0.1) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(250,247,240,0.04) 0%, transparent 60%);
-}
-.fullquote-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
-.quotes-stack { display: flex; flex-direction: column; gap: 1.25rem; }
-.fullquote blockquote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-  font-weight: 400; font-style: italic;
-  color: rgba(250,247,240,0.92);
-  line-height: 1.45;
-  margin: 0;
-  padding: 0.85rem 1.25rem;
-  background: rgba(62,34,21,0.35);
-  border-radius: 0.75rem;
-  border-left: 4px solid var(--gold);
-}
-.fullquote .attr {
-  margin-top: 2rem; font-size: 0.88rem; font-style: normal;
-  color: rgba(250,247,240,0.45); letter-spacing: 0.06em;
-}
+  section {
+    padding: clamp(5rem, 12vh, 8.5rem) clamp(1.5rem, 5vw, 3rem);
+    position: relative;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; position: relative; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; position: relative; }
 
-/* === GALLERY === */
-.gallery-bg { background: var(--bg-warm); }
-.gallery-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.gallery-item {
-  border-radius: var(--radius); overflow: hidden;
-  display: flex; flex-direction: column;
-}
-.gallery-item img {
-  width: 100%; height: 260px; object-fit: cover; display: block;
-  border-radius: var(--radius);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.gallery-item { transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1); }
-.gallery-item:hover img { transform: scale(1.03); }
-.gallery-item--tilt-l { transform: rotate(-0.9deg); }
-.gallery-item--tilt-r { transform: rotate(0.85deg); }
-.gallery-item--tilt-l:hover { transform: translateY(-5px) scale(1.02) rotate(-0.9deg); }
-.gallery-item--tilt-r:hover { transform: translateY(-5px) scale(1.02) rotate(0.85deg); }
-.gallery-item:not(.gallery-item--tilt-l):not(.gallery-item--tilt-r):hover { transform: translateY(-5px) scale(1.02); }
-.gallery-caption {
-  padding: 0.75rem 0.4rem 0;
-  font-size: 0.88rem; color: rgba(46,37,25,0.82); font-style: normal;
-  text-align: left; line-height: 1.55; font-weight: 400;
-}
-.gallery-caption strong { display: inline; font-weight: 700; color: var(--chocolate); }
-.gallery-playful { grid-template-columns: repeat(3, 1fr); }
-.gallery-item--tall img { height: 300px; }
-@media (min-width: 901px) {
-  .gallery-playful .gallery-item:nth-child(3n+2) { margin-top: 0.75rem; }
-}
+  /* theme contexts */
+  .theme-dark { background: var(--d-bg); color: var(--d-ink); }
+  .theme-dark.warm { background: var(--d-bg-warm); }
+  .theme-dark.deep { background: var(--d-bg-deep); }
+  .theme-light { background: var(--l-bg); color: var(--l-ink); }
+  .theme-light.warm { background: var(--l-bg-warm); }
 
-/* === BLOG === */
-.blog-bg { background: var(--bg); }
-.blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.blog-card {
-  background: var(--bg-warm); border-radius: var(--radius);
-  padding: 2rem;
-  border: 1px solid rgba(62,34,21,0.06);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.blog-card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 18px 36px -14px rgba(62,34,21,0.12); }
-.blog-tag {
-  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.8rem;
-}
-.blog-card h3 { font-size: 1.3rem; font-weight: 500; color: var(--chocolate); margin-bottom: 0.6rem; }
-.blog-card p { font-size: 0.9rem; color: var(--fg-soft); line-height: 1.7; }
-.blog-cta { margin-top: 2.5rem; text-align: center; }
-.blog-cta a {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.9rem 2.2rem; border: 2px solid var(--green);
-  color: var(--green); border-radius: 50px; text-decoration: none;
-  font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
-  transition: all 0.3s;
-}
-.blog-cta a:hover { background: var(--green); color: var(--bg); }
+  /* section markers */
+  .sect-mark {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .sect-mark .num {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--ember);
+  }
+  .theme-dark .sect-mark .num { color: var(--ember-bright); }
+  .sect-mark .label {
+    font-family: var(--ff-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: inherit;
+    opacity: 0.6;
+  }
+  .sect-mark .rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, currentColor, transparent);
+    opacity: 0.18;
+  }
 
-/* === MEET === */
-/* === EXPERTISE === */
-.expertise-bg { background: var(--chocolate); }
-.expertise-bg .sect-title { color: var(--bg); }
-.expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.expertise-card {
-  background: var(--bg);
-  border-radius: var(--radius);
-  padding: 1.75rem 1.6rem;
-  border: 2px solid var(--green);
-  box-shadow: 6px 6px 0 rgba(196,164,74,0.25);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.expertise-card:hover {
-  transform: translateY(-6px) scale(1.015);
-  box-shadow: 0 18px 36px -10px rgba(0,0,0,0.35);
-}
-.expertise-icon {
-  width: 40px; height: 40px; margin-bottom: 0.85rem;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--green);
-}
-.expertise-icon svg { width: 40px; height: 40px; }
-.expertise-label {
-  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.14em; color: var(--green-deep); margin-bottom: 0.55rem;
-}
-.expertise-card h3 {
-  font-size: 1.3rem; font-weight: 700; color: var(--chocolate);
-  margin-bottom: 0.55rem; line-height: 1.3;
-}
-.expertise-card p {
-  font-size: 0.97rem; color: var(--fg); line-height: 1.65; font-weight: 400;
-}
-@media (max-width: 680px) {
-  .expertise-grid { grid-template-columns: 1fr; }
-}
+  /* H2 styles */
+  .lead-serif {
+    font-family: var(--ff-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 2.5rem;
+    max-width: 22ch;
+  }
+  .lead-serif em { font-style: italic; color: var(--ember); font-weight: 300; }
+  .theme-dark .lead-serif em { color: var(--ember-bright); }
 
-/* === BENEFITS === */
-.benefits-bg { background: var(--bg); }
-.benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.benefit-card {
-  background: var(--bg-warm); border-radius: var(--radius);
-  padding: 2.2rem; border: 2px solid rgba(62,34,21,0.08);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.benefit-card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 18px 36px -14px rgba(62,34,21,0.12); }
-.benefit-card h3 {
-  font-size: 1.45rem; font-weight: 600; color: var(--chocolate);
-  margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.7rem;
-}
-.benefit-card h3 svg { width: 26px; height: 26px; color: var(--green); }
-.benefit-card ul { list-style: none; padding: 0; margin: 0; }
-.benefit-card li {
-  font-size: 0.97rem; color: rgba(46,37,25,0.88); line-height: 1.65;
-  padding: 0.7rem 0 0.7rem 1.4rem;
-  position: relative;
-  border-bottom: 1px solid rgba(62,34,21,0.06);
-}
-.benefit-card li:last-child { border-bottom: none; }
-.benefit-card li:before {
-  content: '';
-  position: absolute; left: 0; top: 1.15rem;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold);
-}
-@media (max-width: 680px) {
-  .benefits-grid { grid-template-columns: 1fr; }
-}
+  .lead-bold {
+    font-family: var(--ff-sans);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+    max-width: 22ch;
+  }
+  .lead-bold .hl-g { letter-spacing: -0.01em; }
 
-.meet-bg { background: var(--bg-warm); }
-.meet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.meet-card {
-  background: var(--bg); border-radius: var(--radius);
-  padding: 2.2rem; border: 2px solid rgba(62,34,21,0.06);
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease;
-}
-.meet-card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 18px 36px -14px rgba(62,34,21,0.12); }
-.meet-icon {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--green-pale); display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1rem;
-}
-.meet-icon svg { width: 18px; height: 18px; }
-.meet-card h3 { font-size: 1.25rem; font-weight: 500; color: var(--chocolate); margin-bottom: 0.8rem; }
-.meet-card p { font-size: 0.92rem; color: var(--fg-soft); line-height: 1.75; margin-bottom: 0.5rem; }
-.meet-card .price { font-size: 0.88rem; font-weight: 500; color: var(--green); margin-top: 0.8rem; }
-.meet-card a { color: var(--green); text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-.meet-card a:hover { border-bottom-color: var(--green); }
+  .lead-mono-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+    display: block;
+  }
 
-/* === CONTACTS === */
-.contact-bg {
-  background: var(--chocolate); text-align: center; padding: 7rem 2rem;
-}
-.contact-bg .sect-title { color: var(--bg); }
-.contact-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem; font-weight: 300; font-style: italic;
-  color: rgba(250,247,240,0.65); max-width: 420px; margin: 0 auto 2.5rem;
-}
-.contact-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-.contact-btn {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 1.1rem 2.2rem; border-radius: 50px;
-  text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: all 0.3s;
-}
-.contact-btn-primary {
-  background: var(--green); color: var(--bg);
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, box-shadow 0.55s ease;
-}
-.contact-btn-primary:hover { background: var(--green-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 28px -10px rgba(46,94,58,0.22); }
-.contact-btn-secondary { background: rgba(250,247,240,0.08); color: rgba(250,247,240,0.8); border: 2px solid rgba(250,247,240,0.15); transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s, color 0.3s; }
-.contact-btn-secondary:hover { border-color: var(--gold); color: var(--bg); transform: translateY(-3px) scale(1.02); }
-.contact-btn svg { width: 18px; height: 18px; fill: currentColor; }
+  /* ═════════════════════════════════════════════
+     SECTION 1 — PRACTICE
+     ═════════════════════════════════════════════ */
 
-/* === FOOTER === */
-footer {
-  text-align: center; padding: 2.5rem 2rem;
-  background: var(--green-deep); color: rgba(250,247,240,0.35); font-size: 0.82rem;
-}
-footer .footer-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem; font-weight: 300; font-style: italic;
-  color: rgba(250,247,240,0.3); margin-bottom: 1rem;
-}
+  .practice {
+    background: var(--l-bg);
+    color: var(--l-ink);
+  }
+  .practice::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -180px;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,107,39,0.10), transparent 70%);
+    pointer-events: none;
+  }
+  .practice-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+    position: relative;
+  }
+  .practice-photo {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #0a0604;
+    position: relative;
+    border-radius: var(--radius-l);
+    box-shadow: 0 24px 60px -20px rgba(31,24,18,0.3), 0 0 60px rgba(224,121,55,0.08);
+  }
+  .practice-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+  }
+  .practice-photo:hover img { transform: scale(1.03); }
+  .practice-text p.body-lead {
+    font-family: var(--ff-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    line-height: 1.45;
+    color: var(--l-ink);
+  }
+  .practice-text .quote-pin {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--l-paper);
+    border-left: 3px solid var(--ember);
+    border-radius: 0 var(--radius-m) var(--radius-m) 0;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--l-ink-soft);
+    max-width: 42ch;
+  }
 
-/* === REVEAL === */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (max-width: 820px) {
+    .practice-grid { grid-template-columns: 1fr; }
+  }
 
-/* === RESPONSIVE === */
-@media (max-width: 900px) {
-  .about-columns { grid-template-columns: 1fr; }
-  .how-steps { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 680px) {
-  .sect { padding: 5rem 1.5rem; }
+  /* ═════════════════════════════════════════════
+     SECTION 2 — TESTIMONIALS
+     ═════════════════════════════════════════════ */
+
+  .testimonials {
+    background: var(--d-bg-warm);
+    position: relative;
+  }
+  .testimonials::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224,121,55,0.06), transparent 60%);
+    pointer-events: none;
+  }
+  .testi-hero {
+    margin: 1rem auto 4rem;
+    max-width: 880px;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+  }
+  .testi-hero::before {
+    content: '\201C';
+    position: absolute;
+    top: -3rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--ff-display);
+    font-size: 8rem;
+    line-height: 0.6;
+    color: var(--ember);
+    opacity: 0.35;
+  }
+  .testi-hero blockquote {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+    line-height: 1.25;
+    color: var(--d-ink);
+    letter-spacing: -0.015em;
+  }
+  .testi-hero blockquote .em {
+    color: var(--ember-bright);
+    font-weight: 400;
+  }
+  .testi-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 920px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .testi-card {
+    padding: 2rem 2.25rem;
+    background: rgba(242,226,194,0.04);
+    border: 1px solid var(--d-rule-soft);
+    border-radius: var(--radius-l);
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.2rem, 1.85vw, 1.55rem);
+    line-height: 1.4;
+    color: var(--d-ink);
+    position: relative;
+  }
+  .testi-card.left {
+    border-left: 3px solid var(--ember);
+    transform: rotate(-0.5deg);
+  }
+  .testi-card.right {
+    border-right: 3px solid var(--green-light);
+    text-align: right;
+    transform: rotate(0.4deg);
+    margin-top: 1.5rem;
+  }
+  .testi-attr {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: var(--ff-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--d-ink-mute);
+  }
+  @media (max-width: 820px) {
+    .testi-pair { grid-template-columns: 1fr; gap: 1rem; }
+    .testi-card { transform: none !important; text-align: left !important; border-right: none !important; border-left: 3px solid var(--ember) !important; }
+    .testi-card.right { border-left: 3px solid var(--green-light) !important; }
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 3 — SESSION
+     ═════════════════════════════════════════════ */
+
+  .session { background: var(--l-bg-warm); color: var(--l-ink); }
+
+  .session-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--l-rule);
+    border: 1px solid var(--l-rule);
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    margin-bottom: clamp(3rem, 5vw, 4rem);
+  }
+  .feat {
+    background: var(--l-paper);
+    padding: 1.75rem 1.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: background 0.5s ease;
+  }
+  .feat:hover { background: var(--l-bg); }
+  .feat-icon {
+    width: 38px; height: 38px;
+    flex-shrink: 0;
+    color: var(--ember);
+  }
+  .feat-icon svg { width: 100%; height: 100%; }
+  .feat-text .title {
+    font-family: var(--ff-sans);
+    font-size: 1rem;
+    line-height: 1.3;
+    color: var(--l-ink);
+    margin-bottom: 0.35rem;
+  }
+  .feat-text .title strong { font-weight: 700; }
+  .feat-text .note {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--l-ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .session-features { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 580px) {
+    .session-features { grid-template-columns: 1fr; }
+  }
+
+  .rounds-head {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .rounds-eyebrow {
+    display: inline-block;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--ember);
+    letter-spacing: 0.02em;
+  }
+  .rounds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .round {
+    background: var(--l-paper);
+    border: 1px solid var(--l-rule);
+    border-radius: var(--radius-l);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: all 0.5s ease;
+    position: relative;
+  }
+  .round.highlighted {
+    background: #fff;
+    border-color: rgba(245,201,90,0.45);
+    box-shadow: 0 0 0 0 rgba(245,201,90,0.2), 0 0 60px rgba(245,201,90,0.12);
+    transform: translateY(-4px);
+  }
+  .round:hover {
+    background: #fff;
+    border-color: var(--ember);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -14px rgba(31,24,18,0.2), 0 0 60px rgba(224,121,55,0.1);
+  }
+  .round-tag {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ember);
+    background: rgba(196,107,39,0.1);
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    align-self: flex-start;
+    border: 1px solid rgba(196,107,39,0.2);
+  }
+  .round.highlighted .round-tag {
+    background: var(--yellow);
+    color: #1F1812;
+    border-color: var(--yellow);
+  }
+  .round .num {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 3.2rem;
+    line-height: 0.9;
+    color: var(--ember);
+    opacity: 0.7;
+    margin-top: 0.4rem;
+  }
+  .round h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: var(--l-ink);
+    margin-top: 0.2rem;
+  }
+  .round p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--l-ink-soft);
+  }
+  @media (max-width: 820px) {
+    .rounds { grid-template-columns: 1fr; }
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 4 — VALUES
+     ═════════════════════════════════════════════ */
+
+  .values { background: var(--d-bg); position: relative; overflow: hidden; }
+  .values::before {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,112,88,0.14), transparent 65%);
+    pointer-events: none;
+  }
+  .values-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: center;
+    position: relative;
+  }
   .values-portrait {
-    width: 190px;
-    height: 190px;
-    margin-bottom: 1.6rem;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), 0 0 80px rgba(245,201,90,0.06);
+    position: relative;
   }
-  .value-card { flex-direction: column; align-items: center; text-align: center; gap: 0.75rem; }
-  .value-card h3, .value-card p { text-align: center; }
-  .blog-grid { grid-template-columns: 1fr; }
-  .meet-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-item img { height: 180px; }
-  .nav-links { display: none !important; }
-  .burger { display: block; }
-  nav.open .nav-links {
-    display: flex !important; flex-direction: column;
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: hsla(38,40%,96%,0.96); backdrop-filter: blur(14px);
-    padding: 1.5rem 2rem; border-bottom: 1px solid rgba(46,37,25,0.06); gap: 1rem;
+  .values-portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    filter: saturate(0.9) brightness(0.92);
   }
-  .hero h1 { font-size: 2.4rem; }
-  .bio-links { flex-direction: column; align-items: center; }
-  .bio-head { flex-direction: column; text-align: center; }
-  .bio-title-wrap { text-align: center; }
-  .bio-title-wrap .sect-title { text-align: center; }
-  .bio-photo-cluster { margin: 0 auto; }
-  .fullquote { padding: 5rem 1.5rem; }
-}
-.bio-link { transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.65s ease, border-color 0.3s; }
+  .values-portrait::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(18,10,5,0.4) 100%);
+  }
+  .values-portrait .over-quote {
+    position: absolute;
+    bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--d-ink);
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+    z-index: 2;
+  }
+
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .value-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--d-rule-soft);
+  }
+  .value-row:first-child { border-top: 1px solid var(--d-rule); }
+  .value-row .roman {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1;
+    color: var(--ember-bright);
+    padding-top: 0.2rem;
+  }
+  .value-row:nth-child(2) .roman,
+  .value-row:nth-child(4) .roman { color: var(--green-light); }
+  .value-row h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.25;
+    color: var(--d-ink);
+    margin-bottom: 0.5rem;
+  }
+  .value-row p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--d-ink-soft);
+  }
+
+  @media (max-width: 820px) {
+    .values-layout { grid-template-columns: 1fr; }
+    .value-row { grid-template-columns: 50px 1fr; }
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 5 — BENEFITS
+     ═════════════════════════════════════════════ */
+
+  .benefits { background: var(--l-bg); color: var(--l-ink); position: relative; overflow: hidden; }
+  .benefits::before {
+    content: '';
+    position: absolute;
+    top: -15%; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,107,39,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .benefits::after {
+    content: '';
+    position: absolute;
+    bottom: -10%; left: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,79,64,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    position: relative;
+  }
+  .benefit-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .benefit-col .head {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--ember);
+  }
+  .benefit-col.green .head { border-bottom-color: var(--green); }
+  .benefit-col .head .roman {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--ember);
+  }
+  .benefit-col.green .head .roman { color: var(--green); }
+  .benefit-col .head h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    line-height: 1;
+    color: var(--l-ink);
+    letter-spacing: -0.01em;
+  }
+  .benefit-col ul { list-style: none; padding: 0; margin: 0; }
+  .benefit-col li {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--l-ink-soft);
+    padding: 1.25rem 0 1.25rem 0;
+    border-bottom: 1px solid var(--l-rule-soft);
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .benefit-col li:last-child { border-bottom: none; }
+  .benefit-col li .li-num {
+    flex-shrink: 0;
+    font-family: var(--ff-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--ember);
+    padding-top: 0.25rem;
+    min-width: 28px;
+  }
+  .benefit-col.green li .li-num { color: var(--green); }
+  .benefit-col li strong { color: var(--l-ink); font-weight: 600; }
+  @media (max-width: 820px) {
+    .benefits-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 6 — FORMATS
+     ═════════════════════════════════════════════ */
+
+  .formats {
+    background: var(--l-bg-warm);
+    color: var(--l-ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .formats::before {
+    content: '';
+    position: absolute;
+    top: 10%; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,74,0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .formats::after {
+    content: '';
+    position: absolute;
+    bottom: 5%; left: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,79,64,0.14), transparent 60%);
+    pointer-events: none;
+  }
+  .formats-intro {
+    max-width: 60ch;
+    margin-bottom: clamp(3rem, 6vh, 4.5rem);
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    line-height: 1.55;
+    color: var(--l-ink-soft);
+  }
+  .formats-intro strong { font-weight: 500; color: var(--l-ink); font-style: italic; }
+  .formats-group { margin-bottom: clamp(3.5rem, 7vh, 5.5rem); position: relative; }
+  .formats-group:last-child { margin-bottom: 0; }
+  .formats-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .formats-head h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.4vw, 2rem);
+    letter-spacing: -0.01em;
+    color: var(--l-ink);
+  }
+  .formats-head h3 em {
+    font-style: italic;
+    color: var(--ember);
+    font-weight: 500;
+  }
+  .formats-group.collab .formats-head h3 em { color: var(--green); }
+  .formats-head .rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--l-rule), transparent);
+  }
+  .formats-head .count {
+    font-family: var(--ff-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--l-ink-mute);
+  }
+  .formats-subhead {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--l-ink-mute);
+    margin-bottom: 2rem;
+    max-width: 56ch;
+  }
+  .format-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .format {
+    background: var(--l-paper);
+    border-radius: var(--radius-l);
+    padding: clamp(2.25rem, 3vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    border: 1px solid var(--l-rule-soft);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .format::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--ember), transparent);
+    opacity: 0.55;
+    transition: opacity 0.5s ease;
+  }
+  .formats-group.collab .format::before { background: linear-gradient(to right, var(--green), transparent); }
+  .format.feature {
+    background: var(--l-paper);
+    border-color: rgba(201,162,74,0.5);
+    border-width: 1.5px;
+    box-shadow: 0 0 0 0 rgba(201,162,74,0.2), 0 8px 28px -10px rgba(31,24,18,0.12);
+  }
+  .format.feature::before { opacity: 1; height: 4px; }
+  .formats-group.collab .format.feature {
+    background: var(--l-paper);
+    border-color: rgba(74,112,88,0.5);
+    border-width: 1.5px;
+    box-shadow: 0 0 0 0 rgba(74,112,88,0.2), 0 8px 28px -10px rgba(31,24,18,0.12);
+  }
+  .format:hover {
+    border-color: var(--ember);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px -16px rgba(31,24,18,0.22), 0 0 80px rgba(184,107,56,0.18);
+  }
+  .format:hover::before { opacity: 1; }
+  .formats-group.collab .format:hover {
+    border-color: var(--green);
+    box-shadow: 0 24px 50px -16px rgba(31,24,18,0.22), 0 0 80px rgba(74,112,88,0.18);
+  }
+  .format-num-big {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(2.4rem, 3.6vw, 3.4rem);
+    line-height: 0.85;
+    color: var(--ember);
+    opacity: 0.55;
+  }
+  .formats-group.collab .format-num-big { color: var(--green); }
+  .format h4 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2vw, 1.85rem);
+    line-height: 1.15;
+    color: var(--l-ink);
+    letter-spacing: -0.005em;
+  }
+  .format p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--l-ink-soft);
+    flex-grow: 1;
+  }
+  .format p .em { color: var(--l-ink); }
+  .format-cases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+  .format-case {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    color: var(--ember);
+    background: rgba(168,86,40,0.10);
+    border: 1px solid rgba(168,86,40,0.28);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+  }
+  .formats-group.collab .format-case {
+    color: var(--green);
+    background: rgba(58,79,64,0.10);
+    border-color: rgba(58,79,64,0.3);
+  }
+  .format-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 0.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--l-rule-soft);
+  }
+  .format-meta .k {
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--l-ink-mute);
+  }
+  .format-meta .v {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--l-ink);
+  }
+  .format-meta a {
+    margin-left: auto;
+    font-family: var(--ff-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ember);
+    border-bottom: 1px solid var(--ember);
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+  }
+  .format-meta a:hover { color: var(--ember-glow); border-color: var(--ember-glow); }
+  .formats-group.collab .format-meta a { color: var(--green); border-color: var(--green); }
+  .formats-group.collab .format-meta a:hover { color: var(--green-light); border-color: var(--green-light); }
+  @media (max-width: 980px) {
+    .format-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .format-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 7 — PATH / BIO
+     ═════════════════════════════════════════════ */
+
+  .path { background: var(--l-bg); color: var(--l-ink); }
+  .path-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: start;
+  }
+  .path-photos {
+    position: sticky;
+    top: 4rem;
+  }
+  .polaroid {
+    background: linear-gradient(165deg, #FFFCF3, #F0E8D6);
+    border-radius: var(--radius-s);
+    padding: 0.7rem 0.7rem 1.6rem;
+    box-shadow: 0 18px 40px -14px rgba(31,24,18,0.25);
+    transform: rotate(-2deg);
+    transition: transform 0.6s ease;
+  }
+  .polaroid:hover { transform: rotate(-0.5deg) translateY(-4px); }
+  .polaroid img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: var(--radius-s);
+  }
+  .polaroid-cap {
+    margin-top: 1rem;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--l-ink-mute);
+    text-align: center;
+  }
+  .path-timeline { display: flex; flex-direction: column; gap: 0; }
+  .path-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--l-rule-soft);
+  }
+  .path-row:first-child { padding-top: 0; }
+  .path-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .path-year {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ember);
+    padding-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .path-row:nth-child(2n) .path-year { color: var(--green); }
+  .path-year .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+  .path-text h4 {
+    font-family: var(--ff-sans);
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--l-ink);
+    margin-bottom: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+  .path-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--l-ink-soft);
+  }
+
+  @media (max-width: 820px) {
+    .path-grid { grid-template-columns: 1fr; }
+    .path-photos { position: static; max-width: 320px; margin: 0 auto 2rem; }
+    .path-row { grid-template-columns: 95px 1fr; gap: 1rem; }
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 8 — GALLERY
+     ═════════════════════════════════════════════ */
+
+  .gallery { background: var(--d-bg-deep); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+  }
+  .gitem {
+    position: relative; overflow: hidden;
+    background: #0a0604;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+  }
+  .gitem img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.92);
+    transition: transform 0.8s ease, filter 0.8s ease;
+  }
+  .gitem:hover img { transform: scale(1.04); filter: saturate(1) brightness(1); }
+  .gitem.g-a { grid-column: span 5; aspect-ratio: 3/4; }
+  .gitem.g-b { grid-column: span 7; aspect-ratio: 4/3; }
+  .gitem.g-c { grid-column: span 4; aspect-ratio: 1/1; }
+  .gitem.g-d { grid-column: span 5; aspect-ratio: 4/3; }
+  .gitem.g-e { grid-column: span 3; aspect-ratio: 3/4; }
+  .gitem.g-f { grid-column: span 6; aspect-ratio: 16/9; }
+  .gitem.g-g { grid-column: span 6; aspect-ratio: 16/9; }
+  .gitem .cap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 1.1rem 1.3rem;
+    color: white;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    font-family: var(--ff-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .gitem:hover .cap { opacity: 1; }
+  .gitem .cap .name {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: none;
+    letter-spacing: 0;
+    display: block;
+    margin-bottom: 0.25rem;
+    color: white;
+  }
+  .gitem .tagline {
+    position: absolute; top: 1rem; left: 1rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.95);
+    background: rgba(28,19,12,0.6);
+    padding: 0.4rem 0.7rem;
+    backdrop-filter: blur(6px);
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  @media (max-width: 820px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .gitem { grid-column: span 1 !important; aspect-ratio: 1/1 !important; }
+    .gitem .cap { opacity: 1; }
+  }
+
+  .gallery-overlay {
+    position: fixed; inset: 0;
+    background: rgba(11,7,4,0.95);
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 500;
+  }
+  .gallery-overlay.active { display: flex; }
+  .gallery-overlay img {
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: var(--radius-m);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+
+  /* ═════════════════════════════════════════════
+     SECTION 9 — CONTACT
+     ═════════════════════════════════════════════ */
+
+  .contact {
+    background: linear-gradient(180deg, var(--d-bg) 0%, var(--green-deep) 100%);
+    text-align: center;
+    position: relative;
+  }
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,112,88,0.16), transparent 60%);
+    pointer-events: none;
+  }
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+  }
+  .contact h2 {
+    font-family: var(--ff-display);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--d-ink);
+  }
+  .contact h2 em { font-style: italic; color: var(--ember-bright); font-weight: 300; }
+  .contact .lede {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--d-ink-soft);
+    max-width: 42ch;
+  }
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    max-width: 380px;
+  }
+  .cbtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.15rem 1.5rem;
+    border: 1px solid var(--d-rule);
+    color: var(--d-ink);
+    font-family: var(--ff-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    background: rgba(242,226,194,0.02);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .cbtn-primary {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: #1F1812;
+    font-weight: 500;
+    box-shadow: 0 0 0 0 rgba(245,201,90,0.3), 0 8px 28px -8px rgba(245,201,90,0.45), 0 0 60px rgba(245,201,90,0.18);
+  }
+  .cbtn-primary:hover {
+    background: var(--yellow-bright);
+    border-color: var(--yellow-bright);
+    color: #1F1812;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 6px rgba(245,201,90,0.16), 0 12px 36px -8px rgba(245,201,90,0.6), 0 0 80px rgba(245,201,90,0.3);
+  }
+  .cbtn:not(.cbtn-primary):hover {
+    background: rgba(242,226,194,0.08);
+    border-color: var(--ember-bright);
+    color: var(--d-ink);
+    transform: translateY(-2px);
+  }
+  .cbtn .arrow {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  .cbtn:hover .arrow { transform: translateX(4px); }
+
+  /* ═════ FOOTER ═════ */
+  footer {
+    background: var(--green-deep);
+    padding: 3rem clamp(1.5rem, 5vw, 3rem);
+    border-top: 1px solid var(--d-rule-soft);
+  }
+  .foot-row {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--d-ink-mute);
+  }
+  .foot-row .breath {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--d-ink-soft);
+  }
+  .foot-note {
+    margin-top: 1.5rem;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: 0.78rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--d-ink-mute);
+    max-width: 60ch;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+    line-height: 1.5;
+  }
+  @media (max-width: 700px) {
+    .foot-row { flex-direction: column; text-align: center; }
+  }
+
+  /* ═════ NAV (floating) ═════ */
+  .topnav {
+    position: fixed;
+    top: 1rem; left: 50%;
+    transform: translateX(-50%) translateY(-150%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.6rem 0.6rem 0.6rem 1.5rem;
+    background: rgba(26,15,8,0.78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(242,226,194,0.12);
+    border-radius: 999px;
+    box-shadow: 0 12px 32px -10px rgba(0,0,0,0.4);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+    max-width: calc(100vw - 2rem);
+  }
+  .topnav.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  .topnav-logo {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--d-ink);
+    white-space: nowrap;
+    padding-right: 0.5rem;
+    border-right: 1px solid var(--d-rule-soft);
+  }
+  .topnav-links {
+    display: flex;
+    gap: 1.6rem;
+    list-style: none;
+  }
+  .topnav-links a {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--d-ink-soft);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+  .topnav-links a:hover { color: var(--ember-bright); }
+  .topnav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--yellow);
+    color: #1F1812;
+    border-radius: 999px;
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(201,162,74,0.3);
+  }
+  .topnav-cta:hover {
+    background: var(--yellow-bright);
+    transform: translateY(-1px);
+    box-shadow: 0 0 40px rgba(201,162,74,0.45);
+  }
+  .topnav-burger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--d-ink);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+  }
+  @media (max-width: 820px) {
+    .topnav { padding: 0.55rem 0.6rem 0.55rem 1.25rem; gap: 0.5rem; }
+    .topnav-links { display: none; }
+    .topnav.open .topnav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0; right: 0;
+      background: rgba(26,15,8,0.94);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(242,226,194,0.12);
+      border-radius: var(--radius-m);
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+    }
+    .topnav-burger { display: block; }
+    .topnav-logo { padding-right: 0; border-right: none; font-size: 0.95rem; }
+    .topnav-cta { padding: 0.5rem 0.9rem; font-size: 0.65rem; }
+  }
+
+  /* ═════ MICRO-STATS ═════ */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--l-rule-soft);
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .stat-num {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    line-height: 1;
+    color: var(--ember);
+    letter-spacing: -0.01em;
+  }
+  .stat:nth-child(2) .stat-num { color: var(--green); }
+  .stat:nth-child(3) .stat-num { color: var(--ember); }
+  .stat-label {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--l-ink-mute);
+  }
+  @media (max-width: 600px) {
+    .stats-row { grid-template-columns: 1fr; gap: 1rem; }
+    .stat { flex-direction: row; align-items: baseline; gap: 1rem; }
+  }
+
+  /* fade-in observer */
+  .fade { opacity: 0; transform: translateY(24px); transition: opacity 1.1s ease, transform 1.1s ease; }
+  .fade.in { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.2s !important;
+    }
+    #steam { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">Alena Pavlenko</a>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#values">Values</a>
-    <a href="#how">The Session</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#benefits">Benefits</a>
-    <a href="#bio">My Story</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#meet">Book</a>
-    <a href="#contacts">Contact</a>
-  </div>
-  <button class="burger" aria-label="Menu" onclick="document.getElementById('navbar').classList.toggle('open')">&#9776;</button>
+<canvas id="steam"></canvas>
+
+<!-- ═════ FLOATING NAV ═════ -->
+<nav class="topnav" id="topnav">
+  <a href="#hero" class="topnav-logo">Alena Pavlenko</a>
+  <ul class="topnav-links">
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#session">Session</a></li>
+    <li><a href="#formats">Formats</a></li>
+    <li><a href="#path">About&nbsp;me</a></li>
+  </ul>
+  <a class="topnav-cta" href="#contact">Book a session <span style="font-style:italic;font-family:var(--ff-display)">→</span></a>
+  <button class="topnav-burger" aria-label="Menu" onclick="document.getElementById('topnav').classList.toggle('open')">&#9776;</button>
 </nav>
 
-<!-- === HERO === -->
+<main>
 
-<section class="hero" id="hero">
-  <div class="hero-bg v1"></div>
-  <div class="warmth-glow"></div>
-  <div class="steam steam-1"></div>
-  <div class="steam steam-2"></div>
-  <div class="hero-content">
-    <h1 class="reveal">Alena Pavlenko</h1>
-    <p class="hero-tagline reveal">Steam experiences, body practices, and&nbsp;IFS.<br>Warmth, care, and&nbsp;deep relaxation&nbsp;&mdash; of mind and&nbsp;body.</p>
-    <p class="hero-location reveal">Portugal</p>
-    <a href="#meet" class="hero-cta reveal">Book a steam session</a>
-  </div>
-  <div class="scroll-hint">&#8595;</div>
-</section>
+  <!-- ═════ HERO ═════ -->
+  <section class="hero" id="hero">
+    <img class="hero-photo" src="photos/img_8515.jpg" alt="Alena after a steam session" loading="eager">
+    <div class="hero-content">
+      <h1 class="hero-name">Alena Pavlenko</h1>
+      <p class="hero-tagline">A steam space for <span class="hl">connection with yourself.</span></p>
+      <p class="hero-loc">Lisbon &middot; Porto &middot; Europe</p>
+      <a class="hero-cta" href="#contact">Book a steam session <span style="font-style:italic;font-family:var(--ff-display)">→</span></a>
+    </div>
+  </section>
 
-<!-- === PHOTO STRIP === -->
-<div class="photo-strip">
-  <img src="photos/img_4175.jpg" alt="With oak veniks" loading="lazy">
-  <img src="photos/img_4176.jpg" alt="With veniks" loading="lazy">
-  <img src="photos/img_4177.jpg" alt="With veniks" loading="lazy">
-</div>
-
-<!-- === ABOUT === -->
-<section class="sect about-bg" id="about">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">Where my sessions<br>meet your body and mind</h2>
-
-    <div class="about-columns">
-      <div class="about-text">
-        <p class="reveal">I love seeing what happens to guests in the sessions I guide. With warmth, careful attention, and someone holding the process with experience, <strong>the body lets go on its own</strong>. Tension releases, the mind quiets, and afterward guests come out in a state where words barely come together. <span class="em">Pure bliss.</span></p>
-        <p class="reveal">It matters to me that every session feels <strong>safe, cared for, and held</strong>. I bring that attention deliberately. The work lands in a simple sauna as well as in a fully equipped steam room.</p>
+  <!-- ═════ SECTION 1 — PRACTICE ═════ -->
+  <section class="practice theme-light" id="practice">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">I</span>
+        <span class="label">Practice</span>
+        <span class="rule"></span>
       </div>
-      <div>
-        <div class="quote-card reveal">
-          <p>Guests often walk out of a session feeling renewed&nbsp;&mdash; clearer, more relaxed, more themselves. A few of their words:</p>
-          <ul class="guest-quotes">
-            <li>&ldquo;My best steam experience ever.&rdquo;</li>
-            <li>&ldquo;It was exactly what I needed.&rdquo;</li>
-            <li>&ldquo;I was able to truly relax and rest.&rdquo;</li>
+
+      <div class="practice-grid">
+        <div class="practice-photo fade">
+          <img src="photos/img_4175.jpg" alt="With an oak whisk">
+        </div>
+
+        <div class="practice-text">
+          <p class="body-lead fade">I love watching my guests transform over the course of a steam session. <span class="hl">The warmth of the steam,</span> care through the whisks, <span class="ul">the quality of my attention,</span> meditative practices and <span class="hl-g">voice guidance</span>&nbsp;— all of this brings you to <span class="em">deep relaxation of mind and body.</span></p>
+
+          <div class="stats-row fade">
+            <div class="stat">
+              <span class="stat-num">5&nbsp;years</span>
+              <span class="stat-label">of steam practice</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">7&nbsp;countries</span>
+              <span class="stat-label">hundreds of guests</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">350+</span>
+              <span class="stat-label">hours of somatic work</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ SECTION 2 — TESTIMONIALS ═════ -->
+  <section class="testimonials theme-dark warm">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">II</span>
+        <span class="label">Guest voices</span>
+        <span class="rule"></span>
+      </div>
+
+      <span class="lead-mono-eyebrow">— from Portugal &middot; 2024–26</span>
+      <h2 class="lead-serif fade">What people say <em>after.</em></h2>
+
+      <div class="testi-hero fade">
+        <blockquote>A reset for the nervous system. <span class="em">Expansion.</span> Floating a little, yet fully in the body.</blockquote>
+      </div>
+
+      <div class="testi-pair">
+        <blockquote class="testi-card left fade">Warming the inner cold.</blockquote>
+        <blockquote class="testi-card right fade">It was exactly what I needed.</blockquote>
+      </div>
+
+      <p class="testi-attr fade">— in the words of guests</p>
+    </div>
+  </section>
+
+  <!-- ═════ SECTION 3 — BENEFITS ═════ -->
+  <section class="benefits theme-light" id="benefits">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">III</span>
+        <span class="label">Benefits</span>
+        <span class="rule"></span>
+      </div>
+
+      <h2 class="lead-bold fade">The benefits of steaming <span class="hl">with me</span>&nbsp;— for your <span class="hl-g">mind and body.</span></h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-col fade">
+          <div class="head">
+            <span class="roman">I</span>
+            <h3>Body</h3>
+          </div>
+          <ul>
+            <li><span class="li-num">01</span><span><strong>Circulation opens</strong>&nbsp;— blood moves through deep tissue.</span></li>
+            <li><span class="li-num">02</span><span><strong>Muscles recover faster</strong>&nbsp;— heat and whisks release tension better than rest.</span></li>
+            <li><span class="li-num">03</span><span><strong>Lymph moves</strong> through oak whisk work&nbsp;— supporting immunity.</span></li>
+            <li><span class="li-num">04</span><span><strong>Fascia and connective tissue</strong> soften, joints become more mobile.</span></li>
+            <li><span class="li-num">05</span><span><strong>Sleep that night</strong> is deeper and more restorative.</span></li>
+          </ul>
+        </div>
+        <div class="benefit-col green fade">
+          <div class="head">
+            <span class="roman">II</span>
+            <h3>Mind</h3>
+          </div>
+          <ul>
+            <li><span class="li-num">01</span><span><strong>The nervous system shifts</strong> into parasympathetic mode&nbsp;— stress drops, breathing slows.</span></li>
+            <li><span class="li-num">02</span><span><strong>Clarity returns</strong> when the body lets go.</span></li>
+            <li><span class="li-num">03</span><span><strong>Emotions move</strong>&nbsp;— what was stuck can come through.</span></li>
+            <li><span class="li-num">04</span><span><strong>A meditative state</strong> arrives without effort.</span></li>
+            <li><span class="li-num">05</span><span><strong>New perspectives open</strong> on questions that felt like dead ends.</span></li>
           </ul>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ═════ SECTION 4 — VALUES ═════ -->
+  <section class="values theme-dark" id="values">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">IV</span>
+        <span class="label">Values</span>
+        <span class="rule"></span>
+      </div>
+
+      <h2 class="lead-serif fade">My <em>values.</em></h2>
+
+      <div class="values-layout">
+        <div class="values-portrait fade">
+          <img src="photos/portrait-main.jpg" alt="Alena Pavlenko">
+          <p class="over-quote">— the body lets go on its own.</p>
+        </div>
+
+        <div class="values-list">
+          <div class="value-row fade">
+            <span class="roman">I</span>
+            <div>
+              <h3>Grounded in science and experience</h3>
+              <p>Every session is built on an understanding of heat physics, IFS and somatic training, years of practice across countries. <span class="em">No guesswork.</span></p>
+            </div>
+          </div>
+          <div class="value-row fade">
+            <span class="roman">II</span>
+            <div>
+              <h3>Intention in every layer</h3>
+              <p>The rhythm of warming, the movement of the whisk, voice and meditative practices&nbsp;— every element has a purpose. <span class="em">When you bring your own intention, the experience opens wider.</span></p>
+            </div>
+          </div>
+          <div class="value-row fade">
+            <span class="roman">III</span>
+            <div>
+              <h3>Care as a path to clarity</h3>
+              <p>When the body releases in warmth and genuine care, the mind follows. <span class="em">Clarity comes after you've returned to yourself.</span></p>
+            </div>
+          </div>
+          <div class="value-row fade">
+            <span class="roman">IV</span>
+            <div>
+              <h3>Connection to the body</h3>
+              <p>A good session brings you home&nbsp;— to the body, breath, sensation. <span class="em">You leave closer to yourself.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ SECTION 5 — SESSION ═════ -->
+  <section class="session theme-light warm" id="session">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">V</span>
+        <span class="label">Session</span>
+        <span class="rule"></span>
+      </div>
+
+      <h2 class="lead-bold fade">How a <span class="hl-g">steam session</span> with me works.</h2>
+
+      <div class="session-features fade">
+        <div class="feat">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4 4 0 1 0 5 0z"/></svg></div>
+          <div class="feat-text">
+            <p class="title">Up to <strong>60&deg;C</strong> heat</p>
+            <p class="note">Deep warming — the body has time to absorb it fully.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="18" rx="8" ry="2.5"/><ellipse cx="10" cy="14" rx="5" ry="2"/><ellipse cx="14" cy="10" rx="3" ry="1.5"/><path d="M12 6c-1 1-1 2 0 3M16 5c-1 1-1 2 0 3" opacity="0.6"/></svg></div>
+          <div class="feat-text">
+            <p class="title"><strong>Pure water</strong> on hot stones</p>
+            <p class="note">Soft, breathing steam that nourishes.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M17.73 2.27A2.5 2.5 0 1 1 19.5 7H2"/><path d="M15.09 20.91A2.5 2.5 0 1 0 16.5 17H2"/></svg></div>
+          <div class="feat-text">
+            <p class="title"><strong>Good ventilation</strong></p>
+            <p class="note">Fresh air and steady breathing throughout the whole session.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <div class="feat-text">
+            <p class="title"><strong>Gradual, layered</strong> warming</p>
+            <p class="note">The body opens layer by layer.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 5 9 5 13c0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-11z"/><path d="M12 2v18"/></svg></div>
+          <div class="feat-text">
+            <p class="title"><strong>Oak whisk</strong> work</p>
+            <p class="note">Lymph moves, fascia softens, heat goes deeper.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a3 3 0 1 1 3 3c-3 0-5-2-5-5s2-5 6-5 7 3 7 7-4 8-9 8"/></svg></div>
+          <div class="feat-text">
+            <p class="title"><strong>Meditative practices</strong> and voice</p>
+            <p class="note">The mind anchors in the present, relaxation goes deeper.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounds-head fade">
+        <span class="rounds-eyebrow">— how the rounds unfold —</span>
+      </div>
+      <div class="rounds">
+        <div class="round fade">
+          <span class="round-tag">Before the rounds</span>
+          <span class="num">·</span>
+          <h3>Opening circle</h3>
+          <p>We meet, settle in, I explain what's ahead. A moment to arrive and attune before the warmth begins.</p>
+        </div>
+        <div class="round fade highlighted">
+          <span class="round-tag">Round 1</span>
+          <span class="num">01</span>
+          <h3>Warm-up</h3>
+          <p>Getting used to the heat, first sweat, attention turns inward — returning to connection with the body.</p>
+        </div>
+        <div class="round fade">
+          <span class="round-tag">Rounds 2&ndash;4</span>
+          <span class="num">02&ndash;04</span>
+          <h3>Whisk work</h3>
+          <p>Oak whisks move across the body in the heat. Tissues open, lymph flows, breathing slows. By the final round, the nervous system reaches a state <span class="hl">deeper than sleep.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ SECTION 6 — FORMATS ═════ -->
+  <section class="formats" id="formats">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">VI</span>
+        <span class="label">Formats</span>
+        <span class="rule"></span>
+      </div>
+
+      <h2 class="lead-serif fade">Ways to work <em>with me.</em></h2>
+
+      <p class="formats-intro fade">Six formats: <strong>three ways to be my guest</strong> and <strong>three collaboration options</strong>&nbsp;— for spaces, retreats, and consulting.</p>
+
+      <div class="formats-group guests">
+        <div class="formats-head fade">
+          <h3>Be my <em>guest</em></h3>
+          <span class="rule"></span>
+          <span class="count">three formats</span>
+        </div>
+        <p class="formats-subhead fade">— from a first steam to a deep ritual of transition</p>
+        <div class="format-grid">
+
+          <!-- 01 Open groups -->
+          <div class="format fade">
+            <span class="format-num-big">01</span>
+            <h4>Open group steam sessions</h4>
+            <p>Regular sessions near <span class="em">Lisbon and Porto.</span> Warm atmosphere, whisks, personal attention to each guest.</p>
+            <div class="format-meta">
+              <span class="k">Group</span>
+              <span class="v">5–6 people</span>
+              <a href="#contact">Get in touch →</a>
+            </div>
+          </div>
+
+          <!-- 02 Private group -->
+          <div class="format fade">
+            <span class="format-num-big">02</span>
+            <h4>Private group steam</h4>
+            <p>When you want to mark an <span class="hl">important moment</span> through the body, warmth, and stillness. Themes welcome.</p>
+            <div class="format-cases">
+              <span class="format-case">Receiving care</span>
+              <span class="format-case">Processing loss</span>
+              <span class="format-case">Creativity</span>
+            </div>
+            <div class="format-meta">
+              <span class="k">By request</span>
+              <span class="v">from your group</span>
+              <a href="#contact">Discuss →</a>
+            </div>
+          </div>
+
+          <!-- 03 Individual -->
+          <div class="format feature fade">
+            <span class="format-num-big">03</span>
+            <h4>Individual steaming</h4>
+            <p>Private accompaniment through a <span class="em">meaningful transformation</span>&nbsp;— through the body, warmth, and attention.</p>
+            <div class="format-cases">
+              <span class="format-case">Birthday</span>
+              <span class="format-case">Loss</span>
+              <span class="format-case">Creative perspective</span>
+              <span class="format-case">Reset</span>
+            </div>
+            <div class="format-meta">
+              <span class="k">Format</span>
+              <span class="v">1&nbsp;on&nbsp;1</span>
+              <a href="#contact">Write →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="formats-group collab">
+        <div class="formats-head fade">
+          <h3>Collaboration <em>options</em></h3>
+          <span class="rule"></span>
+          <span class="count">three formats</span>
+        </div>
+        <p class="formats-subhead fade">— collaboration that enhances your guests' experience</p>
+        <div class="format-grid">
+
+          <!-- 04 Spaces -->
+          <div class="format feature fade">
+            <span class="format-num-big">04</span>
+            <h4>Steam sessions in your space</h4>
+            <p><span class="em">An exclusive experience for your guests</span> and an additional draw for your venue. I'll create a <span class="hl-g">bespoke programme</span> for your audience and format.</p>
+            <div class="format-cases">
+              <span class="format-case">Spa</span>
+              <span class="format-case">Retreat centres</span>
+              <span class="format-case">Hotels</span>
+              <span class="format-case">Glamping</span>
+              <span class="format-case">Private baths</span>
+            </div>
+            <div class="format-meta">
+              <span class="k">Bespoke programme</span>
+              <a href="#contact">Write →</a>
+            </div>
+          </div>
+
+          <!-- 05 Retreats -->
+          <div class="format fade">
+            <span class="format-num-big">05</span>
+            <h4>Retreats</h4>
+            <p><span class="em">An experience of somatic integration</span> that yoga or meditation can't replace. Steam deepens the retreat's effect&nbsp;— and stays with participants long after.</p>
+            <div class="format-cases">
+              <span class="format-case">Attunement at the start</span>
+              <span class="format-case">Relaxation in the middle</span>
+              <span class="format-case">Integration at the close</span>
+            </div>
+            <div class="format-meta">
+              <span class="k">By programme</span>
+              <a href="#contact">Discuss →</a>
+            </div>
+          </div>
+
+          <!-- 06 Consulting -->
+          <div class="format fade">
+            <span class="format-num-big">06</span>
+            <h4>Consulting</h4>
+            <p>I'll help with setting up a thermal space, choosing equipment and suppliers, building a <span class="hl-g">community</span> around the steam.</p>
+            <div class="format-meta">
+              <span class="k">Consulting</span>
+              <a href="#contact">Enquire →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ SECTION 7 — PATH ═════ -->
+  <section class="path theme-light" id="path">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">VII</span>
+        <span class="label">My path</span>
+        <span class="rule"></span>
+      </div>
+
+      <h2 class="lead-serif fade">How I <em>came to steam.</em></h2>
+
+      <div class="path-grid">
+        <div class="path-photos fade">
+          <div class="polaroid">
+            <img src="photos/img_4177.jpg" alt="With whisks">
+          </div>
+          <p class="polaroid-cap">— steam found me in&nbsp;2020</p>
+        </div>
+
+        <div class="path-timeline">
+          <div class="path-row fade">
+            <span class="path-year"><span class="dot"></span>Origin</span>
+            <div class="path-text">
+              <h4>Vladivostok &middot; PhD</h4>
+              <p>Born in <span class="em">Vladivostok</span>. PhD in experimental physics. That scientific foundation stayed with me — it shapes how I work with the body in the steam.</p>
+            </div>
+          </div>
+
+          <div class="path-row fade">
+            <span class="path-year"><span class="dot"></span>15&nbsp;years</span>
+            <div class="path-text">
+              <h4>Rhythmic gymnastics</h4>
+              <p>15 years in sport. I learned a great deal through the body. Today, attention to sensation and respect for boundaries matter deeply to me.</p>
+            </div>
+          </div>
+
+          <div class="path-row fade">
+            <span class="path-year"><span class="dot"></span>Career</span>
+            <div class="path-text">
+              <h4>Deloitte &middot; Sustainability</h4>
+              <p>Strategy consulting at Deloitte, Sustainability practice. Experience working with structure and complex challenges&nbsp;— now useful in thermal space consulting.</p>
+            </div>
+          </div>
+
+          <div class="path-row fade">
+            <span class="path-year"><span class="dot"></span>2020</span>
+            <div class="path-text">
+              <h4>First ceremonial steam</h4>
+              <p>It happened at a regional <span class="em">Burning Man in 2020</span>. I walked into a ceremonial steam space and never left. Haven't stopped since.</p>
+            </div>
+          </div>
+
+          <div class="path-row fade">
+            <span class="path-year"><span class="dot"></span>2020 —</span>
+            <div class="path-text">
+              <h4>5&nbsp;years, 7&nbsp;countries</h4>
+              <p>Steamed in <span class="em">Russia, Sweden, the Netherlands, Portugal, Poland, Lithuania, Germany</span>. Hundreds of guests. Camp lead of Banya Alpacas and NII Banya, worked at Waking Life and regional Burning Man.</p>
+            </div>
+          </div>
+
+          <div class="path-row fade">
+            <span class="path-year"><span class="dot"></span>Now</span>
+            <div class="path-text">
+              <h4>Body &middot; IFS &middot; 350+ hours</h4>
+              <p>Over <span class="em">350 hours of somatic practice</span>&nbsp;— steam, massage, somatic therapy. I practise <span class="em">IFS</span>&nbsp;— using elements of the method in the steam to work with mental load.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ SECTION 8 — GALLERY ═════ -->
+  <section class="gallery theme-dark deep" id="gallery">
+    <div class="wrap">
+      <div class="sect-mark fade">
+        <span class="num">VIII</span>
+        <span class="label">Places &amp; people</span>
+        <span class="rule"></span>
+      </div>
+
+      <h2 class="lead-serif fade">The steam <em>world.</em></h2>
+
+      <div class="gallery-grid fade">
+        <div class="gitem g-a">
+          <span class="tagline">Portugal &middot; 2023</span>
+          <img src="photos/gal-waking-life.jpg" alt="Waking Life">
+          <div class="cap"><span class="name">Waking Life</span>Festival, Portugal</div>
+        </div>
+        <div class="gitem g-b">
+          <span class="tagline">Ericeira</span>
+          <img src="photos/gal-inyo.jpg" alt="Inyo space">
+          <div class="cap"><span class="name">Inyo space</span>Ericeira</div>
+        </div>
+        <div class="gitem g-c">
+          <span class="tagline">Alpacas &middot; camp</span>
+          <img src="photos/gal-nii-banya.jpg" alt="Banya Alpacas">
+          <div class="cap"><span class="name">Banya Alpacas</span>The camp that became a family</div>
+        </div>
+        <div class="gitem g-d">
+          <span class="tagline">Colleagues &middot; steamer &amp; engineer</span>
+          <img src="photos/gal-andrey-lvovsky.jpg" alt="Andrey Lvovsky">
+          <div class="cap"><span class="name">Andrey Lvovsky</span>Mobile steam, ambassador of festival steam culture in Europe</div>
+        </div>
+        <div class="gitem g-e">
+          <span class="tagline">PL &middot; training</span>
+          <img src="photos/gal-poland-training.jpg" alt="Poland, training">
+          <div class="cap"><span class="name">Poland</span>Steam training</div>
+        </div>
+        <div class="gitem g-f">
+          <span class="tagline">Themas &middot; Banyeum</span>
+          <img src="photos/gal-max-batrakov.jpg" alt="Max Batrakov">
+          <div class="cap"><span class="name">Max Batrakov</span>Themas and Banyeum steam accessories</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gallery-overlay" id="galleryOverlay">
+    <img id="overlayImg" src="" alt="">
   </div>
-</section>
 
-<!-- === VALUES === -->
-<section class="sect values-bg" id="values">
-  <div class="sect-inner">
-    <div class="values-portrait reveal" aria-hidden="true">
-      <img src="photos/portrait-main.jpg" alt="Alena Pavlenko" loading="lazy">
-    </div>
-    <h2 class="sect-title reveal">What My Sessions<br>Are Built On</h2>
-    <div class="values-grid">
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5" fill="#5C3A24"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/></svg></div>
-        <div class="value-card-text">
-          <h3>Rooted in science and experience</h3>
-          <p>Every session is shaped by a physicist's understanding of heat, IFS and somatic training, and years of guiding steam across Europe. <strong>None of it is guesswork.</strong></p>
-        </div>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#5C3A24"/></svg></div>
-        <div class="value-card-text">
-          <h3>Intentionality</h3>
-          <p>Every layer of a session is built with purpose&nbsp;&mdash; the rhythm of warming, the whisk strokes, the meditation threaded through. <strong>When you bring your own intention to meet it, the experience expands.</strong></p>
-        </div>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg></div>
-        <div class="value-card-text">
-          <h3>Care and ease as a way to clarity</h3>
-          <p>When the body softens under warmth and real care, the mind follows. <strong>Clarity usually arrives after you've landed fully in yourself.</strong></p>
-        </div>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5C3A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-        <div class="value-card-text">
-          <h3>Connection to your body</h3>
-          <p>A good session brings you home&nbsp;&mdash; into your body, your breath, your sensation. <strong>You leave with yourself more reachable.</strong></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- ═════ SECTION 9 — CONTACT ═════ -->
+  <section class="contact" id="contact">
+    <div class="wrap-narrow">
+      <div class="contact-inner fade">
+        <h2>See you <em>in the steam.</em></h2>
+        <p class="lede">For booking a session, questions about a private steam, or collaboration&nbsp;— reach out on WhatsApp or Instagram. I'd love to hear from you.</p>
 
-<!-- === HOW === -->
-<section class="sect how-bg" id="how">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">How a Steam Session With Me<br>Looks From the Inside</h2>
-    <div class="how-features reveal">
-      <div class="how-feature">
-        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4 4 0 1 0 5 0z"/></svg></div>
-        <div class="how-feature-label">
-          <div class="how-feature-title">Up to <strong>60&deg;C</strong> of heat</div>
-          <div class="how-feature-benefit">deep warming the body can fully absorb</div>
-        </div>
-      </div>
-      <div class="how-feature">
-        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="18" rx="8" ry="2.5"/><ellipse cx="10" cy="14" rx="5" ry="2"/><ellipse cx="14" cy="10" rx="3" ry="1.5"/><path d="M12 6c-1 1-1 2 0 3M16 5c-1 1-1 2 0 3" opacity="0.6"/></svg></div>
-        <div class="how-feature-label">
-          <div class="how-feature-title">Steam from <strong>pure water on hot rocks</strong></div>
-          <div class="how-feature-benefit">soft, breathable steam that nourishes</div>
-        </div>
-      </div>
-      <div class="how-feature">
-        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M17.73 2.27A2.5 2.5 0 1 1 19.5 7H2"/><path d="M15.09 20.91A2.5 2.5 0 1 0 16.5 17H2"/></svg></div>
-        <div class="how-feature-label">
-          <div class="how-feature-title"><strong>Good ventilation</strong></div>
-          <div class="how-feature-benefit">fresh air and steady breath throughout</div>
-        </div>
-      </div>
-      <div class="how-feature">
-        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <div class="how-feature-label">
-          <div class="how-feature-title"><strong>Iterative, gradual</strong> warming</div>
-          <div class="how-feature-benefit">the body opens one layer at a time</div>
-        </div>
-      </div>
-      <div class="how-feature">
-        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 5 9 5 13c0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-11z"/><path d="M12 2v18"/></svg></div>
-        <div class="how-feature-label">
-          <div class="how-feature-title"><strong>Oak whisk</strong> work</div>
-          <div class="how-feature-benefit">lymph moves, fascia softens, heat goes deeper</div>
-        </div>
-      </div>
-      <div class="how-feature">
-        <div class="how-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a3 3 0 1 1 3 3c-3 0-5-2-5-5s2-5 6-5 7 3 7 7-4 8-9 8"/></svg></div>
-        <div class="how-feature-label">
-          <div class="how-feature-title"><strong>Guided meditation</strong></div>
-          <div class="how-feature-benefit">anchors the mind, deepens the reset</div>
+        <div class="contact-buttons">
+          <a class="cbtn cbtn-primary" href="https://wa.me/message/3TBBQ4FQYNHRK1" target="_blank" rel="noopener">
+            <span>WhatsApp</span><span class="arrow">→</span>
+          </a>
+          <a class="cbtn" href="https://www.instagram.com/warm_clouds_space" target="_blank" rel="noopener">
+            <span>Instagram &middot; @warm_clouds_space</span><span class="arrow">→</span>
+          </a>
+          <a class="cbtn" href="https://alena-pavlenko-ifs-eng.netlify.app/" target="_blank" rel="noopener">
+            <span>IFS practice</span><span class="arrow">↗</span>
+          </a>
         </div>
       </div>
     </div>
-    <div class="how-steps">
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="20" fill="#F5ECD8" opacity="0.4"/><circle cx="32" cy="14" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="48" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="32" cy="50" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="42" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/><circle cx="16" cy="26" r="4" fill="#F0E8DA" stroke="#C4A44A" stroke-width="1.3"/></svg></div>
-        <h3>Opening Circle</h3>
-        <p>We meet, take time to settle in, and I share what's coming. A moment to arrive before the heat begins.</p>
-      </div>
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="12" fill="#F5ECD8" stroke="#C4A44A" stroke-width="1.5"/><path d="M32 10v6M32 48v6M10 32h6M48 32h6M16 16l4 4M44 44l4 4M16 48l4-4M44 20l4-4" stroke="#E0CC80" stroke-width="2.2" stroke-linecap="round"/></svg></div>
-        <h3>Round 1: Warming up</h3>
-        <p>Settle into the heat. First sweat, attention turned inward, reconnecting to the body.</p>
-      </div>
-      <div class="how-card reveal">
-        <div class="how-illustration" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 12v40" stroke="#5C3A24" stroke-width="2" stroke-linecap="round"/><ellipse cx="24" cy="22" rx="6" ry="3" transform="rotate(-30 24 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="22" rx="6" ry="3" transform="rotate(30 40 22)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="22" cy="34" rx="7" ry="3.5" transform="rotate(-25 22 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="42" cy="34" rx="7" ry="3.5" transform="rotate(25 42 34)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="24" cy="46" rx="6" ry="3" transform="rotate(-30 24 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/><ellipse cx="40" cy="46" rx="6" ry="3" transform="rotate(30 40 46)" fill="#DCE8D4" stroke="#4A8058" stroke-width="1.3"/></svg></div>
-        <h3>Rounds 2&ndash;4: Whisk work</h3>
-        <p>Leafy oak branches pressed and stroked along your body inside the heat. Tissues open, lymph moves, fascia softens, breath slows. By the final round, the nervous system downshifts into a state deeper than sleep.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- === EXPERTISE === -->
-<section class="sect expertise-bg" id="expertise">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">What I Bring to the Steam Session<br>for Your Experience</h2>
-    <div class="expertise-grid">
-      <div class="expertise-card reveal">
-        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/></svg></div>
-        <div class="expertise-label">Physicist's mind</div>
-        <h3>Heat, sequenced with care</h3>
-        <p>My PhD in physics shapes how I sequence each round. Heat reaches <strong>deep tissue without overloading your system</strong>.</p>
-      </div>
-      <div class="expertise-card reveal">
-        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="9" r="1.5" fill="currentColor"/><circle cx="16" cy="9" r="1.5" fill="currentColor"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/></svg></div>
-        <div class="expertise-label">IFS practitioner</div>
-        <h3>Space for what's underneath</h3>
-        <p>IFS training makes space for <strong>emotional material to surface and move safely</strong> in the heat.</p>
-      </div>
-      <div class="expertise-card reveal">
-        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a2 2 0 0 1 4 0v6"/><path d="M13 11V4a2 2 0 0 1 4 0v7"/><path d="M17 11V7a2 2 0 0 1 4 0v8c0 4-3 7-7 7h-2c-4 0-7-3-7-7v-3a2 2 0 0 1 4 0"/></svg></div>
-        <div class="expertise-label">Body therapist</div>
-        <h3>Hands that release tissue</h3>
-        <p>Somatic training guides the whisk work and touch&nbsp;&mdash; <strong>fascia softens, lymph moves, the nervous system settles</strong>.</p>
-      </div>
-      <div class="expertise-card reveal">
-        <div class="expertise-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5l-2 7.5 5.5-4 5.5 4-2-7.5"/></svg></div>
-        <div class="expertise-label">Years of practice</div>
-        <h3>Refined through hundreds of guests</h3>
-        <p>Trained and refined across steam cultures in Sweden, the Netherlands, and Portugal. <strong>Every element tested in real sessions.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === BENEFITS === -->
-<section class="sect benefits-bg" id="benefits">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">What a Steam Experience With Me<br>Brings to Your Wellbeing</h2>
-    <div class="benefits-grid">
-      <div class="benefit-card reveal">
-        <h3>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          Body
-        </h3>
-        <ul>
-          <li><strong>Circulation opens</strong> and blood moves through deep tissue.</li>
-          <li><strong>Muscle recovery</strong> speeds up as heat and whisk work ease soreness faster than rest alone.</li>
-          <li><strong>Lymphatic flow</strong> increases with oak whisk strokes, supporting immune function.</li>
-          <li><strong>Fascia and connective tissue</strong> soften, leaving joints more mobile.</li>
-          <li><strong>Sleep</strong> that night tends to be deeper and more restorative.</li>
-        </ul>
-      </div>
-      <div class="benefit-card reveal">
-        <h3>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 5v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5c0-2 1-3 1-5a6 6 0 0 0-6-6z"/><path d="M9 16h6"/></svg>
-          Mind
-        </h3>
-        <ul>
-          <li><strong>The nervous system downshifts</strong> as stress hormones drop and breath slows.</li>
-          <li><strong>Mental clarity</strong> returns once the body lets go.</li>
-          <li><strong>Emotional release</strong> becomes natural, and what's been stuck can finally move.</li>
-          <li><strong>A meditative state</strong> arrives without effort.</li>
-          <li><strong>Mood lifts</strong> through endorphin release, nervous system calm, and real rest.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === BIO === -->
-<section class="sect bio-bg" id="bio">
-  <div class="sect-inner bio-inner-wide">
-    <div class="bio-head reveal">
-      <div class="bio-photo-cluster" aria-hidden="true">
-        <div class="bio-polaroid bio-polaroid--1">
-          <img src="photos/img_8515.jpg" alt="Alena after steam" width="186" height="232" loading="lazy">
-        </div>
-        <div class="bio-polaroid bio-polaroid--2">
-          <img src="photos/img_4177.jpg" alt="With veniks" width="136" height="168" loading="lazy">
-        </div>
-      </div>
-      <div class="bio-title-wrap">
-        <h2 class="sect-title reveal">My Road to the Steam</h2>
-      </div>
-    </div>
-
-    <div class="bio-timeline">
-      <div class="bio-step reveal">
-        <div class="bio-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round"><ellipse cx="24" cy="26" rx="16" ry="9" transform="rotate(-12 24 26)"/><circle cx="24" cy="24" r="5" fill="var(--gold)" stroke="var(--green)"/><path d="M10 36c4-6 10-8 14-8s10 2 14 8"/></svg></div>
-        <p>Born in <span class="em">Vladivostok</span>. I hold a PhD in physics. The research mindset stayed with me here too: I have a solid understanding of what happens to the body in a steam room.</p>
-      </div>
-      <div class="bio-step reveal">
-        <div class="bio-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c-3 0-4 4-2 7l4 8-2 8"/><path d="M18 38c-2 0-4-2-4-5v-4c0-3 3-5 6-5h6"/><circle cx="24" cy="12" r="3"/><path d="M30 22h6c2 0 4 2 4 4v4"/></svg></div>
-        <p><span class="em">15 years of rhythmic gymnastics.</span> I learned a great deal through the body. Today what matters to me is attention to sensations and respect for boundaries.</p>
-      </div>
-      <div class="bio-step reveal">
-        <div class="bio-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round"><path d="M24 40c-3-6-4-12-4-18 0-6 2-8 4-4s2 10 0 16"/><path d="M12 32c2-4 6-6 12-6"/><path d="M36 32c-2-4-6-6-12-6"/></svg></div>
-        <p>My first ceremonial steam happened at a regional <span class="em">Burning Man in 2020</span>. Since then I've trained with various masters, but the greatest teacher has been practice itself.</p>
-      </div>
-      <div class="bio-step reveal">
-        <div class="bio-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M6 24h36M24 6v36"/></svg></div>
-        <p>I've led steam sessions at festivals in <span class="em">Russia, Sweden, the Netherlands, and Portugal</span>. Hundreds of people have come through my steam rooms. Thermal culture across different countries is a whole world, and I find joy in exploring it.</p>
-      </div>
-      <div class="bio-step reveal">
-        <div class="bio-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 28c4-6 8-8 10-8s6 2 10 8"/><path d="M18 20c2-4 6-6 6-6s4 2 6 6"/><ellipse cx="24" cy="34" rx="10" ry="4"/></svg></div>
-        <p><span class="em">Body therapist and massage practitioner.</span> I work with the body through warmth, touch, and attention. I also practice <span class="em">IFS</span> (Internal Family Systems)&nbsp;&mdash; a framework for working with the psyche.</p>
-      </div>
-      <div class="bio-step reveal">
-        <div class="bio-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22l16-10 16 10v20a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V22z"/><path d="M18 44V28h12v16"/></svg></div>
-        <p>Currently based in <span class="em">Portugal</span>. I hold regular steam ceremonies and travel to festivals and retreats.</p>
-      </div>
-    </div>
-
-    <div class="bio-links reveal">
-      <a href="https://wa.me/message/3TBBQ4FQYNHRK1" target="_blank" rel="noopener" class="bio-link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="https://alena-pavlenko-ifs-eng.netlify.app/" target="_blank" rel="noopener" class="bio-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        IFS Practice
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- === GALLERY === -->
-<section class="sect gallery-bg" id="gallery">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">People and&nbsp;Places</h2>
-    <div class="gallery-grid gallery-playful">
-      <div class="gallery-item gallery-item--tilt-l reveal">
-        <img src="photos/gal-inyo.jpg" alt="INYO Ericeira" loading="lazy">
-        <p class="gallery-caption"><strong>Inyo</strong>&nbsp;&mdash; perfect steam in Ericeira.</p>
-      </div>
-      <div class="gallery-item gallery-item--tilt-r reveal">
-        <img src="photos/gal-waking-life.jpg" alt="Waking Life Portugal" loading="lazy">
-        <p class="gallery-caption"><strong>Waking Life</strong>, Portugal, 2023.</p>
-      </div>
-      <div class="gallery-item gallery-item--tilt-r reveal">
-        <img src="photos/gal-nii-banya.jpg" alt="Steam Alpacas community" loading="lazy">
-        <p class="gallery-caption"><strong>Steam Alpacas</strong>&nbsp;&mdash; a camp that grew into a whole steam family.</p>
-      </div>
-      <div class="gallery-item reveal">
-        <img src="photos/gal-andrey-lvovsky.jpg" alt="Andrey Lvovsky" loading="lazy">
-        <p class="gallery-caption"><strong>Andrey Lvovsky</strong>&nbsp;&mdash; steam master, engineer, and ambassador of festival steam culture in Europe. He designed and built a mobile festival steam room for 30 people.</p>
-      </div>
-      <div class="gallery-item gallery-item--tilt-l reveal">
-        <img src="photos/gal-poland-training.jpg" alt="Training in Poland" loading="lazy">
-        <p class="gallery-caption"><strong>Steam training in Poland.</strong></p>
-      </div>
-      <div class="gallery-item gallery-item--tilt-r reveal">
-        <img src="photos/gal-max-batrakov.jpg" alt="Max Batrakov" loading="lazy">
-        <p class="gallery-caption"><strong>Max Batrakov</strong>&nbsp;&mdash; Themas project and creator of Baneum steam accessories.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === MEET === -->
-<section class="sect meet-bg" id="meet">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal">Ways to Work<br>With Me</h2>
-    <div class="meet-grid">
-      <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <h3>Regular Steam Sessions in Portugal</h3>
-        <p>Group steam ceremonies tied to seasonal and lunar events. <strong>Small groups of up to 5&ndash;6 people.</strong> Three group rounds plus the option of individual steaming.</p>
-      </div>
-      <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <h3>Individual Sessions</h3>
-        <p>Personal work tailored to your needs. Steaming with veniks (leafy oak bundles), massage, body practices. <strong>Full attention to your body, state, and boundaries.</strong></p>
-        <p>Reach out and we'll discuss the format and timing!</p>
-      </div>
-      <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="10" r="1.3" fill="var(--green)"/><circle cx="16" cy="10" r="1.3" fill="var(--green)"/><circle cx="12" cy="16" r="1.3" fill="var(--green)"/><circle cx="12" cy="12" r="2.2" fill="var(--green)"/></svg></div>
-        <h3>IFS Practice</h3>
-        <p>Individual work with the psyche using the IFS (Internal Family Systems) framework. I work with both the body and inner processes.</p>
-        <p><a href="https://alena-pavlenko-ifs-eng.netlify.app/" target="_blank" rel="noopener">More about IFS practice &rarr;</a></p>
-      </div>
-      <div class="meet-card reveal">
-        <div class="meet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3>Festivals, Retreats, Collaborations</h3>
-        <p>I run steam rooms at festivals and retreats. Experience in Russia, Sweden, the Netherlands, and Portugal. <strong>If you're an organizer, let's talk!</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === CONTACTS === -->
-<section class="contact-bg" id="contacts">
-  <div class="sect-inner">
-    <h2 class="sect-title reveal" style="margin-bottom:1rem;">Contact</h2>
-    <p class="contact-text reveal">
-      For bookings, questions, or collaboration&nbsp;&mdash; reach out on WhatsApp or Instagram. I'd love to hear from you!
-    </p>
-    <div class="contact-buttons reveal">
-      <a href="https://wa.me/message/3TBBQ4FQYNHRK1" target="_blank" rel="noopener" class="contact-btn contact-btn-primary">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="https://www.instagram.com/warm_clouds_space" target="_blank" rel="noopener" class="contact-btn contact-btn-secondary">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        Instagram
-      </a>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
-  <p class="footer-quote">May the warmth stay with you</p>
-  <p>&copy; 2026 Alena Pavlenko &middot; Steam Ceremony &middot; Portugal</p>
+  <div class="foot-row">
+    <span>© 2026 Alena Pavlenko</span>
+    <span class="breath">— may the warmth stay with you —</span>
+    <span>Portugal &middot; Europe</span>
+  </div>
+  <p class="foot-note">* IFS — Internal Family Systems, a method for working with mental patterns and inner dynamics.</p>
 </footer>
 
 <script>
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 60);
-      revealObserver.unobserve(e.target);
+/* ─── steam canvas (light, ambient) ─── */
+(() => {
+  const c = document.getElementById('steam');
+  const ctx = c.getContext('2d');
+  let w, h, dpr, particles = [], rafId;
+  const COUNT = 16;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = c.width  = window.innerWidth  * dpr;
+    h = c.height = window.innerHeight * dpr;
+    c.style.width  = window.innerWidth  + 'px';
+    c.style.height = window.innerHeight + 'px';
+  }
+  function makeP() {
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * h * 0.5,
+      r: (220 + Math.random() * 240) * dpr,
+      vy: -(0.12 + Math.random() * 0.24) * dpr,
+      vx: (Math.random() - 0.5) * 0.12 * dpr,
+      drift: Math.random() * Math.PI * 2,
+      driftSpeed: 0.0006 + Math.random() * 0.0008,
+      lifeBase: 0.04 + Math.random() * 0.13
+    };
+  }
+  function init() {
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const p = makeP();
+      p.y = Math.random() * h * 1.5;
+      particles.push(p);
     }
+  }
+  function step() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    for (const p of particles) {
+      p.drift += p.driftSpeed;
+      p.x += p.vx + Math.sin(p.drift) * 0.2 * dpr;
+      p.y += p.vy;
+      const yNorm = p.y / h;
+      const fade = Math.sin(Math.max(0, Math.min(1, yNorm)) * Math.PI);
+      const alpha = p.lifeBase * fade;
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+      grad.addColorStop(0, `rgba(255, 195, 130, ${alpha})`);
+      grad.addColorStop(0.5, `rgba(224, 121, 55, ${alpha * 0.25})`);
+      grad.addColorStop(1, 'rgba(255, 195, 130, 0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      if (p.y + p.r < 0) {
+        Object.assign(p, makeP());
+        p.y = h + p.r;
+      }
+    }
+    rafId = requestAnimationFrame(step);
+  }
+  resize();
+  init();
+  step();
+  window.addEventListener('resize', () => { resize(); init(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(rafId);
+    else step();
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+})();
 
-let lastY = 0;
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  const y = window.pageYOffset;
-  nav.style.transform = (y > lastY && y > 100) ? 'translateY(-100%)' : 'translateY(0)';
-  lastY = y;
-});
+/* ─── fade-in observer (staggered) ─── */
+(() => {
+  const io = new IntersectionObserver(es => {
+    es.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+})();
 
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => nav.classList.remove('open'));
-});
+/* ─── floating nav ─── */
+(() => {
+  const nav = document.getElementById('topnav');
+  const hero = document.getElementById('hero');
+  if (!nav || !hero) return;
+
+  let lastY = 0;
+  let visible = false;
+
+  function update() {
+    const heroBottom = hero.offsetTop + hero.offsetHeight;
+    const y = window.pageYOffset;
+    const pastHero = y > heroBottom - 80;
+
+    if (!pastHero) {
+      nav.classList.remove('visible');
+      visible = false;
+    } else {
+      const scrollingDown = y > lastY && y > 200;
+      if (scrollingDown && visible) {
+        nav.classList.remove('visible');
+        visible = false;
+      } else if (!scrollingDown && !visible) {
+        nav.classList.add('visible');
+        visible = true;
+      }
+    }
+    lastY = y;
+  }
+  window.addEventListener('scroll', update, { passive: true });
+
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => nav.classList.remove('open'));
+  });
+})();
+
+/* ─── gallery fullscreen overlay ─── */
+(() => {
+  const overlay = document.getElementById('galleryOverlay');
+  const overlayImg = document.getElementById('overlayImg');
+  document.querySelectorAll('.gitem').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      overlayImg.src = img.src;
+      overlayImg.alt = img.alt;
+      overlay.classList.add('active');
+    });
+  });
+  overlay.addEventListener('click', () => overlay.classList.remove('active'));
+})();
 </script>
-
 </body>
 </html>

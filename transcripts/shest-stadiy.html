@@ -1,0 +1,394 @@
+<title>Шесть стадий</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#EFE5D6; --surface:#FDFAF4; --surface-2:#E2D4BE;
+  --ink:#1A1105; --ink-soft:#4A3A25; --ink-faint:#786646;
+  --rule:#CBB89A; --rule-soft:#DFD1B9;
+  --cold:#4A3B22; --cold-ink:#332818; --cold-soft:#E7DCC7; --cold-rule:#B9A57F;
+  --heat:#9C4E06; --heat-ink:#7C3D03; --heat-soft:#F7E6CB; --heat-rule:#D9B375;
+  --water:#245A6E; --water-ink:#173F4E; --water-soft:#DBE9ED; --water-rule:#96B8C4;
+  --shadow:0 1px 2px rgba(26,17,5,.08);
+  --f-display:"Golos Text","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Literata",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#17110A; --surface:#201810; --surface-2:#2B2117;
+    --ink:#F3EADB; --ink-soft:#B9AA91; --ink-faint:#8C7D65;
+    --rule:#3A2F1F; --rule-soft:#2B2117;
+    --cold:#CBB894; --cold-ink:#DDCCAA; --cold-soft:#251D13; --cold-rule:#4C3D25;
+    --heat:#E89A3C; --heat-ink:#F2AE5C; --heat-soft:#2F2214; --heat-rule:#5C411D;
+    --water:#6FB3C9; --water-ink:#8CC6D9; --water-soft:#13262C; --water-rule:#2D4C57;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17110A; --surface:#201810; --surface-2:#2B2117;
+  --ink:#F3EADB; --ink-soft:#B9AA91; --ink-faint:#8C7D65;
+  --rule:#3A2F1F; --rule-soft:#2B2117;
+  --cold:#CBB894; --cold-ink:#DDCCAA; --cold-soft:#251D13; --cold-rule:#4C3D25;
+  --heat:#E89A3C; --heat-ink:#F2AE5C; --heat-soft:#2F2214; --heat-rule:#5C411D;
+  --water:#6FB3C9; --water-ink:#8CC6D9; --water-soft:#13262C; --water-rule:#2D4C57;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);
+  font-size:16.5px;line-height:1.58;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:52px 34px 110px}
+
+header{margin:0 0 34px;padding:0 0 26px;border-bottom:2px solid var(--ink)}
+h1{font-family:var(--f-display);font-size:40px;font-weight:800;letter-spacing:-.034em;
+  margin:0 0 10px;line-height:1.02}
+header .sub{margin:0;color:var(--ink-soft);max-width:56ch;font-size:16.5px}
+
+.through{margin:0 0 50px}
+.through h2{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 16px}
+.through p{margin:0 0 13px;color:var(--ink-soft)}
+.through p:last-child{margin:0}
+.through strong{color:var(--ink);font-weight:600}
+
+/* ── стадия ─────────────────────── */
+.st{margin:0 0 46px;padding:0 0 0 0}
+.st .eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 6px}
+.st .num{font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--tint,var(--ink-faint));
+  letter-spacing:.02em}
+.st .dash{flex:1;height:1px;background:var(--tint,var(--rule));opacity:.5}
+.st h2{font-family:var(--f-display);font-size:29px;font-weight:700;letter-spacing:-.026em;
+  margin:0 0 8px;line-height:1.08;color:var(--ink)}
+.st .task{margin:0 0 16px;font-size:17px;color:var(--ink-soft);max-width:56ch}
+.st .task b{color:var(--ink);font-weight:600}
+.st p{margin:0 0 12px;color:var(--ink-soft)}
+.st p strong{color:var(--ink);font-weight:600}
+.st h3{font-family:var(--f-display);font-size:15.5px;font-weight:600;margin:24px 0 8px;
+  color:var(--ink);letter-spacing:-.005em}
+.st ul{margin:0 0 13px;padding-left:21px;color:var(--ink-soft)}
+.st li{margin:0 0 7px}
+.st li strong{color:var(--ink);font-weight:600}
+.st ul.dashed{list-style:none;padding-left:0}
+.st ul.dashed li{position:relative;padding-left:19px}
+.st ul.dashed li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1.5px;
+  background:var(--tint,var(--ink-faint));opacity:.65}
+
+/* результат */
+.res{border-top:2px solid var(--tint,var(--rule));padding:11px 0 0;margin:20px 0 0}
+.res .lb{font-family:var(--f-display);font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--tint,var(--ink-faint));margin:0 0 4px}
+.res p{margin:0;color:var(--ink);font-size:16.5px;font-weight:600;font-family:var(--f-display);
+  line-height:1.35}
+
+/* акцентная выноска */
+.pull{margin:20px 0;padding:0 0 0 20px;border-left:3px solid var(--tint,var(--rule))}
+.pull p{margin:0;font-family:var(--f-display);font-size:18px;font-weight:600;color:var(--ink);
+  line-height:1.35;letter-spacing:-.012em}
+
+.why{background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+  padding:16px 20px;margin:18px 0}
+.why .lb{font-family:var(--f-display);font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 9px}
+.why p{margin:0 0 10px;font-size:15.5px}
+.why p:last-child{margin:0}
+.why ul{margin:0;padding-left:21px;font-size:15.5px}
+.why li{margin:0 0 6px}
+
+.flag{background:var(--heat-soft);border:1px solid var(--heat-rule);border-radius:10px;
+  padding:17px 21px;margin:20px 0}
+.flag .lb{font-family:var(--f-display);font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--heat-ink);margin:0 0 11px}
+.flag h4{font-family:var(--f-display);font-size:15px;font-weight:700;margin:15px 0 5px;
+  color:var(--ink)}
+.flag h4:first-of-type{margin-top:0}
+.flag p{margin:0 0 9px;font-size:15.5px}
+.flag p:last-child{margin:0}
+.flag strong{color:var(--ink);font-weight:600}
+
+.tw{overflow-x:auto;margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:420px}
+th{font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.02em;
+  text-align:left;padding:0 16px 9px 0;border-bottom:2px solid var(--rule)}
+th.w{color:var(--water-ink);border-bottom-color:var(--water-rule)}
+th.h{color:var(--heat-ink);border-bottom-color:var(--heat-rule)}
+th:first-child{color:var(--ink-faint);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase}
+td{padding:11px 16px 11px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top;
+  color:var(--ink-soft)}
+td:first-child{color:var(--ink-faint);font-family:var(--f-display);font-size:12.5px;
+  font-weight:600;white-space:nowrap;padding-top:13px}
+
+/* итог */
+.close{border-top:2px solid var(--ink);padding-top:24px;margin-top:10px}
+.close h2{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 18px}
+.recap{margin:0}
+.recap .row{display:grid;grid-template-columns:26px 1fr;gap:0 14px;padding:11px 0;
+  border-bottom:1px solid var(--rule-soft)}
+.recap .row:last-child{border-bottom:0}
+.recap .n{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--rn,var(--ink-faint));
+  padding-top:3px}
+.recap .s{font-family:var(--f-display);font-size:16px;font-weight:700;margin:0 0 2px;
+  color:var(--ink);line-height:1.25}
+.recap .r{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.45}
+
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--rule);
+  font-size:13.5px;color:var(--ink-faint)}
+footer p{margin:0}
+
+.tog{position:fixed;right:18px;bottom:18px;font-family:var(--f-display);font-size:11.5px;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;background:var(--surface);
+  color:var(--ink-soft);border:1px solid var(--rule);border-radius:20px;padding:7px 14px;
+  cursor:pointer;box-shadow:var(--shadow)}
+.tog:hover{color:var(--ink);border-color:var(--ink-faint)}
+:focus-visible{outline:2px solid var(--cold);outline-offset:2px;border-radius:3px}
+@media (max-width:620px){
+  .wrap{padding:34px 20px 90px}
+  h1{font-size:30px}
+  .st h2{font-size:24px}
+  .pull p{font-size:16.5px}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+<h1>Шесть стадий</h1>
+<p class="sub">Форма паровой сессии: что происходит на каждой стадии, по какому результату понять, что она сделана, и где обычно ошибаются.</p>
+</header>
+
+<div class="through">
+<h2>Что действует насквозь</h2>
+<p><strong>Стадии — это рамка, а не расписание.</strong> У каждой есть результат; чем вы его добьётесь, решаете вы. Внутри происходят три: потение, углубление, завершение. Они сливаются и дробятся — потение может пройти в два захода и остаться одним потением.</p>
+<p><strong>Последовательность идёт снаружи внутрь, и шаг пропустить нельзя.</strong> Если поверхность не прогрета, более проникающее движение читается как вторжение: граница ещё плотная. Не уверены — оставайтесь на поверхности, больше жара и пара.</p>
+<p><strong>Смысл последовательности — сделать происходящее ожидаемым.</strong> Человек чувствует одно, потом другое и понимает, куда всё движется. Это снимает стресс само по себе.</p>
+</div>
+
+<!-- ─────────── 1 ─────────── -->
+<section class="st" style="--tint:var(--cold)">
+<div class="eyebrow"><span class="num">СТАДИЯ 01</span><span class="dash"></span></div>
+<h2>Подготовка</h2>
+<p class="task">Настроить пространство, себя и людей. <b>Пара ещё нет.</b></p>
+
+<h3>Три отношения, которые вы выстраиваете</h3>
+<ul class="dashed">
+<li><strong>С пространством.</strong> Оно знакомое, и вы чувствуете: я могу изменить то, что здесь. Сухо — увлажнить, влажно — проветрить, холодно — прогреть, грязно — убрать. Вы подходите активно.</li>
+<li><strong>С собой.</strong> Центрированность буквально: вот мой центр равновесия, стопы чего-то касаются, голова наверху в жаре. Внизу не холодно, наверху не обжигает. Мне хорошо.</li>
+<li><strong>С людьми.</strong> Как они расположились — уникальная констелляция, и вам в ней нравится. Что-то не так — просите подвинуться, поменяться местами, подкладываете. Крупный мужчина и хрупкая девушка меняются местами, и обоим лучше.</li>
+</ul>
+
+<h3>Здесь же вы читаете группу</h3>
+<p>Наблюдаете, <strong>как заходят люди</strong>: кто стесняется, кто открыт, для кого это целое событие. Можно спросить прямо: что привело? ближе медитативно и спокойно или горячо и активно?</p>
+<p>Угодить каждому нельзя — комната одна, уникальный процесс для каждого не сделать. Но вы знаете, кому уже достаточно и он будет чуть терпеть, а кто хочет ещё.</p>
+
+<div class="res">
+<p class="lb">Результат стадии</p>
+<p>Вы связаны с пространством и вы спокойны.</p>
+</div>
+</section>
+
+<!-- ─────────── 2 ─────────── -->
+<section class="st" style="--tint:var(--heat)">
+<div class="eyebrow"><span class="num">СТАДИЯ 02</span><span class="dash"></span></div>
+<h2>Потение</h2>
+<p class="task">Дать человеку прийти в открытое состояние <b>без вашего вмешательства</b>. Контактной работы почти нет.</p>
+
+<div class="why">
+<p class="lb">Почему не трогаем сразу</p>
+<ul>
+<li><strong>Физиологически</strong> — кожа ещё холодная, не раскрылась, работать по ней бессмысленно.</li>
+<li><strong>Психологически</strong> — не давим. Как в новом номере отеля: если сразу начнут подталкивать что-то делать, станет неуютно, вы не знаете пространство. А если тепло, хорошее кресло, рядом чайник и никто ничего не требует — вы садитесь и благодарны, что кто-то об этом подумал.</li>
+</ul>
+</div>
+
+<div class="pull">
+<p>Не чувствуете, что действуете из спокойствия, — не делайте ничего. Любое действие есть отражение вашего состояния.</p>
+</div>
+<p>Исключение только экстренная ситуация. Ваша задача на этой стадии — привести <em>себя</em> в более спокойное состояние.</p>
+
+<h3>Что можно предлагать</h3>
+<p>Хорошая стадия для <strong>синхронизирующих предложений</strong>: понаблюдать дыхание, сканирование тела, подумать о своей ситуации и о том, зачем ты здесь, или просто послушать.</p>
+<p>Смысл в том, чтобы человек наблюдал эмоции чуть отстранённее. Не «меня раздражает, что здесь темно», а «я вижу, как поднимается моя тревога, и я спокоен, я в порядке с этим». Второе гораздо более рабочее.</p>
+<p>Сессия пассивная, но уму всё равно нужна деятельность — поэтому мы даём ему наблюдение.</p>
+
+<h3>На что смотреть</h3>
+<p>Когда всё начинает раскрываться, <strong>всплывают напряжения</strong>: то, что человека держало, ослабевает, и появляется тревога. Просто заметить, что у человека есть напряжение, уже достаточно — это сигнал, что здесь, возможно, нужно чуть больше.</p>
+
+<div class="flag">
+<p class="lb">Кто требует внимания</p>
+
+<h4>Не потеет, когда потеют все</h4>
+<p>Причина часто почти паническая: парасимпатика не включается, симпатика не выключается, идёт непрерывный поток мыслей «я тут ничего не чувствую, мне здесь не место».</p>
+<p><strong>Что делать:</strong> провести с ним больше времени. Не ограничиваться бесконтактными движениями — взять веники и хорошо поработать со стопами, пар горячий и влажный. Это стимулирует потоотделение.</p>
+
+<h4>Красная голова при бледном теле</h4>
+<p>Сердечно-сосудистый сигнал: сосуды раскрылись здесь и не раскрылись там. Возможна гипертония. Часто это человек, сильно вышедший из равновесия — много белка, много алкоголя, мало сна.</p>
+<p><strong>Что делать:</strong> не давать жар в верхнюю часть тела. Предложить лечь, даже если сидит.</p>
+
+<h4>Обратное: очень худые</h4>
+<p>Мало жировой ткани, небольшой жар задевает быстро, расширение идёт стремительно, давление падает. Обычно сами говорят, что нехорошо.</p>
+<p><strong>Что делать прямо сейчас:</strong> холодное мокрое полотенце на голову, накрыть — и <strong>одновременно прогреть ноги</strong> вениками. Охлаждаете сверху, греете снизу, кладёте человека.</p>
+</div>
+
+<div class="res">
+<p class="lb">Результат стадии</p>
+<p>Обильное потение, ушёл первый слой тревог и забот.</p>
+</div>
+</section>
+
+<!-- ─────────── 3 ─────────── -->
+<section class="st" style="--tint:var(--heat)">
+<div class="eyebrow"><span class="num">СТАДИЯ 03</span><span class="dash"></span></div>
+<h2>Углубление</h2>
+<p class="task">Поднять глубинную температуру тела. Появляется точечная работа, травы.</p>
+
+<div class="pull">
+<p>Стопы → спина → жар снизу вверх вдоль позвоночника.</p>
+</div>
+
+<h3>Почему стопы</h3>
+<p>Прогрев подошв — это и есть тот способ, каким переживается <strong>подъём внутренней температуры</strong>. Начинается обмен между периферией и внутренней кровью, глубинная температура растёт — и это меняет состояние ума. Возникает лихорадочное восприятие, думать о поверхностном уже очень трудно.</p>
+<p>И отдельно: у стоп <strong>самый плотный контакт с реальностью</strong> — когда мы ходим, вес всё время касается их. Поэтому прикосновение туда воспринимается спокойно. С плеча начинать странно: если я вам незнаком и вдруг делаю так — это озадачивает, зачем?</p>
+
+<div class="why">
+<p class="lb">Почему не голова и не руки</p>
+<p>Если греть голову, тело читает это как небезопасную ситуацию — и не зря: нужно отвести много крови, там мало жировой ткани, защищающей мозг. Мозг воспринимает это как аварийную ситуацию и запускает <strong>кортизоловый ответ</strong>.</p>
+<p>Поэтому, когда нужно охладить, мы охлаждаем <strong>лицо, а не голову</strong>: голова чувствует немного, а на лице масса нервных окончаний.</p>
+<p>В этом типе сессии мы не хотим выбрасывать много кортизола. Можно и так — но это уже другая стратегия: жёстко, много активного дыхания, потом купель, и короче. Здесь мы хотим, чтобы человек ушёл глубоко, <strong>не запуская «бей или беги»</strong>.</p>
+</div>
+
+<h3>Можно показать границу дискомфорта</h3>
+<p>Прогревая стопы как следует, доводите до момента, когда человек чувствует, что подошвы горят: почти некомфортно, но ещё не настолько, чтобы убежать. Пальцы при этом прикрывать, иначе слишком.</p>
+<p>Это ещё и сигнал уму: так, теперь мы разогреваемся.</p>
+
+<div class="res">
+<p class="lb">Результат стадии</p>
+<p>Глубинная температура высокая, человеку по-настоящему тепло. Не обжигающий жар — скорее символически горячо.</p>
+</div>
+</section>
+
+<!-- ─────────── 4 ─────────── -->
+<section class="st" style="--tint:var(--water)">
+<div class="eyebrow"><span class="num">СТАДИЯ 04</span><span class="dash"></span></div>
+<h2>Вода и контраст</h2>
+<p class="task">Здесь <b>два разных вида воды</b>, и их постоянно путают.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th></th><th class="w">Охлаждение</th><th class="h">Контраст</th></tr></thead>
+<tbody>
+<tr><td>Когда</td><td>«Голова тяжёлая и горячая»</td><td>Тело уже прогрето изнутри</td></tr>
+<tr><td>Куда</td><td>Лицо, макушка, внутренняя сторона предплечий</td><td>На тело: купель, обливание, вода руками сверху</td></tr>
+<tr><td>Ощущение</td><td>Стало легче — и всё</td><td>Из меня действительно что-то вышло</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Контраст — не «заход»</h3>
+<p>Можно внутри, можно вывести наружу, можно в купель. Как угодно. Требование одно: <strong>тело уже горячее изнутри</strong>, иначе того самого ощущения высвобождения не будет.</p>
+<p>И контраст <strong>не означает ледяную воду</strong>. Можно облить тёплой — это всё равно становится контрастом. Можно пятнадцать минут поливать тёплой водой внутри, и задача будет решена: сосудистого сжатия не будет, но <strong>ощущение омовения</strong> возникнет, а оно и есть суть.</p>
+
+<div class="pull">
+<p>Способов много. Главное: хотя бы один способ вы должны уметь.</p>
+</div>
+
+<div class="why">
+<p class="lb">Почему контраст работает</p>
+<p>Самое большое удивление для ума в том, что <strong>можно переживать сильные ощущения без обычной панической реакции на них</strong>. Ощущения очень сильные — и при этом хорошо.</p>
+<p>Гормонально: в обычной жизни такой шок дал бы много адреналина и чуть-чуть эндорфинов. Здесь — немного адреналина и много эндорфинов. <strong>Адреналин смывается эндорфинами</strong>, получается счастливое состояние.</p>
+<p>Отсюда правило дозы: <strong>быстро и отпустить</strong>. Немного воды — событие-триггер, и потом греем. После ледяной купели не оставаться на воздухе, сразу одеться.</p>
+</div>
+
+<div class="flag">
+<p class="lb">Край жара</p>
+<p><strong>Как только вы перегрели человека, доверие сломано.</strong> Эту границу переходить нельзя.</p>
+<p>Защита простая: в начале сказать, что если человек чувствует, что надо выйти — он выходит, никто его тут не запирает. И дать варианты: остаться наверху, лечь, сесть, выйти. Рекомендуем остаться, если получается, но решает он.</p>
+<p>При этом навигация в некомфортной зоне — <strong>искусство, а не расчёт</strong>. Обычно люди доходят, получают высвобождение и что-то узнают. Но риск есть: передавите — будет проблема. По крайней мере сделайте это свободным решением.</p>
+</div>
+
+<div class="res">
+<p class="lb">Результат стадии</p>
+<p>Ощущение омовения и высвобождения.</p>
+</div>
+</section>
+
+<!-- ─────────── 5 ─────────── -->
+<section class="st" style="--tint:var(--heat)">
+<div class="eyebrow"><span class="num">СТАДИЯ 05</span><span class="dash"></span></div>
+<h2>Завершение внутри</h2>
+<p class="task">Самая деликатная часть. Вы подходите к телу, которое <b>уже открыто и уже чистое</b>: то, что должно было уйти, ушло раньше.</p>
+
+<p>Это <strong>гармонизация</strong>, а не активное вмешательство. Греть человека вы больше не собираетесь. Движения очень мягкие: округляете, выравниваете. Ветки на торс, на живот, на крупные суставы, может быть с компрессом.</p>
+
+<div class="pull">
+<p>Уже хорошо, и вы это просто признаёте.</p>
+</div>
+
+<h3>Если не уверены — берите безопасное</h3>
+<ul class="dashed">
+<li><strong>Суставы очень безопасны</strong> — тазобедренные нормально, крестец прекрасно, просто держите мягко.</li>
+<li><strong>Лимфоузлы обычно не греем</strong> — мало что даёт. Тепло положить можно: прижать и работать сбоку, без нажима.</li>
+<li><strong>Не делайте обе стороны одновременно</strong> — создаёт огромное напряжение в спине. Тем более если у человека проблемы со спиной. То же и с жаром.</li>
+</ul>
+
+<h3>Живот — отдельно</h3>
+<p>Зоны там очень разные: печень ощущается совсем иначе, чем желудок. Работая с желудком, вы, скорее всего, взаимодействуете с диафрагмой — и если есть подавленный страх, вы это почувствуете.</p>
+<p>Эта часть требует очень медленного движения. Не «нагрел и отпустил»: вы <strong>ставите компресс и даёте ему провалиться</strong>. Не проваливается — остаётесь на поверхности. Проваливается — начинаете вращение, но не как отвёрткой, а так, чтобы чувствовалось, что вы что-то выводите наружу.</p>
+<p>Образ: есть лужа воды и есть салфетка. Вы прикладываете салфетку и просто собираете эту лужу. Очень текучий процесс.</p>
+<p>Главное — <strong>вы не вдавливаете что-то внутрь</strong>. Особенно если вы тревожны: тогда в тело уходит вся тревога мира.</p>
+
+<h3>Хороший ход на финал</h3>
+<p>Просто оставить людей внутри, а ведущим выйти на пятнадцать минут. Люди перерабатывают то, что пережили, и хотят побыть с собой.</p>
+
+<div class="res">
+<p class="lb">Результат стадии</p>
+<p>Всё в гармонии, и это признано.</p>
+</div>
+</section>
+
+<!-- ─────────── 6 ─────────── -->
+<section class="st" style="--tint:var(--cold)">
+<div class="eyebrow"><span class="num">СТАДИЯ 06</span><span class="dash"></span></div>
+<h2>Выведение</h2>
+<p class="task">Закрыть то, что открывали. <b>Симметрия обязательна.</b></p>
+
+<p>Сюда входит всё: как выводите, как садитесь пить чай, как разговариваете с людьми после, как благодарите пространство. Стадия может быть короткой или долгой — важно, что она есть.</p>
+
+<div class="pull">
+<p>Смойте с кожи так, как если бы вы были змеёй, сбрасывающей старую кожу.</p>
+</div>
+
+<div class="res">
+<p class="lb">Результат стадии</p>
+<p>Контейнер закрыт.</p>
+</div>
+</section>
+
+<!-- ─────────── итог ─────────── -->
+<div class="close">
+<h2>Результаты подряд</h2>
+<div class="recap">
+<div class="row" style="--rn:var(--cold)"><span class="n">01</span><div><p class="s">Подготовка</p><p class="r">Вы связаны с пространством и вы спокойны</p></div></div>
+<div class="row" style="--rn:var(--heat)"><span class="n">02</span><div><p class="s">Потение</p><p class="r">Обильное потение, ушёл первый слой тревог</p></div></div>
+<div class="row" style="--rn:var(--heat)"><span class="n">03</span><div><p class="s">Углубление</p><p class="r">Глубинная температура высокая, по-настоящему тепло</p></div></div>
+<div class="row" style="--rn:var(--water)"><span class="n">04</span><div><p class="s">Вода и контраст</p><p class="r">Ощущение омовения и высвобождения</p></div></div>
+<div class="row" style="--rn:var(--heat)"><span class="n">05</span><div><p class="s">Завершение внутри</p><p class="r">Всё в гармонии, и это признано</p></div></div>
+<div class="row" style="--rn:var(--cold)"><span class="n">06</span><div><p class="s">Выведение</p><p class="r">Контейнер закрыт</p></div></div>
+</div>
+</div>
+
+<footer>
+<p>Steamology Institute · материал для преподавателей Steamology</p>
+</footer>
+
+</div>
+
+<button class="tog" id="tog" type="button">тема</button>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('tog');
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if(!cur){ cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>

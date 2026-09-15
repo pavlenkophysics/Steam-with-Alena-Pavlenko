@@ -1,0 +1,972 @@
+<title>Каркас обучения</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EFF2F0; --surface:#FAFCFB; --surface-2:#E6EBE8;
+  --ink:#141F1C; --ink-soft:#55625E; --ink-faint:#7C8884;
+  --rule:#D3DBD8; --rule-soft:#E2E8E5;
+  --cold:#14554F; --cold-ink:#0E403B; --cold-soft:#E0EDEA; --cold-rule:#A9CBC5;
+  --heat:#8F5410; --heat-ink:#7A460B; --heat-soft:#F6EBDA; --heat-rule:#E2C79B;
+  --shadow:0 1px 2px rgba(20,31,28,.05);
+  --f-display:"Golos Text","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Literata",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1614; --surface:#161E1B; --surface-2:#1D2724;
+    --ink:#E7EDEA; --ink-soft:#9EACA7; --ink-faint:#78857F;
+    --rule:#28332F; --rule-soft:#1F2926;
+    --cold:#71C6BA; --cold-ink:#8FD6CB; --cold-soft:#132724; --cold-rule:#2C4F49;
+    --heat:#D79A46; --heat-ink:#E5B06A; --heat-soft:#2A2015; --heat-rule:#4D3A1C;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1614; --surface:#161E1B; --surface-2:#1D2724;
+  --ink:#E7EDEA; --ink-soft:#9EACA7; --ink-faint:#78857F;
+  --rule:#28332F; --rule-soft:#1F2926;
+  --cold:#71C6BA; --cold-ink:#8FD6CB; --cold-soft:#132724; --cold-rule:#2C4F49;
+  --heat:#D79A46; --heat-ink:#E5B06A; --heat-soft:#2A2015; --heat-rule:#4D3A1C;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:266px minmax(0,1fr);max-width:1260px;margin:0 auto;gap:0}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+  padding:36px 20px 60px 26px;border-right:1px solid var(--rule);background:var(--surface)}
+.nav h1{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:-.01em;
+  margin:0 0 4px;line-height:1.25}
+.nav .sub{font-size:12.5px;color:var(--ink-faint);margin:0 0 24px;line-height:1.45}
+.nav ol{list-style:none;margin:0;padding:0}
+.nav li{margin:0 0 1px}
+.nav a{display:block;padding:5px 9px;border-radius:5px;text-decoration:none;color:var(--ink-soft);
+  font-family:var(--f-display);font-size:13.4px;font-weight:500;line-height:1.35;
+  border-left:2px solid transparent}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a.on{color:var(--cold-ink);background:var(--cold-soft);border-left-color:var(--cold)}
+.nav .grp{font-family:var(--f-display);font-size:10.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-faint);margin:20px 0 6px;padding-left:9px}
+main{padding:38px 50px 130px;min-width:0}
+section{max-width:73ch;margin:0 0 62px;scroll-margin-top:22px}
+h2{font-family:var(--f-display);font-size:26px;font-weight:700;letter-spacing:-.018em;
+  line-height:1.22;margin:0 0 6px;text-wrap:balance}
+h2 .num{color:var(--cold);font-family:var(--f-mono);font-size:15px;font-weight:600;
+  margin-right:11px;letter-spacing:0}
+h3{font-family:var(--f-display);font-size:18px;font-weight:600;letter-spacing:-.008em;
+  margin:34px 0 8px;text-wrap:balance}
+h4{font-family:var(--f-display);font-size:15px;font-weight:600;margin:22px 0 5px;color:var(--ink)}
+p{margin:0 0 13px}
+.lede{font-size:17.5px;color:var(--ink-soft);margin:0 0 22px;line-height:1.55}
+ul,ol{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 6px}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--cold-ink);text-decoration-thickness:1px;text-underline-offset:2px}
+code{font-family:var(--f-mono);font-size:.87em;background:var(--surface-2);
+  padding:1px 5px;border-radius:3px}
+
+/* ── источник ─────────────────────────────── */
+.src{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-faint);
+  margin:-4px 0 15px;letter-spacing:-.01em}
+.src a{color:var(--ink-faint);text-decoration-color:var(--rule)}
+.src a:hover{color:var(--cold-ink)}
+
+/* ── лента дня ────────────────────────────── */
+.rail{position:relative;margin:20px 0 26px;padding-left:0}
+.blk{position:relative;display:grid;grid-template-columns:74px minmax(0,1fr);gap:0 18px;
+  padding:0 0 4px}
+.blk::before{content:"";position:absolute;left:92px;top:9px;bottom:-6px;width:1px;
+  background:var(--rule)}
+.blk:last-child::before{display:none}
+.blk .t{font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--ink-faint);
+  text-align:right;padding-top:7px;letter-spacing:-.02em}
+.blk .body{position:relative;padding:0 0 22px 20px}
+.blk .body::before{content:"";position:absolute;left:-4px;top:11px;width:9px;height:9px;
+  border-radius:50%;background:var(--surface);border:1.5px solid var(--rule)}
+.blk.steam .body::before{background:var(--heat);border-color:var(--heat)}
+.blk.circle .body::before{background:var(--cold);border-color:var(--cold)}
+.blk .hd{font-family:var(--f-display);font-size:15.5px;font-weight:600;line-height:1.35;
+  margin:3px 0 4px}
+.blk p{font-size:15px;margin:0 0 8px;color:var(--ink-soft)}
+.blk p strong{color:var(--ink)}
+.blk ul{font-size:15px;color:var(--ink-soft);margin:0 0 8px}
+.blk .src{margin:2px 0 0}
+
+/* ── метки ────────────────────────────────── */
+.chip{display:inline-block;font-family:var(--f-display);font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:3px;
+  vertical-align:2px;margin-left:8px;white-space:nowrap}
+.chip.steam{background:var(--heat-soft);color:var(--heat-ink);border:1px solid var(--heat-rule)}
+.chip.circle{background:var(--cold-soft);color:var(--cold-ink);border:1px solid var(--cold-rule)}
+.chip.rec{background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--rule)}
+
+/* ── приём ────────────────────────────────── */
+.dev{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--cold);
+  border-radius:0 6px 6px 0;padding:13px 17px;margin:14px 0 18px}
+.dev .lb{font-family:var(--f-display);font-size:10.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--cold-ink);margin:0 0 5px}
+.dev p{font-size:15px;margin:0 0 8px;color:var(--ink-soft)}
+.dev p:last-child{margin:0}
+.dev p strong{color:var(--ink)}
+
+.note{background:var(--surface-2);border-radius:6px;padding:13px 17px;margin:14px 0 18px;
+  font-size:15px;color:var(--ink-soft)}
+.note p{margin:0 0 8px}.note p:last-child{margin:0}
+.note strong{color:var(--ink)}
+
+blockquote{margin:14px 0 18px;padding:0 0 0 18px;border-left:2px solid var(--heat-rule);
+  font-size:15.5px;color:var(--ink-soft);font-style:italic}
+blockquote p{margin:0 0 7px}
+blockquote cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:11.5px;
+  color:var(--ink-faint);margin-top:5px}
+
+/* ── карта дней ───────────────────────────── */
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:22px 0 26px}
+.mday{background:var(--surface);border:1px solid var(--rule);border-radius:7px;padding:13px 14px}
+.mday .d{font-family:var(--f-mono);font-size:11px;color:var(--ink-faint);margin:0 0 5px;
+  letter-spacing:-.01em}
+.mday .n{font-family:var(--f-display);font-size:14.5px;font-weight:600;margin:0 0 8px;
+  line-height:1.3}
+.bar{display:flex;height:7px;border-radius:3px;overflow:hidden;background:var(--surface-2);
+  margin:0 0 7px}
+.bar i{display:block;height:100%}
+.bar i.c{background:var(--cold)}
+.bar i.s{background:var(--heat)}
+.bar i.g{background:var(--rule)}
+.mday .l{font-size:12.5px;color:var(--ink-soft);line-height:1.4;margin:0}
+.key{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--ink-soft);margin:0 0 24px}
+.key span{display:flex;align-items:center;gap:6px}
+.key i{width:11px;height:11px;border-radius:2px;display:block}
+.key i.c{background:var(--cold)}.key i.s{background:var(--heat)}.key i.g{background:var(--rule)}
+
+/* ── таблица ──────────────────────────────── */
+.tw{overflow-x:auto;margin:16px 0 22px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:480px}
+th{font-family:var(--f-display);font-size:11.5px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:0 14px 7px 0;
+  border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top;
+  color:var(--ink-soft)}
+td:first-child{color:var(--ink);font-weight:500;font-family:var(--f-display);font-size:14px}
+td.mono{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap}
+
+.tog{position:fixed;right:18px;bottom:18px;z-index:10;font-family:var(--f-display);
+  font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  background:var(--surface);color:var(--ink-soft);border:1px solid var(--rule);
+  border-radius:20px;padding:8px 15px;cursor:pointer;box-shadow:var(--shadow)}
+.tog:hover{color:var(--ink);border-color:var(--ink-faint)}
+:focus-visible{outline:2px solid var(--cold);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);
+    padding:24px 22px 20px}
+  main{padding:28px 22px 90px}
+  .blk{grid-template-columns:56px minmax(0,1fr);gap:0 12px}
+  .blk::before{left:68px}
+}
+</style>
+
+<div class="shell">
+<nav class="nav">
+  <h1>Каркас обучения</h1>
+  <p class="sub">Как были собраны вводный день, четырёхдневный курс и лаборатории. Файл для тех, кто конструирует своё обучение.</p>
+  <div class="grp">Начало</div>
+  <ol id="toc">
+    <li><a href="#kak">Как пользоваться</a></li>
+    <li><a href="#logika">Общая логика</a></li>
+  </ol>
+  <div class="grp">Форматы</div>
+  <ol>
+    <li><a href="#intro">Вводный день</a></li>
+    <li><a href="#kurs">Четыре дня: карта</a></li>
+    <li><a href="#d1">День 1</a></li>
+    <li><a href="#d2">День 2</a></li>
+    <li><a href="#d3">День 3</a></li>
+    <li><a href="#d4">День 4</a></li>
+    <li><a href="#lab">Лаборатория</a></li>
+  </ol>
+  <div class="grp">Конструктор</div>
+  <ol>
+    <li><a href="#priemy">Повторяющиеся приёмы</a></li>
+    <li><a href="#krivye">Три кривые курса</a></li>
+    <li><a href="#lestnica">Лестница ролей</a></li>
+    <li><a href="#probely">Что не восстановлено</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="kak">
+<h2>Как пользоваться</h2>
+<p class="lede">Это не конспект содержания — содержание лежит в <a href="https://claude.ai/code/artifact/879696c0-74a8-4caf-8b79-49ff08060650">базе знаний</a>. Здесь только устройство: что шло за чем, сколько длилось, кто что делал и какой приём за этим стоял.</p>
+
+<p>Файл собран из тех же двадцати трёх записей. Восстановить по ним удаётся две разные вещи, и их важно различать:</p>
+
+<ul>
+<li><span class="chip circle" style="margin-left:0">сказано</span> — расписание, задание или правило прозвучало на записи вслух. Такие места несут ссылку на источник.</li>
+<li><span class="chip rec" style="margin-left:0">выведено</span> — я восстановила порядок по номерам частей, длительностям файлов и по тому, что в записи упоминают как «сейчас» и «вчера». Это реконструкция, и её стоит проверять по своей памяти.</li>
+</ul>
+
+<p>Часов в расписании почти нигде нет: диктофон писал куски, а не хронометраж дня. Поэтому время указано там, где его назвали вслух, а в остальных местах стоит порядок и длительность записи.</p>
+
+<div class="key">
+  <span><i class="c"></i> круг: разговор, теория, разбор</span>
+  <span><i class="s"></i> парная: сессия или практика</span>
+  <span><i class="g"></i> перерыв, еда, свободное</span>
+</div>
+</section>
+
+<section id="logika">
+<h2><span class="num">01</span>Общая логика</h2>
+<p class="lede">Одно правило задаёт порядок всех форматов, и оно проговорено прямо.</p>
+
+<blockquote>
+<p>Порядок такой: сначала учимся, обсуждаем и разбираем, как это работает, — потом пробуете.</p>
+<cite>Day 1 part 1</cite>
+</blockquote>
+
+<p>Отсюда вытекает всё остальное устройство. Опыт идёт раньше объяснения, но объяснение того, <em>что делать</em>, идёт раньше делания. То есть последовательность на самом деле тройная:</p>
+
+<ol>
+<li><strong>Пережить на себе.</strong> Первая сессия — участник, пассивно, но с заданием наблюдать.</li>
+<li><strong>Разобрать.</strong> Круг: что это было, как устроено, почему так.</li>
+<li><strong>Сделать самому.</strong> Сначала кусочек в паре, потом полная сессия своими руками.</li>
+</ol>
+
+<p>И этот цикл повторяется на каждом масштабе: внутри одного дня, внутри четырёхдневного курса и внутри всей дорожной карты обучения.</p>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Первая сессия ведётся иначе, чем обычная.</strong> На вводном дне это сказано прямо: обычно работают с намерением человека или группы, а здесь общее намерение — исследовать и учиться. Поэтому ведущий говорит больше и по-другому.</p>
+<blockquote style="margin:10px 0 0"><p>Эта сессия будет размечена, как учебник. Как в книге бывают пометки: «обратите внимание здесь», «вот это важно».</p><cite>Day 1 part 1</cite></blockquote>
+</div>
+<p class="src">Источники: <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-1.clean-ru.md">Intro part 1</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-1.clean-ru.md">Day 1 part 1</a></p>
+</section>
+
+<section id="intro">
+<h2><span class="num">02</span>Вводный день</h2>
+<p class="lede">28 сентября 2024. Один день, две сессии, десять записанных частей. Формат-воронка: показать процесс, дать попробовать руками, показать дорогу дальше.</p>
+
+<p>Заявленная задача дня — <strong>познакомить с процессом и выстроить собственное отношение человека к практике</strong>, а не научить вести. Учебная нагрузка минимальная, зато оба конца дня закрыты: вход через круг знакомства, выход через дорожную карту.</p>
+<p class="src">Задача дня — <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-1.clean-ru.md">Intro part 1</a></p>
+
+<div class="rail">
+
+<div class="blk circle">
+<div class="t">part 1<br>16:46</div>
+<div class="body">
+<div class="hd">Открытие круга<span class="chip circle">круг</span></div>
+<p>Кто есть кто. Три проекта на одной площадке. Что значит быть практиком. Затем <strong>вслух объявляется план дня</strong> — и сразу вводится двойная роль: сто процентов участника плюс сто процентов практика.</p>
+<p>Дальше круг знакомства.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-1.clean-ru.md">Intro part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 2<br>—</div>
+<div class="body">
+<div class="hd">Запись отсутствует<span class="chip rec">пробел</span></div>
+<p>Между кругом знакомства и входом в парную есть неучтённая часть. Судя по тому, что в part 3 люди уже внутри и идёт наведение, здесь была теория перед первой сессией или сам вход.</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">part 3–4<br>40:36<br>40:12</div>
+<div class="body">
+<div class="hd">Первая сессия: исследовательская<span class="chip steam">парная</span></div>
+<p>Полная сессия, ведёт Борис. Участники <strong>пассивны, но с заданием</strong>. Внутри слышно: осмотреться в пространстве, наблюдать своё состояние, четыре элемента, фаза потения, выход как сбрасывание старой кожи.</p>
+<p>Две записи подряд — около восьмидесяти минут в парной.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-3.clean-ru.md">Intro part 3</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-4.clean-ru.md">Intro part 4</a> · записи изнутри, восстановлены частично</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 5<br>—</div>
+<div class="body">
+<div class="hd">Запись отсутствует<span class="chip rec">пробел</span></div>
+<p>Скорее всего перерыв и начало шеринга: part 6 начинается уже в середине разбора.</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 6<br>26:45</div>
+<div class="body">
+<div class="hd">Разбор первой сессии<span class="chip circle">круг</span></div>
+<p>Самый нагруженный блок дня, и не по плану: у нескольких человек пошло сильное высвобождение, участница говорит, что ей было небезопасно. Из этого разворачивается разговор про подготовку группы, ответственность ведущего и что делать, когда пространство разваливается.</p>
+<div class="dev" style="margin:12px 0 10px">
+<p class="lb">Что здесь стоит забрать</p>
+<p>Возражение участницы не сглажено и не отложено на потом — оно <strong>стало темой</strong>. Ведущий отвечает развёрнуто: откуда взята рамка, про масштаб, про подготовку, чему учили его самого. Незакрытое возражение в круге дороже, чем сохранённая гладкость.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-6.clean-ru.md">Intro part 6</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 7<br>5:02</div>
+<div class="body">
+<div class="hd">Инструктаж перед парной практикой<span class="chip circle">круг</span></div>
+<p>Короткий, пять минут. Разделиться на пары, работать в одну сторону, потом поменяться. Четыре движения от дальней дистанции к ближней. В конце обязательно — обратная связь друг другу.</p>
+<p>Здесь же участница предлагает <strong>поднятую руку</strong> как сигнал дискомфорта, и предложение принимают на месте.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-7.clean-ru.md">Intro part 7</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">part 8<br>19:25</div>
+<div class="body">
+<div class="hd">Вторая сессия: работают сами<span class="chip steam">парная</span></div>
+<p>Компактная, «поменьше и компактнее» — так её и анонсировали утром. Стойка-дерево, четыре движения по нарастанию контакта: развести пар, касание, удар как брошенный камень, холодная вода. Плюс очищение.</p>
+<p>Садятся на полки, не ложатся.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-8.clean-ru.md">Intro part 8</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 9<br>16:53</div>
+<div class="body">
+<div class="hd">Шеринг после практики<span class="chip circle">круг</span></div>
+<p>Свободный, без жёсткой структуры: ритм, внутренняя тишина, метафора метаморфоза, расширенное тело, тяжесть веника. Ведущий подхватывает отклики и достраивает до принципов.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-9.clean-ru.md">Intro part 9</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 10<br>16:13</div>
+<div class="body">
+<div class="hd">Дорожная карта и закрытие<span class="chip circle">круг</span></div>
+<p>Последним блоком — куда идти дальше: ассистирование, лаборатории, длинные воркшопы. Как устроены Институт и площадка. Отдельно проговаривается, что <strong>решать прямо сейчас не нужно</strong>.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-10.clean-ru.md">Intro part 10</a> · сказано</p>
+</div>
+</div>
+
+</div>
+
+<div class="dev">
+<p class="lb">Конструкция вводного дня</p>
+<p><strong>Две сессии с разным залогом.</strong> В первой человек получает, во второй даёт. Между ними разбор. Смысл сформулирован в самом анонсе: «вы обнаруживаете, что опыт совсем другой» — открытие делает участник, а не ведущий за него.</p>
+<p><strong>Продажа стоит в конце и звучит как карта, а не как предложение.</strong> Дорожная карта идёт после того, как человек уже что-то пережил и попробовал руками.</p>
+</div>
+</section>
+
+<section id="kurs">
+<h2><span class="num">03</span>Четыре дня: карта</h2>
+<p class="lede">Communal Steam, 21–24 ноября 2024. Восемь сессий за четыре дня. Главное движение курса — <strong>передача ведения от преподавателя к группе</strong>, и оно происходит быстро.</p>
+
+<blockquote>
+<p>Три-четыре сессии веду я (и Макс). Сегодня две практические сессии, завтра одна-две. Ещё три-четыре сессии ведёте вы сами, разделившись на небольшие группы.</p>
+<cite>Day 1 part 1</cite>
+</blockquote>
+
+<div class="map">
+<div class="mday">
+<p class="d">чт · 21.11</p>
+<p class="n">День 1</p>
+<div class="bar"><i class="c" style="flex:52"></i><i class="s" style="flex:34"></i><i class="g" style="flex:14"></i></div>
+<p class="l">Много теории. Обе сессии ведёт преподаватель, группа пассивна.</p>
+</div>
+<div class="mday">
+<p class="d">пт · 22.11</p>
+<p class="n">День 2</p>
+<div class="bar"><i class="c" style="flex:40"></i><i class="s" style="flex:46"></i><i class="g" style="flex:14"></i></div>
+<p class="l">Утром упражнения, вечером первая сессия группы. Приходят гости.</p>
+</div>
+<div class="mday">
+<p class="d">сб · 23.11</p>
+<p class="n">День 3</p>
+<div class="bar"><i class="c" style="flex:32"></i><i class="s" style="flex:54"></i><i class="g" style="flex:14"></i></div>
+<p class="l">Теории ещё меньше, две сессии ведёт группа. Тема — зачем вообще сессия.</p>
+</div>
+<div class="mday">
+<p class="d">вс · 24.11</p>
+<p class="n">День 4</p>
+<div class="bar"><i class="c" style="flex:46"></i><i class="s" style="flex:40"></i><i class="g" style="flex:14"></i></div>
+<p class="l">Игра, закрывающий круг, задание. Последняя сессия уже с гостями.</p>
+</div>
+</div>
+
+<div class="note">
+<p><strong>Пропорции в полосках — оценка,</strong> выведенная из длительности записей и того, что говорится про расписание. Точного хронометража в записях нет.</p>
+</div>
+
+<h3>Что объявлено вслух</h3>
+<div class="tw">
+<table>
+<thead><tr><th>Параметр</th><th>Как было</th><th>Источник</th></tr></thead>
+<tbody>
+<tr><td>Начало дня</td><td>9:30, сбор без четверти десять в день, когда топят раньше</td><td class="mono">Day 1 part 3</td></tr>
+<tr><td>Конец</td><td>к 18:00, иногда сессия в 17:30 и полчаса на разбор</td><td class="mono">Day 1 part 3</td></tr>
+<tr><td>Сессий всего</td><td>восемь за четыре дня</td><td class="mono">Day 2 part 1</td></tr>
+<tr><td>Ведёт преподаватель</td><td>3–4 сессии</td><td class="mono">Day 1 part 1</td></tr>
+<tr><td>Ведёт группа</td><td>3–4 сессии, минимум три</td><td class="mono">Day 1 part 1, part 3</td></tr>
+<tr><td>Размер бригады</td><td>трое ведут вместе</td><td class="mono">Day 1 part 3</td></tr>
+<tr><td>Состав бригады</td><td>намеренно смешивать людей с разным опытом</td><td class="mono">Day 1 part 3</td></tr>
+<tr><td>Гости</td><td>появляются со второго дня</td><td class="mono">Day 1 part 3</td></tr>
+<tr><td>Планирование сессии</td><td>около 20 минут бригаде перед началом</td><td class="mono">Day 3 part 1</td></tr>
+<tr><td>Четвёртый день</td><td>оставлен незапланированным, «по ситуации»</td><td class="mono">Day 1 part 3</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Четвёртый день не расписан заранее.</strong> Формулировка на первый вечер: либо разберём ещё темы, либо углубимся, либо добавим упражнений. Резерв под то, что реально понадобится группе, а не под заготовленную программу.</p>
+</div>
+</section>
+
+<section id="d1">
+<h2><span class="num">04</span>День 1 · вход и рамка</h2>
+<p class="lede">Самый теоретический день. Группа не ведёт вообще, и это сказано прямо: «сегодня последний раз, когда сессия будет для вас пассивной».</p>
+
+<div class="rail">
+
+<div class="blk circle">
+<div class="t">part 1<br>1:37:36</div>
+<div class="body">
+<div class="hd">Открывающая лекция<span class="chip circle">круг</span></div>
+<p>Полтора часа. Порядок внутри блока:</p>
+<ul>
+<li>кто здесь в какой роли и как устроен курс;</li>
+<li>перекличка по опыту;</li>
+<li><strong>главная рамка: учим не протокол</strong>;</li>
+<li>четыре точки интереса — что вообще имеет смысл замечать;</li>
+<li>круг: чему хотите научиться;</li>
+<li>определяем предмет — что такое общинная паровая сессия;</li>
+<li>кто мы: гиды, а не мастера; асимметрия власти;</li>
+<li>контейнер, повестка, контракт;</li>
+<li>шесть фаз, форма путешествия;</li>
+<li>задание про двойной фокус;</li>
+<li>вопросы.</li>
+</ul>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-1.clean-ru.md">Day 1 part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">session 1<br>31:44</div>
+<div class="body">
+<div class="hd">Первая сессия<span class="chip steam">парная</span></div>
+<p>Ведёт преподаватель. Внутри слышно: вход, наблюдать последствия чужих действий, про подготовку, два направления процесса, голосование с закрытыми глазами, про свободу выходить.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-session-1.clean-ru.md">Day 1 session 1</a> · запись изнутри, частично</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 2<br>1:34:17</div>
+<div class="body">
+<div class="hd">Вторая лекция<span class="chip circle">круг</span></div>
+<p>Ещё полтора часа, но уже прикладных. Двойное внимание. Стадия подготовки разбирается через три отношения: с пространством, с собой, с людьми. Красные флаги. <strong>Противопоказания</strong> — самый практический блок курса. Действие как эхолот. Сколько ведущему говорить.</p>
+<p>В конце — задание на вечернюю сессию.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-2.clean-ru.md">Day 1 part 2</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">session 2<br>34:01</div>
+<div class="body">
+<div class="hd">Вечерняя сессия<span class="chip steam">парная</span></div>
+<p>Тоже ведёт преподаватель. Вечерняя отличается от утренней — это отдельно проговаривают на разборе.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-session-2.clean-ru.md">Day 1 session 2</a> · запись изнутри, частично</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 3<br>57:46</div>
+<div class="body">
+<div class="hd">Вечерний разбор и план<span class="chip circle">круг</span></div>
+<p>Шеринг. Разбор плотного и невидимого ведения — что именно было сделано и чего никто не заметил. Асимметрия власти: предупреждать или нет. Звук и собственный ритм.</p>
+<p>Заканчивается <strong>расписанием на завтра и упражнением на ночь</strong>.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-3.clean-ru.md">Day 1 part 3</a> · сказано</p>
+</div>
+</div>
+
+</div>
+
+<h3>Задания первого дня</h3>
+<p>Их три, и они выстроены по нарастанию:</p>
+<ol>
+<li><strong>Двойной фокус</strong> — заключить контракт с самим собой, что часть внимания наблюдает процесс со стороны практика. Даётся до первой сессии.</li>
+<li><strong>Наблюдать без ярлыков</strong> — на вечернюю сессию: замечать, что меняется и что остаётся, отказавшись от оценок «лучше / хуже».</li>
+<li><strong>Три способа парить</strong> — на завтра: никак; в такт своему сердцебиению; в такт сердцебиению другого, потом обоим сразу.</li>
+</ol>
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Задание превращает пассивное лежание в работу.</strong> Человек не ведёт, но и не отдыхает: он тренирует конкретную способность, а на следующем круге у него есть о чём говорить. Дешёвый способ сделать наблюдение активным.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-1.clean-ru.md">Day 1 part 1</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-2.clean-ru.md">part 2</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-3.clean-ru.md">part 3</a></p>
+</section>
+
+<section id="d2">
+<h2><span class="num">05</span>День 2 · первая передача</h2>
+<p class="lede">День, когда ведение переходит к группе. Сделано в два шага: сначала игра, где ведущим побывает каждый по очереди, потом настоящая сессия с гостями.</p>
+
+<div class="rail">
+
+<div class="blk circle">
+<div class="t">part 1<br>1:33:43</div>
+<div class="body">
+<div class="hd">Утренняя теория<span class="chip circle">круг</span></div>
+<p>Возврат к рамке. Два направления процесса. Джунгли и ягуар — внимание охотника. Затем <strong>шесть стадий подробно</strong>, каждая отдельно. Контраст. Физиология: почему на самом деле паникуют, обмороки, CO₂. Безопасность при восьми сессиях за четыре дня.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-22-day-2-part-1.clean-ru.md">Day 2 part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 2<br>9:35</div>
+<div class="body">
+<div class="hd">Правила игры<span class="chip circle">круг</span></div>
+<p>Девять минут инструктажа перед сессией-упражнением. Полный разбор правил — в разделе <a href="#priemy">приёмов</a>.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-22-day-2-part-2.clean-ru.md">Day 2 part 2</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">—</div>
+<div class="body">
+<div class="hd">Игра с передачей веников<span class="chip steam">парная</span></div>
+<p>Настоящая сессия, но все одновременно участники и ведущие. Двое мастеров игры держат пространство и следят, чтобы веники попадали к тем, кто ещё не вёл. Записи изнутри нет.</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">—</div>
+<div class="body">
+<div class="hd">Вечерняя сессия: ведёт бригада<span class="chip steam">парная</span></div>
+<p>Трое ведут, преподаватель не участвует. Приходят двое гостей со стороны. В этот вечер подвела печь — пара было мало, и разбор во многом про это.</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 3<br>1:01:17</div>
+<div class="body">
+<div class="hd">Первый большой разбор<span class="chip circle">круг</span></div>
+<p>Здесь вводится <strong>формат обратной связи</strong>, который дальше используется на всех сессиях. Сначала ведущие, потом гости. В конце преподаватель добавляет два технических блока: стадии транса и работа с вениками.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-22-day-2-part-3.clean-ru.md">Day 2 part 3</a> · сказано</p>
+</div>
+</div>
+
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Игра стоит перед первой самостоятельной сессией, а не после неё.</strong> Она снимает главный барьер — сделать первое действие своими руками при всех — но в защищённом виде: одно действие, потом веник уходит дальше. Ответственность за целое остаётся на мастерах игры.</p>
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Технический материал даётся после того, как в нём возникла нужда.</strong> Стадии транса и работа с вениками разбираются не в лекции, а в конце разбора, когда группа уже упёрлась в эти вопросы на своей сессии.</p>
+</div>
+</section>
+
+<section id="d3">
+<h2><span class="num">06</span>День 3 · зачем это всё</h2>
+<p class="lede">Теории меньше всего, а сама теория — самая широкая: не как вести, а зачем сессия вообще нужна. Две сессии ведёт группа.</p>
+
+<div class="rail">
+
+<div class="blk circle">
+<div class="t">part 1<br>1:11:10</div>
+<div class="body">
+<div class="hd">Утренний круг<span class="chip circle">круг</span></div>
+<p>Начинается организационно: кто ведёт утреннюю сессию, бригаде нужно минут двадцать на планирование, начало в 11:15. Потом вопрос «как спалось» — и сразу тема дня.</p>
+<p>Дальше: исторические функции пара, три большие корзины дефицитов, что делает племя племенем, взаимность вместо сервисного мышления, невысказанные запросы. В конце — транс и символика воды.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-23-day-3-part-1.clean-ru.md">Day 3 part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">11:15</div>
+<div class="body">
+<div class="hd">Утренняя сессия: бригада<span class="chip steam">парная</span></div>
+<p>Новый состав ведущих. Записи изнутри нет.</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 2<br>1:11:28</div>
+<div class="body">
+<div class="hd">Разбор<span class="chip circle">круг</span></div>
+<p>Тот же формат, что вчера. Ведущие: что планировали и что вышло. Гости: по четырём пунктам. Затем большой разбор от преподавателя — почему не хватило жара в начале, работа на теле, <strong>слишком много ресурса</strong>, последовательность снаружи внутрь, живот, «если не уверены — берите безопасное».</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-23-day-3-part-2.clean-ru.md">Day 3 part 2</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">—</div>
+<div class="body">
+<div class="hd">Вечерняя сессия<span class="chip steam">парная</span></div>
+<p>Вторая за день, ведёт группа. Записи нет.</p>
+</div>
+</div>
+
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Вопрос «зачем» ставится на третий день, а не на первый.</strong> К этому моменту у группы уже есть три дня телесного опыта и одна проваленная по пару сессия. Разговор про смысл ложится на пережитое, а не на ожидания.</p>
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Разбор ведёт разговор от конкретики к принципу.</strong> Начинается с «не хватило жара в начале» и заканчивается «весь процесс — про слушание» и «делай то, что проповедуешь». Обобщение выводится из их собственной сессии, а не даётся отдельной лекцией.</p>
+</div>
+</section>
+
+<section id="d4">
+<h2><span class="num">07</span>День 4 · закрытие</h2>
+<p class="lede">Последний день собран из трёх вещей: последняя церемония, закрывающий круг и то, что человек унесёт с собой после.</p>
+
+<div class="rail">
+
+<div class="blk steam">
+<div class="t">—</div>
+<div class="body">
+<div class="hd">Последняя церемония курса<span class="chip steam">парная</span></div>
+<p>Судя по кругу — снова в форме игры. Записи изнутри нет.</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t">part 1<br>52:49</div>
+<div class="body">
+<div class="hd">Закрывающий круг<span class="chip circle">круг</span></div>
+<p>Формат задан прямо: каждый говорит <strong>про сессию и про воркшоп в целом</strong>, чему научился, потом сам передаёт слово тому, кому решит. Девять человек проходят круг, затем говорит преподаватель.</p>
+<p>Отдельно объявлено: формальная часть завершается здесь, вечерняя сессия с гостями идёт как продолжение.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-24-day-4-part-1.clean-ru.md">Day 4 part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t"></div>
+<div class="body">
+<div class="hd">Задание на дом<span class="chip circle">круг</span></div>
+<p><strong>Короткое эссе</strong> — без верхней и нижней границы, срок неделя-десять дней, «но не торопитесь, когда почувствуете, что пора». Можно текстом, рисунком, записанной песней. Открывается всем участникам; часть можно отделить лично преподавателю.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-24-day-4-part-1.clean-ru.md">Day 4 part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk circle">
+<div class="t"></div>
+<div class="body">
+<div class="hd">Что дальше<span class="chip circle">круг</span></div>
+<p>Следующая ступень: работа в сенсорной депривации — с завязанными глазами и в молчании. Для тех, кто прошёл первую, и для опытных телесных практиков. Плюс расписание сессий на площадке, оставшаяся четвёртая лаборатория и интервизии.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-24-day-4-part-1.clean-ru.md">Day 4 part 1</a> · сказано</p>
+</div>
+</div>
+
+<div class="blk steam">
+<div class="t">—</div>
+<div class="body">
+<div class="hd">Вечерняя сессия с гостями<span class="chip steam">парная</span></div>
+<p>Уже за рамкой формальной части. Группа ведёт для внешних людей.</p>
+</div>
+</div>
+
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Формальный конец отделён от фактического.</strong> Круг закрывает курс, а после него идёт ещё одна сессия — но уже как практика, не как обучение. Человек уходит не из учебной ситуации, а из рабочей.</p>
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Эссе без дедлайна и без формата.</strong> Отсрочка на неделю-десять дней встроена намеренно: инсайты должны сложиться. И оно публикуется для группы — то есть закрывающий круг фактически продолжается ещё десять дней после разъезда.</p>
+</div>
+</section>
+
+<section id="lab">
+<h2><span class="num">08</span>Лаборатория</h2>
+<p class="lede">Короткий регулярный формат между курсами. Два с половиной часа, одна тема, только для практиков.</p>
+
+<h3>Как устроен цикл</h3>
+<p>Четыре лаборатории по элементам составляют полный базовый цикл: <strong>воздух → вода → огонь → земля</strong>. Они соответствуют четырём дням Steamgrad Foundations, только на большом курсе больше физиологии и есть отдельный день про пространство, а в лабораториях это разнесено по всему циклу.</p>
+<p>Всего тем около десяти, потом цикл повторяется. Остальные — не элементы, а отдельные навыки: неподвижная тишина, восприятие, контакт и границы.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-12-03-lab-4-part-1.clean-ru.md">Lab 4 part 1</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-10.clean-ru.md">Intro part 10</a> · сказано</p>
+
+<h3>Устройство одной лаборатории</h3>
+<p>По четвёртой, единственной записанной:</p>
+
+<div class="rail">
+<div class="blk circle">
+<div class="t">1</div>
+<div class="body">
+<div class="hd">Перекличка<span class="chip circle">круг</span></div>
+<p>Кто на каких лабораториях уже был. Заодно вслух восстанавливается карта цикла — для тех, кто пришёл в середине.</p>
+</div>
+</div>
+<div class="blk circle">
+<div class="t">2</div>
+<div class="body">
+<div class="hd">Что разбираем сегодня<span class="chip circle">круг</span></div>
+<p>Тема называется и сразу привязывается к тому, что люди уже делают: «когда прогреваете стопы, вы уже делаете vibrating strike». Новое подаётся как углубление в знакомое.</p>
+</div>
+</div>
+<div class="blk circle">
+<div class="t">3</div>
+<div class="body">
+<div class="hd">Повторение и теория<span class="chip circle">круг</span></div>
+<p>Флюидизация. Однородность снаружи и чувствительность внутрь. Зачем глубокие движения, что происходит физиологически. Плюс-движение и минус-движение. Действие и отклик.</p>
+</div>
+</div>
+<div class="blk circle">
+<div class="t">4</div>
+<div class="body">
+<div class="hd">План на практику<span class="chip circle">круг</span></div>
+<p>Три движения по порядку и одно дополнительно. Заканчивается коротко: «Базовая идея понятна? Хорошо, пошли внутрь».</p>
+</div>
+</div>
+<div class="blk steam">
+<div class="t">5</div>
+<div class="body">
+<div class="hd">Практика<span class="chip steam">парная</span></div>
+<p>Работают друг на друге. Запись изнутри восстанавливается плохо.</p>
+</div>
+</div>
+<div class="blk circle">
+<div class="t">6</div>
+<div class="body">
+<div class="hd">Интервизия<span class="chip circle">круг</span></div>
+<p>Разбор по структуре: как шёл процесс, как ощущалось с обеих сторон. По записям сама структура интервизии не восстанавливается.</p>
+</div>
+</div>
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Одна тема на два с половиной часа.</strong> Не «работа с вениками», а конкретно вибрация и три движения. Узость темы — то, что отличает лабораторию от куска курса.</p>
+</div>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Регулярность держит сообщество, а не только навык.</strong> Еженедельная встреча практиков, где после практики есть интервизия. По наблюдению Алёны, для участников это становится главным событием недели — и именно это, а не программа, удерживает людей в обучении.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-12-03-lab-4-part-1.clean-ru.md">Lab 4 part 1</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-10.clean-ru.md">Intro part 10</a></p>
+</section>
+
+<section id="priemy">
+<h2><span class="num">09</span>Повторяющиеся приёмы</h2>
+<p class="lede">Форматы, которые переносятся куда угодно. Здесь они выписаны так, чтобы можно было взять и применить, а не вспоминать по конспекту.</p>
+
+<h3>Двойной фокус</h3>
+<p><strong>Когда:</strong> перед первой сессией, до всякой теории о технике.</p>
+<p><strong>Как формулируется:</strong> у обычного участника один фокус — присутствовать. У вас два. Первый: вы честный участник, пришли получить удовольствие и восстановиться, со своей собственной ситуацией. Второй: вы ученик. Нужно <em>заключить контракт с самим собой</em>, что часть внимания наблюдает происходящее со стороны практика.</p>
+<p><strong>Что делает ведущий со своей стороны:</strong> ведёт эту сессию иначе — размечает её, как учебник, вслух отмечая, на что смотреть.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-1.clean-ru.md">Day 1 part 1</a></p>
+
+<h3>Формат обратной связи</h3>
+<p><strong>Когда:</strong> после каждой сессии, которую вела группа. Вводится один раз и дальше только напоминается — это экономит время и снимает тревогу «а что говорить».</p>
+<p><strong>Два блока по очереди.</strong></p>
+<p>Сначала <strong>ведущие</strong>, по две темы каждый:</p>
+<ol>
+<li>что вы планировали до начала;</li>
+<li>что произошло на самом деле — что вы пережили, ведя сессию.</li>
+</ol>
+<p>Потом <strong>каждый, кто участвовал</strong>, по четырём пунктам:</p>
+<ol>
+<li>что понравилось, что показалось интересным;</li>
+<li>чего было <strong>избыточно</strong>;</li>
+<li>чего было <strong>недостаточно</strong>;</li>
+<li>что было <strong>иным, неожиданным</strong> — ни избыточным, ни недостаточным, просто не тем, чего ждали.</li>
+</ol>
+<div class="note">
+<p><strong>Добавление ведущей:</strong> говорить из собственного восприятия. Не «это было так-то», а «я это почувствовал так».</p>
+</div>
+<div class="dev">
+<p class="lb">Почему работает</p>
+<p>Четвёртый пункт — главный. «Избыточно / недостаточно» — это шкала, по ней легко скатиться в оценку. Пункт про неожиданное <strong>выводит из оценочной рамки</strong> и открывает то, чего ни ведущий, ни гость не планировали. Обычно там и лежит самое ценное.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-22-day-2-part-3.clean-ru.md">Day 2 part 3</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-23-day-3-part-2.clean-ru.md">Day 3 part 2</a></p>
+
+<h3>Игра с передачей веников</h3>
+<p><strong>Когда:</strong> первое самостоятельное действие группы, перед настоящей самостоятельной сессией.</p>
+<p><strong>Рамка:</strong> идёт настоящая сессия. Преподаватель молчит. Все одновременно и участники, и ведущие. Двое — мастера игры.</p>
+<h4>Роли</h4>
+<div class="tw">
+<table>
+<thead><tr><th>Роль</th><th>Задача</th><th>Границы</th></tr></thead>
+<tbody>
+<tr><td>Участник</td><td>Слушать, воспринимать, держать связь с пространством и его красоту. Заметить, если выбивает, и вернуться к равновесию.</td><td>Ничего не делает. Нехорошо — выходит.</td></tr>
+<tr><td>Ведущий</td><td>Сделать то, что уместно именно сейчас. Или не сделать ничего.</td><td><strong>Ровно одно действие.</strong> Пар не считается — это составляющая, а не действие.</td></tr>
+<tr><td>Мастер игры</td><td>Держать пространство безупречным: петь, дать ритм, ничего не делать. Следить, чтобы веники доходили до новых людей.</td><td>Веником не работает.</td></tr>
+</tbody>
+</table>
+</div>
+<h4>Правила передачи</h4>
+<ul>
+<li>Ведущим становишься в момент, когда <strong>тебе передали веник</strong>.</li>
+<li>Ведущих <strong>всегда двое</strong>.</li>
+<li>Передавать нужно тем, кто ещё не вёл. За этим следят мастера игры.</li>
+<li>Передают предыдущие ведущие, каждый своему. Не понимаешь кому — отдай мастеру игры.</li>
+<li>Координироваться между собой можно жестом, <strong>говорить нельзя</strong>.</li>
+<li>«Одно действие» значит: оба ведущих делают одно и то же и делают это всем. Прогреть стопы и потом сделать очищение — уже два.</li>
+<li>Последовательность фаз соблюдается: холодному лить холодную воду — плохая идея.</li>
+</ul>
+<blockquote>
+<p>Лучшее, что вы можете сделать, — минимальное действие, дающее наилучший результат. Только не пытайтесь произвести впечатление избытком.</p>
+<cite>Day 2 part 2</cite>
+</blockquote>
+<div class="dev">
+<p class="lb">Почему работает</p>
+<p>Три вещи сразу. Каждый делает первое действие при всех, но <strong>ограничение в одно действие</strong> снимает страх испортить сессию. Ответственность за целое остаётся на мастерах игры, то есть пространство защищено. И запрет на речь заставляет договариваться в том канале, в котором ведут настоящую сессию.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-22-day-2-part-2.clean-ru.md">Day 2 part 2</a></p>
+
+<h3>Открывающие круги</h3>
+<p>Два разных, и они не взаимозаменяемы.</p>
+<p><strong>Перекличка по опыту.</strong> Быстро, по кругу: кто что уже делал. Даёт преподавателю карту группы и позволяет собирать смешанные бригады.</p>
+<p><strong>Чему хотите научиться.</strong> Развёрнуто. Дальше преподаватель опирается на названное — в том числе чтобы поправить ожидания: из этого круга на первом дне выросло определение предмета и разговор «мы никого не исцеляем».</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-1.clean-ru.md">Day 1 part 1</a></p>
+
+<h3>Смешанные бригады по трое</h3>
+<p>Трое ведут вместе, договариваются заранее, в процессе общаются только между собой. Состав собирается намеренно так, чтобы <strong>у людей был разный предыдущий опыт ведения</strong>. Состав меняется от сессии к сессии.</p>
+<p>Перед сессией бригаде даётся около двадцати минут на планирование — и потом на разборе с них спрашивают именно про план и расхождение с ним.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-3.clean-ru.md">Day 1 part 3</a> · <a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-23-day-3-part-1.clean-ru.md">Day 3 part 1</a></p>
+
+<h3>Гости со стороны</h3>
+<p>Появляются со второго дня. Двое-трое, не больше — место на полке занимает бригада и наблюдающие.</p>
+<div class="dev">
+<p class="lb">Почему работает</p>
+<p>Гость меняет ставку. Пока группа парит группу, это упражнение; как только на полке человек, который не учится, — это работа. И на разборе гость даёт обратную связь, которой ученик дать не может: он не знает, что было задумано.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-21-day-1-part-3.clean-ru.md">Day 1 part 3</a></p>
+
+<h3>Поднятая рука</h3>
+<p>Договорённость, объявляемая в начале сессии: если что-то некомфортно — подними руку, ведущий подойдёт. Касается не только жара, но и звука: тогда ведущий проводит человека голосом через дыхание, возвращая его в собственное состояние.</p>
+<p>Приём родился на вводном дне из предложения участницы и был принят на месте.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-7.clean-ru.md">Intro part 7</a></p>
+
+<h3>Эссе после курса</h3>
+<p>Короткое, без верхней и нижней границы. Срок — неделя-десять дней, но <em>«не торопитесь, когда почувствуете, что пора»</em>. Любая форма: текст, рисунок, записанная песня — лишь бы можно было передать. Любой язык. Публикуется для всех участников, часть можно отделить лично преподавателю.</p>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-11-24-day-4-part-1.clean-ru.md">Day 4 part 1</a></p>
+</section>
+
+<section id="krivye">
+<h2><span class="num">10</span>Три кривые курса</h2>
+<p class="lede">Если смотреть на четыре дня как на движение, меняются три вещи — и меняются согласованно.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th>Что меняется</th><th>День 1</th><th>День 2</th><th>День 3</th><th>День 4</th></tr></thead>
+<tbody>
+<tr><td>Теории в дне</td><td>около трёх часов</td><td>полтора часа</td><td>час</td><td>почти нет</td></tr>
+<tr><td>Кто ведёт</td><td>преподаватель</td><td>игра, затем бригада</td><td>бригада, дважды</td><td>бригада</td></tr>
+<tr><td>Для кого</td><td>для себя</td><td>появляются гости</td><td>гости</td><td>гости</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Все три идут в одну сторону: <strong>объяснение уступает место делу, а учебная ситуация — рабочей</strong>. К четвёртому дню человек делает настоящую работу для настоящих людей, и преподаватель в этом уже не участвует.</p>
+
+<div class="dev">
+<p class="lb">Что отсюда взять в свой формат</p>
+<p>Кривые должны двигаться <strong>вместе</strong>. Если снизить теорию, но оставить ведение на преподавателе, получится пассивный курс. Если передать ведение, но не привести гостей, ставка останется учебной и настоящего волнения не будет. Работает связка.</p>
+</div>
+
+<h3>И одна вещь, которая не меняется</h3>
+<p>Разбор. Он идёт после каждой сессии, в одном и том же формате, все четыре дня, и занимает примерно час — столько же, сколько сама сессия. Соотношение примерно один к одному: <strong>сколько парились, столько и разбираем</strong>.</p>
+</section>
+
+<section id="lestnica">
+<h2><span class="num">11</span>Лестница ролей</h2>
+<p class="lede">Ролевая последовательность работает на двух масштабах — внутри курса и по всей дорожной карте. Устроены они одинаково.</p>
+
+<h3>Внутри четырёх дней</h3>
+<ol>
+<li><strong>Участник с заданием.</strong> Ничего не делает руками, но наблюдает по конкретной инструкции.</li>
+<li><strong>Ведущий на одно действие.</strong> Игра: делает ровно одно движение и передаёт дальше. Ответственность за целое не несёт.</li>
+<li><strong>Часть бригады.</strong> Трое ведут полную сессию, планируют заранее, отчитываются по плану.</li>
+<li><strong>Бригада для гостей.</strong> То же, но на полке люди со стороны.</li>
+</ol>
+
+<h3>По дорожной карте</h3>
+<ol>
+<li><strong>Ученик.</strong> «Я пока просто исследую» — решать ничего не нужно.</li>
+<li><strong>Ассистент.</strong> Порог входа низкий: немного опыта в пару и выносливость. Физически работы примерно столько же, сколько у гида, но опираешься на того, кто держит пространство и справляется с неожиданным. Формат наставнический: делаешь и тут же получаешь обратную связь.</li>
+<li><strong>Лаборатории и интервизии.</strong> Раз в неделю, по одной теме. Вместе с ассистированием и делают человека хорошим ассистентом.</li>
+<li><strong>Communal Steam</strong> — три-четыре дня про структуру групповой сессии и безопасность.</li>
+<li><strong>Steam Guide Foundations</strong> — шесть дней про индивидуальную работу.</li>
+<li><strong>Гид.</strong> Ведёт сессию один.</li>
+</ol>
+
+<blockquote>
+<p>Чтобы держать пространство для двенадцати человек, нужно знать, что делать с одним. Иначе вы не знаете.</p>
+<cite>Intro part 10</cite>
+</blockquote>
+
+<div class="dev">
+<p class="lb">Приём</p>
+<p><strong>Групповой курс идёт раньше индивидуального, а не наоборот.</strong> Логика при этом обратная той, что кажется естественной: сначала человек попадает в групповую работу, где ответственность разделена, и только потом идёт в шестидневное обучение работе один на один, где спрятаться не за кем.</p>
+</div>
+<p class="src"><a href="https://github.com/pavlenkophysics/Steam-with-Alena-Pavlenko/blob/claude/steamology-bath-training-transcripts-mjmbxd/transcripts/2024-09-28-intro-part-10.clean-ru.md">Intro part 10</a></p>
+</section>
+
+<section id="probely">
+<h2><span class="num">12</span>Что не восстановлено</h2>
+<p class="lede">Границы этого файла — чтобы не принять реконструкцию за расписание.</p>
+
+<h3>Записей нет</h3>
+<ul>
+<li><strong>Intro части 2 и 5</strong> — между кругом знакомства и первой сессией, и между сессией и разбором.</li>
+<li><strong>Лаборатории 1–3</strong> (воздух, вода, огонь) — есть только четвёртая. Устройство лаборатории выведено по одной записи.</li>
+<li><strong>Утро и вечер третьего дня</strong> изнутри парной, вся вторая сессия дня.</li>
+<li><strong>Игра второго дня</strong> изнутри — есть только правила до и разбор после.</li>
+<li><strong>Последняя церемония четвёртого дня.</strong></li>
+</ul>
+
+<h3>Выведено, а не сказано</h3>
+<ul>
+<li><strong>Пропорции круга и парной</strong> в карте дней — оценка по длительности записей.</li>
+<li><strong>Числа в таблице «Три кривые»</strong> — сумма длительностей записанных кругов, а не хронометраж.</li>
+<li><strong>Порядок блоков внутри вводного дня</strong> — по номерам частей.</li>
+<li><strong>Структура интервизии</strong> в лаборатории — известно, что она есть и идёт «по определённой структуре», сама структура в записях не звучит.</li>
+</ul>
+
+<h3>Стоит уточнить у Бориса</h3>
+<ol>
+<li><strong>Полный список десяти тем лабораторий</strong> и их порядок. Названы четыре элемента и три темы вне элементов — неподвижная тишина, восприятие, контакт и границы. Остальные неизвестны.</li>
+<li><strong>Реальный тайминг дня</strong> на четырёхдневном курсе: сколько на теорию, сколько на сессию, сколько на разбор, где перерывы и еда.</li>
+<li><strong>Структура интервизии</strong> — по каким пунктам говорят, отличается ли от формата разбора на курсе.</li>
+<li><strong>Как формируются бригады</strong>: назначает преподаватель или договариваются сами. В записях есть и то и другое.</li>
+</ol>
+
+<div class="note">
+<p>Всё, что помечено «сказано», можно брать как есть. Всё остальное — рабочая гипотеза, которую стоит сверить с памятью участников, пока она свежая.</p>
+</div>
+</section>
+
+</main>
+</div>
+
+<button class="tog" id="tog" type="button">тема</button>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var map = {}, secs = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el && el.tagName === 'SECTION'){ map[id] = a; secs.push(el); }
+  });
+  if('IntersectionObserver' in window && secs.length){
+    var vis = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ vis[e.target.id] = e.isIntersecting; });
+      var cur = null;
+      for(var i=0;i<secs.length;i++){ if(vis[secs[i].id]){ cur = secs[i].id; break; } }
+      links.forEach(function(a){ a.classList.remove('on'); });
+      if(cur && map[cur]) map[cur].classList.add('on');
+    }, {rootMargin:'-12% 0px -76% 0px', threshold:0});
+    secs.forEach(function(s){ io.observe(s); });
+  }
+  var root = document.documentElement, btn = document.getElementById('tog');
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if(!cur){ cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>

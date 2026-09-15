@@ -1,0 +1,405 @@
+<title>Четыре дня</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ground:#EFF2F0; --surface:#FAFCFB; --surface-2:#E6EBE8;
+  --ink:#141F1C; --ink-soft:#55625E; --ink-faint:#7C8884;
+  --rule:#D3DBD8; --rule-soft:#E2E8E5;
+  --cold:#14554F; --cold-ink:#0E403B; --cold-soft:#E0EDEA; --cold-rule:#A9CBC5;
+  --heat:#8F5410; --heat-ink:#7A460B; --heat-soft:#F6EBDA; --heat-rule:#E2C79B;
+  --f-display:"Golos Text","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Literata",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1614; --surface:#161E1B; --surface-2:#1D2724;
+    --ink:#E7EDEA; --ink-soft:#9EACA7; --ink-faint:#78857F;
+    --rule:#28332F; --rule-soft:#1F2926;
+    --cold:#71C6BA; --cold-ink:#8FD6CB; --cold-soft:#132724; --cold-rule:#2C4F49;
+    --heat:#D79A46; --heat-ink:#E5B06A; --heat-soft:#2A2015; --heat-rule:#4D3A1C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1614; --surface:#161E1B; --surface-2:#1D2724;
+  --ink:#E7EDEA; --ink-soft:#9EACA7; --ink-faint:#78857F;
+  --rule:#28332F; --rule-soft:#1F2926;
+  --cold:#71C6BA; --cold-ink:#8FD6CB; --cold-soft:#132724; --cold-rule:#2C4F49;
+  --heat:#D79A46; --heat-ink:#E5B06A; --heat-soft:#2A2015; --heat-rule:#4D3A1C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:44px 32px 110px}
+
+header{margin:0 0 12px}
+h1{font-family:var(--f-display);font-size:32px;font-weight:700;letter-spacing:-.024em;
+  margin:0 0 8px;line-height:1.12}
+header .sub{margin:0 0 20px;color:var(--ink-soft);max-width:60ch}
+header a{color:var(--cold-ink);text-decoration-thickness:1px;text-underline-offset:2px}
+
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;
+  margin:0 0 42px}
+.facts div{background:var(--surface);padding:11px 14px}
+.facts dt{font-family:var(--f-display);font-size:10.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 3px}
+.facts dd{margin:0;font-size:14.5px;color:var(--ink);font-family:var(--f-display);font-weight:500}
+
+.day{margin:0 0 52px}
+.day>.hd{display:flex;align-items:baseline;gap:13px;padding:0 0 9px;margin:0 0 22px;
+  border-bottom:2px solid var(--ink)}
+.day>.hd .n{font-family:var(--f-mono);font-size:13px;color:var(--ink-faint)}
+.day>.hd h2{font-family:var(--f-display);font-size:25px;font-weight:700;letter-spacing:-.02em;
+  margin:0;line-height:1.15}
+.day>.hd .tag{margin-left:auto;font-family:var(--f-display);font-size:12.5px;font-weight:500;
+  color:var(--cold-ink);text-align:right;line-height:1.3}
+
+.b{margin:0 0 24px;padding:0 0 0 17px;border-left:2px solid var(--cold-rule)}
+.b.s{border-left-color:var(--heat-rule)}
+.b .t{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 7px}
+.b .t h3{font-family:var(--f-display);font-size:17.5px;font-weight:600;letter-spacing:-.01em;
+  margin:0;line-height:1.25}
+.b .t .dur{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-faint);white-space:nowrap}
+.b .t .who{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap;
+  background:var(--cold-soft);color:var(--cold-ink);border:1px solid var(--cold-rule)}
+.b.s .t .who{background:var(--heat-soft);color:var(--heat-ink);border-color:var(--heat-rule)}
+.b p{margin:0 0 9px;color:var(--ink-soft)}
+.b p strong{color:var(--ink);font-weight:600}
+.b ul{margin:0 0 10px;padding-left:19px;color:var(--ink-soft)}
+.b li{margin:0 0 4px}
+.b li strong{color:var(--ink);font-weight:600}
+.b ul.tight li{margin:0 0 2px}
+
+.task{background:var(--cold-soft);border:1px solid var(--cold-rule);border-radius:7px;
+  padding:13px 16px;margin:12px 0 4px}
+.task .lb{font-family:var(--f-display);font-size:10.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--cold-ink);margin:0 0 5px}
+.task p{margin:0 0 7px;color:var(--ink-soft)}
+.task p:last-child{margin:0}
+.task strong{color:var(--ink)}
+
+.warn{background:var(--heat-soft);border:1px solid var(--heat-rule);border-radius:7px;
+  padding:13px 16px;margin:12px 0 4px}
+.warn .lb{font-family:var(--f-display);font-size:10.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--heat-ink);margin:0 0 5px}
+.warn p,.warn li{color:var(--ink-soft)}
+.warn p{margin:0 0 7px}.warn p:last-child{margin:0}
+.warn ul{margin:0;padding-left:19px}
+.warn strong{color:var(--ink)}
+
+blockquote{margin:11px 0 14px;padding:0 0 0 16px;border-left:2px solid var(--rule);
+  font-style:italic;color:var(--ink-soft);font-size:15.5px}
+blockquote p{margin:0}
+
+footer{border-top:1px solid var(--rule);padding-top:20px;margin-top:14px;
+  font-size:13.5px;color:var(--ink-faint)}
+footer p{margin:0 0 7px}
+footer a{color:var(--ink-faint);text-decoration-color:var(--rule)}
+footer a:hover{color:var(--cold-ink)}
+
+.tog{position:fixed;right:18px;bottom:18px;font-family:var(--f-display);font-size:11.5px;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;background:var(--surface);
+  color:var(--ink-soft);border:1px solid var(--rule);border-radius:20px;padding:7px 14px;
+  cursor:pointer}
+.tog:hover{color:var(--ink);border-color:var(--ink-faint)}
+:focus-visible{outline:2px solid var(--cold);outline-offset:2px;border-radius:3px}
+@media (max-width:560px){
+  .wrap{padding:30px 20px 90px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  h1{font-size:26px}
+  .day>.hd{flex-wrap:wrap}
+  .day>.hd .tag{margin-left:0;width:100%;text-align:left}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+<h1>Четыре дня</h1>
+<p class="sub">Communal Steam, 21–24 ноября 2024. День за днём: что шло за чем, о чём говорили в каждом блоке и какие задания давали. Совсем коротко — в <a href="https://claude.ai/code/artifact/4c90985b-6ccc-485e-b371-e71c1439e794">Скелете курса</a>, подробно с источниками — в <a href="https://claude.ai/code/artifact/365c0013-cb0a-4d31-8d89-c68d2c490dfb">Каркасе обучения</a>.</p>
+</header>
+
+<dl class="facts">
+<div><dt>Длительность</dt><dd>4 дня, 9:30–18:00</dd></div>
+<div><dt>Сессий</dt><dd>8</dd></div>
+<div><dt>Ведёт преподаватель</dt><dd>3–4</dd></div>
+<div><dt>Ведёт группа</dt><dd>3–4</dd></div>
+<div><dt>Бригада</dt><dd>трое, разный опыт</dd></div>
+<div><dt>Гости</dt><dd>со второго дня</dd></div>
+</dl>
+
+<!-- ────────── ДЕНЬ 1 ────────── -->
+<div class="day">
+<div class="hd">
+  <span class="n">21.11</span>
+  <h2>День 1 · Вход и рамка</h2>
+  <span class="tag">группа не ведёт</span>
+</div>
+
+<div class="b">
+<div class="t"><h3>Открывающая лекция</h3><span class="dur">1 ч 40 мин</span><span class="who">круг</span></div>
+<p>Самый длинный теоретический блок курса. Ставит рамку, внутри которой пройдут все четыре дня.</p>
+<ul>
+<li>Кто здесь в какой роли, как устроен курс, договорённость перебивать вопросами</li>
+<li>Перекличка по опыту — кто что уже делал</li>
+<li><strong>Главная рамка: учим рамку, а не протокол.</strong> Не последовательность действий, а способ решать, что делать</li>
+<li><strong>Четыре точки интереса:</strong> особые состояния · динамика одного и группы · что делать и чего не делать · собственное состояние гида</li>
+<li>Круг: чему хотите научиться</li>
+<li>Определяем предмет — что такое общинная паровая сессия и кто на неё приходит</li>
+<li><strong>Кто мы: гиды, а не мастера.</strong> Метафора горного гида. Красота как побочный продукт, а не цель</li>
+<li><strong>Асимметрия власти</strong> — почему «я оставляю себя снаружи» не работает и почему не «мастер»</li>
+<li><strong>Контейнер:</strong> повестка и контракт. Контейнер не открывают один раз — его держат</li>
+<li>Шесть фаз, форма путешествия</li>
+</ul>
+<div class="task">
+<p class="lb">Задание перед первой сессией</p>
+<p><strong>Двойной фокус.</strong> Заключить контракт с самим собой: одна часть внимания — честный участник со своей собственной ситуацией, вторая — ученик, наблюдающий процесс глазами практика.</p>
+<p>Ведущий со своей стороны ведёт эту сессию иначе: размечает её вслух, как учебник.</p>
+</div>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Первая сессия</h3><span class="dur">~30 мин</span><span class="who">парная</span></div>
+<p>Ведёт преподаватель, группа пассивна. По ходу проговариваются точки фокуса: наблюдать последствия чужих действий, два направления процесса, свобода выйти в любой момент.</p>
+</div>
+
+<div class="b">
+<div class="t"><h3>Вторая лекция</h3><span class="dur">1 ч 35 мин</span><span class="who">круг</span></div>
+<p>Прикладная. От устройства сессии — к тому, что именно делает ведущий.</p>
+<ul>
+<li><strong>Двойное внимание:</strong> держать пространство как целое, существующее само по себе</li>
+<li><strong>Подготовка — через три отношения:</strong> с пространством, с собой, с людьми. Итог: вы связаны с пространством и вы спокойны. Свой маленький ритуал перед началом</li>
+<li><strong>Потение:</strong> всплывают напряжения. Красный флаг — красная голова при бледном теле</li>
+<li>Почему детям нужно меньше жара: соотношение массы и поверхности</li>
+<li><strong>Углубление:</strong> почему начинают со стоп</li>
+<li><strong>Действие как эхолот</strong> — делаешь и слушаешь отклик, на этом строится всё остальное</li>
+<li>Пересаживать ли человека посреди сессии</li>
+<li><strong>Сколько ведущему говорить:</strong> прямо и косвенно; не количество, а качество</li>
+</ul>
+<div class="warn">
+<p class="lb">Отдельный блок: противопоказания</p>
+<p>Самая практическая часть дня. Разбирают раны (с историей из практики), тревогу и депрессию до церемонии, что делать, если случилось что-то серьёзное, и требование трезвости.</p>
+<p>В записях этот список неполный — стоит запросить у преподавателя целиком.</p>
+</div>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Вечерняя сессия</h3><span class="dur">~35 мин</span><span class="who">парная</span></div>
+<p>Тоже ведёт преподаватель. Вечерняя устроена иначе, чем утренняя, — это потом отдельно разбирают.</p>
+<div class="task">
+<p class="lb">Задание на эту сессию</p>
+<p><strong>Наблюдать без ярлыков.</strong> После каждого действия ведущего: что изменилось, что осталось прежним. Без оценок «лучше» и «хуже» — они обедняют картину. «Легче, но чуть грустнее» точнее, чем «стало хорошо».</p>
+</div>
+</div>
+
+<div class="b">
+<div class="t"><h3>Вечерний разбор</h3><span class="dur">1 ч</span><span class="who">круг</span></div>
+<ul>
+<li>Шеринг по кругу</li>
+<li><strong>Плотное ведение</strong> — что именно было сделано в этой сессии и почему</li>
+<li><strong>Невидимое ведение</strong> — то, чего никто из группы не заметил</li>
+<li>Предупреждать участников или нет: возвращаются к асимметрии власти</li>
+<li><strong>Звук:</strong> всё начинается с собственного ритма. Голос — продолжение дыхания и сердцебиения</li>
+<li>Целостность важнее непрерывного пребывания внутри</li>
+<li>План на завтра и дальше</li>
+</ul>
+<div class="task">
+<p class="lb">Задание на завтра</p>
+<p><strong>Три способа парить.</strong> Попробовать веником: просто так, никак → настроившись на своё сердцебиение → настроившись на сердцебиение другого, а потом на оба сразу.</p>
+<blockquote><p>Разница будет колоссальной. Это просто разные вещи, их даже не сравнить.</p></blockquote>
+</div>
+</div>
+</div>
+
+<!-- ────────── ДЕНЬ 2 ────────── -->
+<div class="day">
+<div class="hd">
+  <span class="n">22.11</span>
+  <h2>День 2 · Первая передача</h2>
+  <span class="tag">ведение уходит группе</span>
+</div>
+
+<div class="b">
+<div class="t"><h3>Утренняя теория</h3><span class="dur">1 ч 35 мин</span><span class="who">круг</span></div>
+<p>Возврат к рамке, потом — механика сессии по стадиям и физиология.</p>
+<ul>
+<li>Ещё раз: мы учим рамку, а не протоколы. <strong>«Мы никого не исцеляем»</strong> — наблюдаем, как проявляется целитель</li>
+<li>Наши собственные реакции как ведущих. Одежда</li>
+<li><strong>Два направления процесса:</strong> снаружи внутрь — границы растворяются, и тогда начинает всплывать; изнутри наружу — от присутствия к общности</li>
+<li><strong>Как это поддерживать: слушание.</strong> Джунгли и ягуар, как рыбак, внимание охотника</li>
+<li>Разница между паникой и спокойствием</li>
+</ul>
+<p><strong>Шесть стадий — каждая отдельно:</strong></p>
+<ul class="tight">
+<li>1 · подготовка</li>
+<li>2 · потение</li>
+<li>3 · углубление <span style="color:var(--ink-faint)">— разбирают на примере с диафрагмой</span></li>
+<li>4 · вода и контраст <span style="color:var(--ink-faint)">— почему контраст работает, край жара</span></li>
+<li>5 · завершение внутри</li>
+<li>6 · выведение</li>
+</ul>
+<div class="warn">
+<p class="lb">Физиология и безопасность</p>
+<ul>
+<li>Почему на самом деле паникуют — дело в CO₂, а не в жаре</li>
+<li>Обмороки: механика и что делать</li>
+<li>Безопасность при восьми сессиях за четыре дня</li>
+<li>Почему участники болеют на следующий день</li>
+</ul>
+</div>
+</div>
+
+<div class="b">
+<div class="t"><h3>Правила игры</h3><span class="dur">10 мин</span><span class="who">круг</span></div>
+<p>Короткий инструктаж перед сессией-упражнением. Три роли:</p>
+<ul>
+<li><strong>Участник</strong> — слушает, воспринимает, держит связь с пространством. Ничего не делает</li>
+<li><strong>Ведущий</strong> — тот, кому передали веник. Делает <strong>ровно одно действие</strong> или не делает ничего. Пар не считается: это составляющая, а не действие</li>
+<li><strong>Мастер игры</strong> (двое) — держат пространство безупречным, следят, чтобы веники попадали к тем, кто ещё не вёл. Веником сами не работают</li>
+</ul>
+<p>Ведущих всегда двое, координируются жестами, говорить нельзя. Передают следующим сами; не понимаешь кому — отдай мастеру игры.</p>
+<blockquote><p>Лучшее, что вы можете сделать, — минимальное действие, дающее наилучший результат.</p></blockquote>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Игра</h3><span class="who">парная</span></div>
+<p>Настоящая сессия, преподаватель молчит. Каждый успевает побывать ведущим — но с ответственностью ровно на одно действие. За целое отвечают мастера игры.</p>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Вечерняя сессия: ведёт бригада</h3><span class="who">парная</span></div>
+<p>Трое ведут вместе, преподаватель не участвует. Приходят двое гостей со стороны — с этого момента ставка перестаёт быть учебной.</p>
+<p>В этот вечер подвела печь: пара было мало, и половина разбора выросла из этого.</p>
+</div>
+
+<div class="b">
+<div class="t"><h3>Первый большой разбор</h3><span class="dur">1 ч</span><span class="who">круг</span></div>
+<p>Здесь задаётся формат, который дальше используется на всех сессиях.</p>
+<div class="task">
+<p class="lb">Формат обратной связи</p>
+<p><strong>Сначала ведущие</strong>, по две темы каждый: что планировали до начала и что произошло на самом деле.</p>
+<p><strong>Потом все участники</strong>, по четырём пунктам: что понравилось · чего было избыточно · чего не хватило · что оказалось неожиданным — ни хорошим, ни плохим, просто не тем, чего ждали.</p>
+<p>Говорить из своего восприятия: «я это почувствовал так», а не «это было так-то».</p>
+</div>
+<p>После круга преподаватель добавляет то, во что группа упёрлась на практике:</p>
+<ul>
+<li>Что делать, когда пара мало</li>
+<li><strong>Две стадии транса:</strong> индукция и утилизация. Как понять, в какой человек. И <em>никогда не просите расслабиться</em></li>
+<li><strong>Работа с вениками:</strong> горячий компресс и холодный веник следом</li>
+</ul>
+</div>
+</div>
+
+<!-- ────────── ДЕНЬ 3 ────────── -->
+<div class="day">
+<div class="hd">
+  <span class="n">23.11</span>
+  <h2>День 3 · Зачем это всё</h2>
+  <span class="tag">теории меньше всего</span>
+</div>
+
+<div class="b">
+<div class="t"><h3>Утренний круг</h3><span class="dur">1 ч 10 мин</span><span class="who">круг</span></div>
+<p>Начинается организационно: кто ведёт утреннюю сессию, бригаде нужно двадцать минут на планирование, начало в 11:15. Потом «как спалось» — и сразу тема дня.</p>
+<p>Единственный день, где говорят не про то, <em>как</em> вести, а про то, <em>зачем</em> сессия вообще нужна.</p>
+<ul>
+<li>Исторические функции пара</li>
+<li>Отступление: <strong>«нормальное состояние» — изобретение недавнее</strong></li>
+<li>Что от этих функций осталось сегодня</li>
+<li><strong>Три большие корзины</strong> дефицитов — и что это значит для ведущих</li>
+<li>О невысказанных запросах: за чем приходят на самом деле</li>
+<li><strong>Что делает племя племенем.</strong> Взаимность вместо сервисного мышления</li>
+<li>Степени участия и разные формы. Приходят за одним, остаются за другим</li>
+<li><strong>Транс:</strong> почему слово обманчиво и почему транс так часто описывают через воду</li>
+</ul>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Утренняя сессия</h3><span class="dur">с 11:15</span><span class="who">парная</span></div>
+<p>Ведёт новая бригада. Двадцать минут на планирование до начала — и потом на разборе спрашивают именно про план и расхождение с ним.</p>
+</div>
+
+<div class="b">
+<div class="t"><h3>Разбор</h3><span class="dur">1 ч 10 мин</span><span class="who">круг</span></div>
+<p>Тот же формат, что вчера: ведущие, потом гости по четырём пунктам. В конце — большой блок преподавателя, который идёт от конкретики к принципу:</p>
+<ul>
+<li>Почему не хватило жара в начале</li>
+<li>По работе на конкретном теле</li>
+<li><strong>Главное: слишком много ресурса.</strong> Избыток вредит больше, чем нехватка</li>
+<li><strong>Весь процесс — про слушание</strong></li>
+<li><strong>Делай то, что проповедуешь</strong></li>
+<li>Последовательность идёт снаружи внутрь. Про живот отдельно</li>
+<li><strong>Если не уверены — берите безопасное</strong></li>
+</ul>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Вечерняя сессия</h3><span class="who">парная</span></div>
+<p>Вторая за день, снова ведёт группа. Единственный день с двумя сессиями бригад подряд.</p>
+</div>
+</div>
+
+<!-- ────────── ДЕНЬ 4 ────────── -->
+<div class="day">
+<div class="hd">
+  <span class="n">24.11</span>
+  <h2>День 4 · Закрытие</h2>
+  <span class="tag">выход в практику</span>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Последняя церемония</h3><span class="who">парная</span></div>
+<p>Судя по разбору — снова в форме игры. Последняя сессия внутри формальной части курса.</p>
+</div>
+
+<div class="b">
+<div class="t"><h3>Закрывающий круг</h3><span class="dur">55 мин</span><span class="who">круг</span></div>
+<p>Формат задан прямо: каждый говорит <strong>про эту сессию и про воркшоп целиком</strong> — чему научился. Закончив, сам передаёт слово тому, кому решит. Девять человек, потом говорит преподаватель.</p>
+<p>Здесь же объявляется: формальная часть завершается, вечерняя сессия с гостями идёт уже как продолжение.</p>
+</div>
+
+<div class="b">
+<div class="t"><h3>Задание на дом</h3><span class="who">круг</span></div>
+<div class="task">
+<p class="lb">Эссе</p>
+<p><strong>Короткое эссе без верхней и нижней границы.</strong> Срок — неделя-десять дней, но «не торопитесь, когда почувствуете, что пора». Когда инсайты внутренне сложились — положить их на бумагу и прислать.</p>
+<p>Любая форма: текст, рисунок, записанная песня. Любой язык. Открывается всем участникам; часть можно отделить лично преподавателю.</p>
+</div>
+</div>
+
+<div class="b">
+<div class="t"><h3>Что дальше</h3><span class="who">круг</span></div>
+<ul>
+<li><strong>Следующая ступень:</strong> работа в сенсорной депривации — с завязанными глазами и в молчании</li>
+<li>Регулярное расписание сессий на площадке</li>
+<li>Оставшаяся лаборатория цикла и интервизии</li>
+<li>Время от времени — игра, для тех, кто практикует</li>
+</ul>
+</div>
+
+<div class="b s">
+<div class="t"><h3>Вечерняя сессия с гостями</h3><span class="who">парная</span></div>
+<p>Уже за рамкой курса. Группа ведёт для внешних людей — человек уходит не из учебной ситуации, а из рабочей.</p>
+</div>
+</div>
+
+<footer>
+<p>Собрано из расшифровок 21–24 ноября 2024. Длительности блоков — это длительности записей, реального хронометража дня в них нет. Времена 9:30, 11:15 и «без четверти десять» звучали вслух.</p>
+<p><a href="https://claude.ai/code/artifact/879696c0-74a8-4caf-8b79-49ff08060650">Пар и камень</a> — содержание практики · <a href="https://claude.ai/code/artifact/4c90985b-6ccc-485e-b371-e71c1439e794">Скелет курса</a> — все форматы на одной странице · <a href="https://claude.ai/code/artifact/365c0013-cb0a-4d31-8d89-c68d2c490dfb">Каркас обучения</a> — приёмы и источники</p>
+</footer>
+
+</div>
+
+<button class="tog" id="tog" type="button">тема</button>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('tog');
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if(!cur){ cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>

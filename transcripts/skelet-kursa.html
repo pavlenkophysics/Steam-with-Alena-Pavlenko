@@ -1,0 +1,239 @@
+<title>Скелет курса</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ground:#EFF2F0; --surface:#FAFCFB; --surface-2:#E6EBE8;
+  --ink:#141F1C; --ink-soft:#55625E; --ink-faint:#7C8884;
+  --rule:#D3DBD8; --rule-soft:#E2E8E5;
+  --cold:#14554F; --cold-ink:#0E403B; --cold-soft:#E0EDEA; --cold-rule:#A9CBC5;
+  --heat:#8F5410; --heat-ink:#7A460B; --heat-soft:#F6EBDA; --heat-rule:#E2C79B;
+  --f-display:"Golos Text","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Literata",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1614; --surface:#161E1B; --surface-2:#1D2724;
+    --ink:#E7EDEA; --ink-soft:#9EACA7; --ink-faint:#78857F;
+    --rule:#28332F; --rule-soft:#1F2926;
+    --cold:#71C6BA; --cold-ink:#8FD6CB; --cold-soft:#132724; --cold-rule:#2C4F49;
+    --heat:#D79A46; --heat-ink:#E5B06A; --heat-soft:#2A2015; --heat-rule:#4D3A1C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1614; --surface:#161E1B; --surface-2:#1D2724;
+  --ink:#E7EDEA; --ink-soft:#9EACA7; --ink-faint:#78857F;
+  --rule:#28332F; --rule-soft:#1F2926;
+  --cold:#71C6BA; --cold-ink:#8FD6CB; --cold-soft:#132724; --cold-rule:#2C4F49;
+  --heat:#D79A46; --heat-ink:#E5B06A; --heat-soft:#2A2015; --heat-rule:#4D3A1C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);
+  font-size:15.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:44px 32px 100px}
+
+header{margin:0 0 34px;padding:0 0 22px;border-bottom:1px solid var(--rule)}
+h1{font-family:var(--f-display);font-size:30px;font-weight:700;letter-spacing:-.022em;
+  margin:0 0 7px;line-height:1.15}
+header p{margin:0;color:var(--ink-soft);font-size:15.5px;max-width:62ch}
+header a{color:var(--cold-ink);text-decoration-thickness:1px;text-underline-offset:2px}
+
+h2{font-family:var(--f-display);font-size:12px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 3px}
+.fmt{margin:0 0 40px}
+.fmt .ttl{font-family:var(--f-display);font-size:22px;font-weight:700;letter-spacing:-.015em;
+  margin:0 0 3px;line-height:1.2}
+.fmt .meta{font-family:var(--f-mono);font-size:12px;color:var(--ink-faint);margin:0 0 16px}
+
+ul{margin:0;padding:0;list-style:none}
+li{position:relative;padding:0 0 0 19px;margin:0 0 6px;color:var(--ink-soft)}
+li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;
+  background:var(--cold-rule)}
+li.s::before{background:var(--heat);width:6px;height:6px;left:1.5px;top:8.5px}
+li strong{color:var(--ink);font-weight:600}
+li .n{display:block;font-size:13.5px;color:var(--ink-faint);margin-top:1px}
+
+.days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:9px;overflow:hidden;
+  margin:0 0 18px}
+.day{background:var(--surface);padding:17px 16px 20px}
+.day .d{font-family:var(--f-mono);font-size:11px;color:var(--ink-faint);margin:0 0 3px}
+.day .h{font-family:var(--f-display);font-size:16px;font-weight:700;margin:0 0 2px;line-height:1.2}
+.day .sb{font-family:var(--f-display);font-size:12.5px;font-weight:500;color:var(--cold-ink);
+  margin:0 0 12px}
+.day li{font-size:14px;margin:0 0 7px;padding-left:16px}
+.day li::before{left:1px;top:8px;width:4px;height:4px}
+.day li.s::before{width:5px;height:5px;left:.5px}
+
+.one{background:var(--surface);border:1px solid var(--rule);border-radius:9px;
+  padding:18px 20px;margin:0 0 18px}
+
+.key{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--ink-faint);margin:0 0 26px}
+.key span{display:flex;align-items:center;gap:7px}
+.key i{width:7px;height:7px;border-radius:50%;display:block}
+.key i.c{background:var(--cold-rule)}.key i.s{background:var(--heat)}
+
+.arc{background:var(--cold-soft);border:1px solid var(--cold-rule);border-radius:9px;
+  padding:18px 22px;margin:0 0 30px}
+.arc .lb{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--cold-ink);margin:0 0 8px}
+.arc p{margin:0 0 8px;color:var(--ink-soft)}
+.arc p:last-child{margin:0}
+.arc strong{color:var(--ink)}
+.arc .flow{font-family:var(--f-display);font-size:15.5px;font-weight:600;color:var(--ink);
+  margin:0 0 8px;line-height:1.45}
+
+footer{border-top:1px solid var(--rule);padding-top:18px;font-size:13.5px;color:var(--ink-faint)}
+footer a{color:var(--ink-faint);text-decoration-color:var(--rule)}
+footer a:hover{color:var(--cold-ink)}
+footer p{margin:0 0 6px}
+
+.tog{position:fixed;right:18px;bottom:18px;font-family:var(--f-display);font-size:11.5px;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;background:var(--surface);
+  color:var(--ink-soft);border:1px solid var(--rule);border-radius:20px;padding:7px 14px;
+  cursor:pointer}
+.tog:hover{color:var(--ink);border-color:var(--ink-faint)}
+:focus-visible{outline:2px solid var(--cold);outline-offset:2px;border-radius:3px}
+@media (max-width:860px){
+  .days{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .wrap{padding:30px 20px 80px}
+  .days{grid-template-columns:1fr}
+  h1{font-size:25px}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+<h1>Скелет курса</h1>
+<p>Структура вводного дня, четырёхдневного курса и лаборатории Steamology — коротко, для сборки своих обучений. Подробный разбор с источниками — в <a href="https://claude.ai/code/artifact/365c0013-cb0a-4d31-8d89-c68d2c490dfb">Каркасе обучения</a>.</p>
+</header>
+
+<div class="key">
+  <span><i class="c"></i> круг: разговор, теория, разбор</span>
+  <span><i class="s"></i> парная</span>
+</div>
+
+<div class="fmt">
+<h2>Формат 1</h2>
+<p class="ttl">Вводный день</p>
+<p class="meta">1 день · 2 сессии · знакомство с практикой</p>
+<div class="one">
+<ul>
+<li>Круг: кто есть кто, план дня, <strong>двойная роль</strong> — участник и практик одновременно</li>
+<li>Круг знакомства</li>
+<li class="s"><strong>Сессия 1</strong> — полная, ведёт преподаватель<span class="n">участники пассивны, но с заданием наблюдать</span></li>
+<li>Разбор</li>
+<li>Инструктаж 5 минут: пары, четыре движения от дальнего контакта к ближнему</li>
+<li class="s"><strong>Сессия 2</strong> — короткая, работают сами</li>
+<li>Шеринг</li>
+<li>Дорожная карта: куда идти дальше</li>
+</ul>
+</div>
+</div>
+
+<div class="fmt">
+<h2>Формат 2</h2>
+<p class="ttl">Четырёхдневный курс</p>
+<p class="meta">4 дня · 8 сессий · 9:30–18:00</p>
+
+<div class="days">
+
+<div class="day">
+<p class="d">день 1</p>
+<p class="h">Вход и рамка</p>
+<p class="sb">группа не ведёт</p>
+<ul>
+<li>Лекция 1,5 ч<span class="n">рамка вместо протокола, гид, контейнер, шесть фаз</span></li>
+<li>Задание: двойной фокус</li>
+<li class="s">Сессия (преподаватель)</li>
+<li>Лекция 1,5 ч<span class="n">внимание, подготовка, противопоказания</span></li>
+<li class="s">Сессия (преподаватель)</li>
+<li>Разбор, план на завтра, задание на ночь</li>
+</ul>
+</div>
+
+<div class="day">
+<p class="d">день 2</p>
+<p class="h">Первая передача</p>
+<p class="sb">ведение уходит группе</p>
+<ul>
+<li>Теория 1,5 ч<span class="n">шесть стадий, контраст, физиология</span></li>
+<li>Правила игры, 10 минут</li>
+<li class="s"><strong>Игра</strong><span class="n">веник передают по кругу, каждый ведущий делает ровно одно действие</span></li>
+<li class="s"><strong>Сессия: ведут трое</strong><span class="n">приходят гости со стороны</span></li>
+<li>Разбор<span class="n">здесь вводится формат обратной связи</span></li>
+</ul>
+</div>
+
+<div class="day">
+<p class="d">день 3</p>
+<p class="h">Зачем это всё</p>
+<p class="sb">теории меньше всего</p>
+<ul>
+<li>Круг 1 ч<span class="n">зачем нужна сессия, функции пара, племя</span></li>
+<li class="s">Сессия (бригада)<span class="n">20 минут на планирование</span></li>
+<li>Разбор</li>
+<li class="s">Вторая сессия (бригада)</li>
+</ul>
+</div>
+
+<div class="day">
+<p class="d">день 4</p>
+<p class="h">Закрытие</p>
+<p class="sb">выход в практику</p>
+<ul>
+<li class="s">Последняя церемония</li>
+<li>Закрывающий круг<span class="n">чему научился; каждый передаёт слово сам</span></li>
+<li>Задание: эссе через 7–10 дней</li>
+<li>Что дальше</li>
+<li class="s">Сессия с гостями<span class="n">уже вне формальной части</span></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="fmt">
+<h2>Формат 3</h2>
+<p class="ttl">Лаборатория</p>
+<p class="meta">2,5 часа · одна тема · раз в неделю · только практики</p>
+<div class="one">
+<ul>
+<li>Перекличка: кто на каких лабораториях уже был</li>
+<li>Тема дня + привязка к тому, что уже умеют</li>
+<li>Теория</li>
+<li>План на практику</li>
+<li class="s">Практика</li>
+<li>Интервизия</li>
+</ul>
+</div>
+</div>
+
+<div class="arc">
+<p class="lb">Что движется через все четыре дня</p>
+<p class="flow">теория сокращается → ведение переходит к группе → появляются гости</p>
+<p>Три кривые работают <strong>только вместе</strong>. Убрать теорию, оставив ведение на преподавателе, — получится пассивный курс. Передать ведение, но не привести гостей — ставка останется учебной.</p>
+<p>И одна вещь, которая не меняется: <strong>разбор после каждой сессии</strong>, примерно один к одному по времени с самой сессией.</p>
+</div>
+
+<footer>
+<p>Собрано из 23 расшифровок обучения. Тайминги приблизительные: где время звучало вслух — оно точное, остальное выведено из длительности записей.</p>
+<p><a href="https://claude.ai/code/artifact/879696c0-74a8-4caf-8b79-49ff08060650">Пар и камень</a> — содержание практики · <a href="https://claude.ai/code/artifact/365c0013-cb0a-4d31-8d89-c68d2c490dfb">Каркас обучения</a> — подробный разбор структуры с источниками</p>
+</footer>
+
+</div>
+
+<button class="tog" id="tog" type="button">тема</button>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('tog');
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if(!cur){ cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
